@@ -7,6 +7,7 @@ const url = `mongodb+srv://${userMongo}:${passMongo}@cluster0.acqmhfp.mongodb.ne
 const userSchema = require("./models/user/user");
 // userSchema.find
 app.use(expres.json());
+app.use(expres.urlencoded({extended:false}))
 async function connect() {
   try {
     mongoose.set("strictQuery", true);
