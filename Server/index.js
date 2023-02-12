@@ -38,6 +38,12 @@ app.get("/id", (req, res) => {
         surname: "Aghazada"
     })
 })
+app.get("/", (req, res) => {
+    res.send("Relative path")
+})
+app.post("/ngrok", (req, res) => {
+    res.json({ msg: "Ngrok a giris etmeye calisdin" })
+})
 app.post("/upload", (req, res) => {
         upload(req, res, (err) => {
             if (err instanceof multer.MulterError) {
@@ -60,7 +66,7 @@ app.post("/upload", (req, res) => {
     // connect();
 const adminRouter = require("./routers/product/ProductOperations");
 const { MulterError } = require("multer");
-app.use("/admin", adminRouter);
+// app.use("/admin", adminRouter);
 
 app.listen(5500, () => {
     console.log("Your app running on port 5500");
