@@ -1,12 +1,12 @@
+require("express-async-errors")
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const router = require("./routers");
-
-//?dotenv configuration
+const errorHandlerMiddleware = require("./middlewares/ErrorHandler")
+    //?dotenv configuration
 dotenv.config();
 const port = process.env.PORT || 5001;
-
 //!Middlewares
 app.use(express.json());
 app.use(express.json({ limit: "50mb" }));
@@ -20,6 +20,9 @@ app.set("view engine", "ejs");
 
 //!conect database
 require("./database/connection/connect")()
+
+//! error handler middleware
+app.use(errorHandlerMiddleware)
 
 //!listen server
 app.listen(port, () => {
