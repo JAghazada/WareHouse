@@ -1,11 +1,15 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv")
+dotenv.config()
+const DB_URI = process.env.DB_URI;
 const connect = () => {
-    mongoose.set("strictQuery", true)
-    mongoose.connect('mongodb://127.0.0.1:27017', {
-            dbName: "WareHouse"
+    mongoose.set("strictQuery", true);
+    console.log(DB_URI)
+    mongoose.connect(DB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
         })
-        .then(response => console.log("response"))
-        .catch(err => console.log(err))
-
-}
-module.exports = connect
+        .then((response) => console.log("response"))
+        .catch((err) => console.log(err));
+};
+module.exports = connect;

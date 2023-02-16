@@ -1,18 +1,27 @@
-const express = require("express")
+const express = require("express");
 const app = express();
-const connect = require("./database/connection/connect")
-const pageRoute = require("./route/pageRoute")
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/views/public"))
+const dotenv = require("dotenv");
+const router = require("./routers");
 
-try {
-    connect()
-} catch (error) {
-    console.log("error", error)
-}
-app.use("/", pageRoute)
-app.listen(5000, () => {
-    console.warn("Server running at prot 5000")
-})
+//?dotenv configuration
+dotenv.config();
+const port = process.env.PORT || 5001;
+
+//!Middlewares
+app.use(express.json());
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ extended: false, limit: "50mb", parameterLimit: 50000 }));
+app.use(express.static(__dirname + "/views/public"));
+//!Router Middleware
+app.use("/auth", router);
+
+//?view engine configuration  
+app.set("view engine", "ejs");
+
+//!conect database
+require("./database/connection/connect")()
+
+//!listen server
+app.listen(port, () => {
+    console.warn(`Server running on port: ${port}`);
+});
