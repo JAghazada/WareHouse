@@ -1,6 +1,10 @@
-const { login, register } = require("../controllers/auth.controller")
-
+const { login, register, me } = require("../controllers/auth.controller")
+const { tokenCheck } = require("../middlewares/token/auth")
+const AuthValidation = require("../middlewares/validation/auth.validation")
 const router = require("express").Router()
-router.post("/login", login)
-router.post("/register", register)
+router.post("/login",AuthValidation.login, login)
+router.post("/register", AuthValidation.register, register)
+router.post("/me",tokenCheck,me)
 module.exports = router
+
+

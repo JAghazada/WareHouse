@@ -4,7 +4,6 @@ dotenv.config()
 const DB_URI = process.env.DB_URI;
 const connect = () => {
     mongoose.set("strictQuery", true);
-    console.log(DB_URI)
     mongoose.connect(DB_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
