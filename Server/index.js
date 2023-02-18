@@ -7,7 +7,8 @@ const router = require("./routers");
 const cors = require("cors");
 const corsOption = require("./helpers/corsOptions")
 const mongoSanitize = require("express-mongo-sanitize")
-const errorHandlerMiddleware = require("./middlewares/ErrorHandler")
+const errorHandlerMiddleware = require("./middlewares/ErrorHandler");
+const bodyParser = require("body-parser");
 
     //?dotenv configuration
 dotenv.config();
@@ -16,9 +17,10 @@ const port = process.env.PORT || 5001;
 app.use(cors(corsOption))
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({extended:false}));
+app.use(bodyParser.text({type: '/'}));
 // app.use(multer().any());
 app.use(express.static(__dirname + "/views/public"));
-app.use("/upload",express.static(__dirname))
+// app.use("/upload",express.static(__dirname))
 // app.use("/uploadProduct",express.static(__dirname))
 
 

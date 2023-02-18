@@ -52,7 +52,6 @@ const register = async(req, res) => {
 
 }
 const me = async(req,res)=>{
-    console.log("me function")
     return new Response(req.user).success(res)
 }
 module.exports = {
