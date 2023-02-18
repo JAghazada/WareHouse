@@ -11,11 +11,10 @@ class ProductValidation {
       PurchasePrice: joi.number().required(),
       SellingPrice: joi.number().required(),
       QRcode: joi.string().required().max(45).min(1),
-      İmage: joi.string().required().max(45).min(1),
+      // İmage: joi.object().required(),
     });
     try {
       const value = await schema.validateAsync(req.body);
-      req.body.productCredentials = value;
       next();
     } catch (error) {
       if (error.details && error?.details[0].message)
