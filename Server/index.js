@@ -11,11 +11,15 @@ const errorHandlerMiddleware = require("./middlewares/ErrorHandler")
 dotenv.config();
 const port = process.env.PORT || 5001;
 //!Middlewares
+app.use(cors(corsOption))
+
 app.use(express.json());
 app.use(express.json({ limit: "50mb" }));
-app.use(express.urlencoded({ extended: false, limit: "50mb", parameterLimit: 50000 }));
+app.use(express.urlencoded({ extended:true, limit: "50mb", parameterLimit: 50000 }));
 app.use(express.static(__dirname + "/views/public"));
-app.use(cors(corsOption))
+app.use("/upload",express.static(__dirname))
+// app.use("/uploadProduct",express.static(__dirname))
+
 
 //!Enjection Middleware
 app.use(
@@ -24,7 +28,7 @@ app.use(
     }),
   );
 //!Router Middleware
-app.use("/auth", router);
+app.use("/", router);
 
 //?view engine configuration  
 app.set("view engine", "ejs");
