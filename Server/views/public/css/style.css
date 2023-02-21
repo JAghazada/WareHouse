@@ -1,3 +1,20 @@
-h1 {
-    background-color: red;
+.form-wrapper{
+    background-color: #eee;
+    width: 500px;
+    padding: 10px;
+    margin: 0 auto;
+}
+.form-wrapper > form {
+    margin-top: 50px;
+}
+.img-area {
+    width: 100%;
+}
+.image-properties{
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+}
+.unitofmeasurment-wrapper,.measurmentNumberWrapper{
+    display: none;
 }

@@ -1,5 +1,9 @@
+// const fieldJSON = require("../routers/Translate/addProduct.translate.json")
+// let lang = "az"
 const getIndexPage = (req, res) => {
+
     res.render("index")
+   
 }
 const getAboutPage = (req, res) => {
     res.render("about")

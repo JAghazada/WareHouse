@@ -1,0 +1,34 @@
+{
+    "formTranslate": {
+        "productName": {
+            "az": "Məhsul adı",
+            "ru": "Номер продукта",
+            "en": "Product name"
+        },
+        "NumberOfProducts": {
+            "az": "Məhsul sayı",
+            "ru": "Количество продуктов",
+            "en": "Number of products"
+        },
+        "UnitOfMeasurment": {
+            "az": "Ölçü vahidi",
+            "ru": "Единица измерения",
+            "en": "Unit of measurment"
+        },
+        "PurchasePrice": {
+            "az": "Alış Qiyməti",
+            "ru": "Цена",
+            "en": "Purchase price"
+        },
+        "SellingPrice": {
+            "az": "Satış Qiyməti",
+            "ru": "Цена продажив",
+            "en": "Selling price"
+        },
+        "QRcode": {
+            "az": "QR kod",
+            "ru": "QR кодв",
+            "en": "QR code"
+        }
+    }
+}

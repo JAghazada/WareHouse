@@ -1,5 +1,6 @@
 const APIError = require("../utils/errors")
 const errorHandlerMiddleware = (err, req, res, next) => {
+    console.log(err)
     if (err instanceof APIError) {
         return res.status(err.statusCode || 400)
             .json({
@@ -7,7 +8,6 @@ const errorHandlerMiddleware = (err, req, res, next) => {
                 message: err.message,
             })
     }
-    console.log(err)
     return res.status(500).json({
         success: false,
         message: "Server Error Occured,check error api !"
