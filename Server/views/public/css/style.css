@@ -2,10 +2,11 @@
     background-color: #eee;
     width: 500px;
     padding: 10px;
-    margin: 0 auto;
+    margin: 50px auto;
 }
-.form-wrapper > form {
-    margin-top: 50px;
+nav{
+    position: sticky !important;
+    top: 0;
 }
 .img-area {
     width: 100%;
@@ -17,4 +18,18 @@
 }
 .unitofmeasurment-wrapper,.measurmentNumberWrapper{
     display: none;
+}
+.count-p{
+    width: 50% !important;
+}
+.unit-p{
+    width: 50%;
+}
+p{
+    margin: 0;
+}
+p.text-center{
+    font-size: 23px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.389);
 }

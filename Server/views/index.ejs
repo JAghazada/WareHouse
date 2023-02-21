@@ -15,6 +15,7 @@
 
     <body>
         <div class="form-wrapper">
+            <p class="text-center">Məhsul Məlumatları</p>
             <form method="post"  autocomplete="off" action="/uploadProduct">
 
                 <div class="form-group">
@@ -22,28 +23,27 @@
                     <input class="form-control product_name " id="exampleInputPassword1" placeholder="Məhsul adı">
                 </div>
 
-                <div class="form-group">
+              <div class="d-flex  justify-content-between">
+                <div class="form-group count-p">
                     <label for="exampleInputPassword1">Məhsul sayı</label>
                     <input class="form-control product_count " id="exampleInputPassword1" type="text" placeholder="Məhsul sayı">
                 </div>
-
-              <div class="form-group">
-                    <label for="exampleInputPassword1"></label>
+                <div class="form-group unit-p">
+                    <label for="custom-selec">Ölçü Vahidi</label>
                     <select class="custom-select selectUnit">
                         <option selected  value="number">Ədəd</option>
-                        <option  value="custom">Digər</option>
+                        <!-- <option  value="custom">Digər</option> -->
                         <option value="meter">Metrə</option>
                         <option value="packet">Paket</option>
                     </select>
                 </div>
-                <div class="form-group unitofmeasurment-wrapper">
-                    <label for="unitofmeasurment">Ölçü vahidi</label>
-                    <input class="form-control unitofmeasurment " type="text" id="unitofmeasurment" placeholder="Ölçü vahidi">
-                </div> 
-                 <div class="form-group measurmentNumberWrapper">
-                    <label for="measurmentNumber">1 <span>___</span>olan mehsul sayi</label>
-                    <input class="form-control measurmentNumber_inp " type="text" id="measurmentNumber">
-                </div>
+                <!-- <div class="form-group count-sub-p">
+                    <label for="exampleInputPassword1">Packa'daki mehsul sayi</label>
+                    <input class="form-control product-sub " id="exampleInputPassword1" type="text" placeholder="Məhsul sayı">
+                </div> -->
+              </div>
+
+            
 
                 <div class="form-group">
                     <label for="exampleInputPassword1">Alış Qiyməti</label>
@@ -59,6 +59,15 @@
                     <label for="exampleInputPassword1">QR kod</label>
                     <input class="form-control qrcode " type="text" id="exampleInputPassword1" placeholder="QR kod">
                 </div>
+                
+                <!-- <div class="form-group unitofmeasurment-wrapper">
+                    <label for="unitofmeasurment">Ölçü vahidi</label>
+                    <input class="form-control unitofmeasurment " type="text" id="unitofmeasurment" placeholder="Ölçü vahidi">
+                </div> 
+                 <div class="form-group measurmentNumberWrapper">
+                    <label for="measurmentNumber">1 <span>___</span>olan mehsul sayi</label>
+                    <input class="form-control measurmentNumber_inp " type="text" id="measurmentNumber">
+                </div> -->
                 <div class="custom-file">
 
                     <input type="file"  class="custom-file-input" id="choose-file">
@@ -66,7 +75,7 @@
                 </div>
                 <div class="img-area"></div>
 
-                <button type="submit" class="btn btn-primary">Göndər</button>
+                <!-- <button type="submit" class="btn btn-primary">Göndər</button> -->
 
             </form>
             <!-- <form method="post" action="/uploadProduct">

@@ -10,7 +10,8 @@ window.addEventListener("keyup", (e) => {
   if (e.key === "ArrowDown" || e.key === "Enter") {
     console.log();
     if (inputs[index + 1].classList[1] === "unitofmeasurment") {
-        return  inputs[index + 1].val(2).trigger("change") 
+      console.log("focus select: ")
+          inputs[index + 1].focus()
     } else {
       if (index < inputs.length - 1) inputs[index + 1].focus();
       else inputs[0].focus();
@@ -20,6 +21,7 @@ window.addEventListener("keyup", (e) => {
     else inputs[inputs.length - 2].focus();
   }
 });
+
 // ArrowUp
 // ArrowDown
 // ArrowLeft
