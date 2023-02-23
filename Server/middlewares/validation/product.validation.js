@@ -7,6 +7,7 @@ class ProductValidation {
     const schema = await joi.object({
       ProductName: joi.string().required().max(45).min(1),
       NumberOfProducts: joi.number().required().max(45).min(1),
+      OneProductContentCount: joi.number().required().max(45).min(1),
       UnitOfMeasurment: joi.string().required().max(45).min(1),
       PurchasePrice: joi.number().required(),
       SellingPrice: joi.number().required(),

@@ -12,16 +12,23 @@ const storage = multer.diskStorage({
         cb(null,path.join(rootDir,"/public/uploads"))
     },
     filename:(req,file,cb)=>{
-        const {firstname,lastname} = JSON.parse(JSON.stringify(req.body))
+        const {ProductName,QRcode} = JSON.parse(JSON.stringify(req.body))
         const extension = file.originalname.split(".")[1]
-        const uniqueSuffix = firstname + lastname
+        const uniqueSuffix = ProductName +"_" + QRcode
         let url = `${uniqueSuffix}.${extension}`
         cb(null,url)
        
     }
 })
-const uploads = multer({storage})
+const uploads = multer({storage:storage})
 
-router.post("/uploadProduct",uploads.array("files",5),uploadProduct)
-
-module.exports = router
+router.post("/uploadProduct",[uploads.array("files",5),ProductValidation.addProduct],uploadProduct)
+router.get("/getProduct",(req,res)=>{
+    res.send({
+        name:"dbasdnam"
+    })
+})
+module.exports = {
+    product:router,
+    uploads
+}

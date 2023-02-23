@@ -9,6 +9,11 @@ const productSchema = mongoose.Schema({
         type: Number,
         required: true,
         trim: true
+    }, 
+    OneProductContentCount: {
+        type: Number,
+        required: true,
+        trim: true
     },
     UnitOfMeasurment: {
         type: String,

@@ -2,7 +2,7 @@ const APIError = require("../utils/errors")
 const Response = require("../utils/response")
 
 const uploadProduct = async (req, res) => {
-  res.json(req.body)
+  res.json(req.files)
   
 };
 module.exports = uploadProduct

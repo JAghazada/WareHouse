@@ -19,45 +19,50 @@
             <form method="post"  autocomplete="off" action="/uploadProduct">
 
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Məhsul adı</label>
-                    <input class="form-control product_name " id="exampleInputPassword1" placeholder="Məhsul adı">
+                    <label for="productName">Məhsul adı</label>
+                    <input class="form-control product_name " id="productName" placeholder="Məhsul adı">
                 </div>
 
               <div class="d-flex  justify-content-between">
                 <div class="form-group count-p">
-                    <label for="exampleInputPassword1">Məhsul sayı</label>
-                    <input class="form-control product_count " id="exampleInputPassword1" type="text" placeholder="Məhsul sayı">
+                    <label for="productCount">Məhsul sayı</label>
+                    <input class="form-control product_count " id="productCount" type="number" placeholder="Məhsul sayı">
                 </div>
                 <div class="form-group unit-p">
-                    <label for="custom-selec">Ölçü Vahidi</label>
-                    <select class="custom-select selectUnit">
+                    <label for="UnitOfMeasurment">Ölçü Vahidi</label>
+                    <select id="UnitOfMeasurment" class="custom-select selectUnit">
                         <option selected  value="number">Ədəd</option>
                         <!-- <option  value="custom">Digər</option> -->
                         <option value="meter">Metrə</option>
                         <option value="packet">Paket</option>
                     </select>
                 </div>
+
                 <!-- <div class="form-group count-sub-p">
                     <label for="exampleInputPassword1">Packa'daki mehsul sayi</label>
                     <input class="form-control product-sub " id="exampleInputPassword1" type="text" placeholder="Məhsul sayı">
                 </div> -->
               </div>
+              <div class="form-group">
+                <label for="OneProductContentCount">Vahid Məhsul sayı</label>
+                <input class="form-control product_name " id="OneProductContentCount" placeholder="Vahid Məhsul sayı ">
+            </div>
 
             
 
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Alış Qiyməti</label>
-                    <input class="form-control price" type="text" id="exampleInputPassword1" placeholder="Alış Qiyməti">
+                    <label for="Price">Alış Qiyməti</label>
+                    <input class="form-control price" type="text" id="Price" placeholder="Alış Qiyməti">
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Satış Qiyməti</label>
-                    <input class="form-control selling_price " type="text" id="exampleInputPassword1" placeholder="Satış Qiyməti">
+                    <label for="SellingPrice">Satış Qiyməti</label>
+                    <input class="form-control selling_price " type="text" id="SellingPrice" placeholder="Satış Qiyməti">
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputPassword1">QR kod</label>
-                    <input class="form-control qrcode " type="text" id="exampleInputPassword1" placeholder="QR kod">
+                    <label for="QRcode">QR kod</label>
+                    <input class="form-control qrcode " type="text" id="QRcode" placeholder="QR kod">
                 </div>
                 
                 <!-- <div class="form-group unitofmeasurment-wrapper">
@@ -70,12 +75,12 @@
                 </div> -->
                 <div class="custom-file">
 
-                    <input type="file"  class="custom-file-input" id="choose-file">
-                    <label class="custom-file-label" for="customFileLang">Şəkil seç</label>
+                    <input type="file"  class="custom-file-input" id="ChooseImage">
+                    <label class="custom-file-label" for="ChooseImage">Şəkil seç</label>
                 </div>
                 <div class="img-area"></div>
 
-                <!-- <button type="submit" class="btn btn-primary">Göndər</button> -->
+                <button type="submit" class="btn btn-primary">Göndər</button>
 
             </form>
             <!-- <form method="post" action="/uploadProduct">

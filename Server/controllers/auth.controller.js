@@ -7,11 +7,11 @@ const login = async(req, res) => {
     const {name,pass} = req.body
     const findUser = await user.findOne({name})
     if(!findUser){
-        throw new APIError("Password or Email is worng",403)
+        throw new APIError("Password or Email is wrong",403)
     }
     const comparePassword = await bcrypt.compare(pass,findUser.pass)
     if(!comparePassword){
-        throw new APIError("Password or Email is worng",403)
+        throw new APIError("Password or Email is wrong",403)
     }
     createToken(findUser,res)
 
