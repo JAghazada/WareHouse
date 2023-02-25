@@ -8,13 +8,14 @@ const router = express.Router()
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
         const rootDir = path.dirname(require.main.filename);
-        fs.mkdirSync(path.join(rootDir,"/public/uploads"),{recursive:true})
-        cb(null,path.join(rootDir,"/public/uploads"))
+        fs.mkdirSync(path.join(rootDir,"./views/public/img"),{recursive:true})
+        cb(null,path.join(rootDir,"./views/public/img"))
     },
     filename:(req,file,cb)=>{
         const {ProductName,QRcode} = JSON.parse(JSON.stringify(req.body))
-        const extension = file.originalname.split(".")[1]
-        const uniqueSuffix = ProductName +"_" + QRcode
+        const extList = file.originalname.split(".")
+        const extension = extList[extList.length-1]
+        const uniqueSuffix = ProductName +"_" + QRcode.split(",")[0]
         let url = `${uniqueSuffix}.${extension}`
         cb(null,url)
        

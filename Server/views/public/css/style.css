@@ -33,3 +33,6 @@ p.text-center{
     font-weight: 600;
     color: rgba(0, 0, 0, 0.389);
 }
+.opcc-wrapper{
+    display: none;
+}

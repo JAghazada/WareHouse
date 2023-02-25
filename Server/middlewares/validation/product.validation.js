@@ -5,13 +5,15 @@ class ProductValidation {
   constructor() {}
   static addProduct = async (req, res, next) => {
     const schema = await joi.object({
-      ProductName: joi.string().required().max(45).min(1),
-      NumberOfProducts: joi.number().required().max(45).min(1),
-      OneProductContentCount: joi.number().required().max(45).min(1),
-      UnitOfMeasurment: joi.string().required().max(45).min(1),
+      ProductName: joi.string().required(),
+      NumberOfProducts: joi.number().required(),
+      OneProductContentCount: joi.allow(),
+      UnitOfMeasurment: joi.string().required(),
       PurchasePrice: joi.number().required(),
       SellingPrice: joi.number().required(),
-      QRcode: joi.string().required().max(45).min(1),
+      QRcode: joi.string().required(),
+      MainCode: joi.string().required(),
+      Link: joi.string(),
       // İmage: joi.object().required(),
     });
     try {

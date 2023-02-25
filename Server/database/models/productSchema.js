@@ -12,7 +12,7 @@ const productSchema = mongoose.Schema({
     }, 
     OneProductContentCount: {
         type: Number,
-        required: true,
+        required: false,
         trim: true
     },
     UnitOfMeasurment: {
@@ -31,14 +31,18 @@ const productSchema = mongoose.Schema({
         trim: true
     },
     QRcode: {
-        type: String,
+        type:Array,
         required: true,
         trim: true
     },
-    İmage: {
-        type: String,
-        required: true,
-        trim: true
+    MainCode:{
+        type:Number,
+        required:true,
+        trim:true
     },
+    Link:{
+        type:String,
+    }
+    
 })
 module.exports = mongoose.model("productSchema", productSchema)
