@@ -1,11 +1,11 @@
 .form-wrapper{
-    background-color: #eee;
     width: 500px;
-    padding: 10px;
-    margin: 0 auto;
+    padding: 15px;
+    background-color: transparent;
 }
-.form-wrapper > form {
-    margin-top: 50px;
+nav{
+    position: relative !important;
+    top: 0;
 }
 .img-area {
     width: 100%;
@@ -17,4 +17,76 @@
 }
 .unitofmeasurment-wrapper,.measurmentNumberWrapper{
     display: none;
+}
+.count-p{
+    width: 50% !important;
+}
+.unit-p{
+    width: 50%;
+}
+p{
+    margin: 0;
+}
+p.text-center{
+    font-size: 23px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.389);
+}
+.opcc-wrapper{
+    display: none;
+}
+table{
+    border: 2px solid darkred;
+}
+th,td{
+    text-align: center;
+    vertical-align: middle !important;
+}
+.product-img-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.custommodal {
+    width: 100%;
+    position: fixed;
+    z-index: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.389);
+}
+.layout{
+    background-color: rgb(253, 253, 253);
+    width: 500px;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+.closeModal{
+    cursor: pointer;
+    width: 35px;
+    margin: 5px 5px 0px;
+}
+.custommodal>div{
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.preview{
+    /* height: 200px; */
+
+    font-size: 22px;
+    /* width: 150px; */
+    word-wrap: break-word;
+    width: 500px;
+    padding: 30px;
+    color: #ffffffa5;
+    background-color: rgb(8, 79, 130);
+}
+span.val{
+    color: #ccb010;
+}
+#preview-img{
+    width: 200px;
 }
