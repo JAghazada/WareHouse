@@ -4,4 +4,7 @@ const router = express.Router()
 router.get("/", getIndexPage)
 router.get("/about", getAboutPage)
 router.get("/admin", getAdminPage)
+router.get("/modal",(req,res)=>{
+    res.render("modal")
+})
 module.exports = router

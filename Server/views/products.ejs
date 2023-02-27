@@ -29,10 +29,16 @@
                     <th scope="row"> <%=product.MainCode %> </th>
                     <td> <%=product.ProductName %> </td>
                     <td> <%=product.NumberOfProducts %> </td>
-                    <td> <%=product.UnitOfMeasurment %> </td>
+                   <% if(product.UnitOfMeasurment==="number"){ %>
+                    <td> Eded </td>
+                   <% } else if(product.UnitOfMeasurment==="meter"){ %>
+                      <td>Metr</td>
+                 <%  } else { %>
+                    <td>Paket</td>
+                <% } %> 
                     <td> <%=product.PurchasePrice %> </td>
                     <td> <%=product.SellingPrice %> </td>
-                    <td><img width="80" src="/img/<%= (product.Link) %>"" alt=""></td>
+                    <td class="product-img-content" ><img  width="80" src="/img/<%= (product.Link) %>"" alt=""></td>
                
                   </tr>
                 <!-- <div></div> -->
@@ -40,6 +46,14 @@
          
         </tbody>
       </table>
-    
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 </body>
 </html>

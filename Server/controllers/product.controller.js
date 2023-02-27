@@ -4,6 +4,7 @@ const Response = require("../utils/response");
 const uploadProduct = async (req, res) => {
   // console.log(req.body)
   let data = JSON.parse(JSON.stringify(req.body));
+  if(req.file && req.file.originalname) data.image = req.file.originalname;
   const saveProduct = new productSchema(data);
   await saveProduct.save()
   .then(resp=>{

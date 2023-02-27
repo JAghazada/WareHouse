@@ -1,5 +1,5 @@
 const choose_file = document.querySelector("#ChooseImage");
-const imgArea = document.querySelector(".img-area");
+const imgArea = document.querySelector("#preview-img");
 choose_file.addEventListener("change", function () {
   const MimeType = ["jpg", "jpeg", "gif", "png"];
 

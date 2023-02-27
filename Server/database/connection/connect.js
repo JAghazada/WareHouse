@@ -8,7 +8,7 @@ const connect = () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })
-        .then((response) => console.log("response"))
+        .then((response) => console.log("connected to database"))
         .catch((err) => console.log(err));
 };
 module.exports = connect;
