@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/style.css">
+
+<div class="custommodal">
+    <div>
+        <div class="preview">
+            <p>Məhsul adı:<span class="val preview-name"> </span> </p>
+            <p>Firma:<span class="val preview-company"> </span> </p>
+            <p>Sayı:<span class="val preview-count"></span> </p>
+            <p>Ölçü Vahidi :<span class="val  preview-unit">1 Əd</span> </p>
+            <p>Ölçü Vahidi2 :<span class="val  preview-unit-2">1 Əd</span> </p>
+            <p>Alış Qiyməti:<span class="val  preview-price"> </span> </p>
+            <p>Satış Qiyməti:<span class="val  preview-selling-price"> </span></p>
+            <p>Barkodlar:
+                <span class="val  preview-qrcode">[ ]</span>
+            </p>
+            <div class="mt-2 d-flex">
+                <p>Şəkil:
+                <div id="preview-img">
+                </div>
+                <br>
+                </p>
+
+            </div>
+            <div class="mt-1">
+                <button class="btn delete-img pl-4 pr-4 pb-2 pt-2 btn-secondary">Şəkli Sil</button>
+
+            </div>
+        </div>
+        <div class="layout">
+            <div class="d-flex justify-content-end w-100">
+            <div class="closeModal"><p>x</p></div>
+           </div>
+            <div class="form-wrapper">
+                <p class="text-center">Məhsul Məlumatları</p>
+                <form method="post" autocomplete="off" action="/uploadProduct">
+
+                    <div class="form-group">
+                        <label for="productName">Məhsul adı</label>
+                        <input class="form-control product_name " id="productName" placeholder="Məhsul adı">
+                    </div>
+                    <div class="form-group">
+                        <label for="productName">Firma adı</label>
+                        <input class="form-control product_company " id="productCompany" placeholder="Firma adı">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="productCount">Məhsul sayı</label>
+                        <input class="form-control product_count " id="productCount" type="text"
+                            placeholder="Məhsul sayı">
+                    </div>
+                    <div class="d-flex unit-lists">
+                        <div class="form-group unit-p">
+                            <label for="UnitOfMeasurment">Ölçü Vahidi</label>
+                            <select id="UnitOfMeasurment" class="custom-select selectUnit">
+                                <option selected value="number">Əd</option>
+                                <option value="kg">Kg</option>
+                                <option value="cm">Sm</option>
+                                <option value="dm">Dm</option>
+                                <option value="box">Qutu</option>
+                                <option value="meter">Metr</option>
+                                <option value="block">Blok</option>
+                                <option value="wholesale">Top</option>
+                                <option value="bag">Kisə</option>
+                                <option value="set">Dəst</option>
+                                <option value="packet">Paket</option>
+                            </select>
+                        </div>
+                        <div class="form-group unit-p">
+                            <label for="UnitOfMeasurment">Ölçü Vahidi 2</label>
+                            <select id="UnitOfMeasurment2" class="custom-select selectUnit">
+                                <option selected value="number">Əd</option>
+                                <option value="kg">Kg</option>
+                                <option value="cm">Sm</option>
+                                <option value="dm">Dm</option>
+                                <option value="box">Qutu</option>
+                                <option value="meter">Metr</option>
+                                <option value="block">Blok</option>
+                                <option value="wholesale">Top</option>
+                                <option value="bag">Kisə</option>
+                                <option value="set">Dəst</option>
+                                <option value="packet">Paket</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex jsutify-content-between">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text unit-v1" id="inputGroup-sizing-sm ">Əd</span>
+                            </div>
+                            <input type="text" value="1" class="form-control unit-1-inp"
+                                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <span class="equal">=</span>
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text unit-v2" id="inputGroup-sizing-sm">Əd</span>
+                            </div>
+                            <input type="text" class="form-control unit-2-inp" value="1"
+                                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+
+                    </div>
+                    <!-- <div class="form-group count-sub-p">
+                            <label for="exampleInputPassword1">Packa'daki mehsul sayi</label>
+                            <input class="form-control product-sub " id="exampleInputPassword1" type="text" placeholder="Məhsul sayı">
+                        </div> -->
+
+
+
+
+                    <div class="form-group">
+                        <label for="Price">Alış Qiyməti</label>
+                        <input class="form-control product_price" type="text" id="Price" placeholder="Alış Qiyməti">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="SellingPrice">Satış Qiyməti</label>
+                        <input class="form-control product_selling-price " type="text" id="SellingPrice"
+                            placeholder="Satış Qiyməti">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="QRcode">QR kod</label>
+                        <input class="form-control product_qrcode " type="text" id="QRcode" placeholder="QR kod">
+                    </div>
+
+                    <!-- <div class="form-group unitofmeasurment-wrapper">
+                            <label for="unitofmeasurment">Ölçü vahidi</label>
+                            <input class="form-control unitofmeasurment " type="text" id="unitofmeasurment" placeholder="Ölçü vahidi">
+                        </div> 
+                         <div class="form-group measurmentNumberWrapper">
+                            <label for="measurmentNumber">1 <span>___</span>olan mehsul sayi</label>
+                            <input class="form-control measurmentNumber_inp " type="text" id="measurmentNumber">
+                        </div> -->
+                    <div class="custom-file">
+
+                        <input type="file" class="custom-file-input" id="ChooseImage">
+                        <label class="custom-file-label" for="ChooseImage">Şəkil seç</label>
+                    </div>
+                    <div class="img-area"></div>
+
+                    <button type="submit" class="mt-2 btn btn-primary">Göndər</button>
+
+                </form>
+                <!-- <form method="post" action="/uploadProduct">
+                        <input name="FirstName" id="name" placeholder="Ad" type="text">
+                        <input name="LastName" id="surname" placeholder="Soyad" type="text">
+                        <input type="file" multiple name="file" id="image">
+                        <button type="submit">Submit</button>
+                    </form> -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/FormOperations/sendProductData.js"></script>
+<script src="/js/FormOperations/image.upload.js"></script>
+<script src="/js/FormOperations/inputFocus.js"></script>
+<script src="/js/FormOperations/addCustomUnit.js"></script>
