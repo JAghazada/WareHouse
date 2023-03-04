@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/style.css">
+<div class="exportmodal">
+    <div class="export-layout">
+        <div>
+            <div class="closeExport">x</div>
+        </div>
+        <div class="d-flex">
+            <input type="text" class="form-control" placeholder="Ex:596149841486"
+                aria-label="Text input with dropdown button">
+            <select class="selecttype form-control">
+                <option selected value="name">
+                    Ad
+                </option>
+                <option value="code">Qrkod</option>
+                <option value="um1">Ölçü Vahidi 1</option>
+                <option value="um2">Ölçü Vahidi 2</option>
+                <option value="price">Alış Qiyməti</option>
+                <option value="sprice">Satış Qiyməti</option>
+            </select>
+            <!-- <div class="input-group-append">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Ad</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Ad</a>
+                    <a class="dropdown-item" href="#">Qrkod</a>
+                    <a class="dropdown-item" href="#">Ölçü Vahidi</a>
+                    <a class="dropdown-item" href="#">Al;ş Qiyməti</a>
+                    <a class="dropdown-item" href="#">Sat;ş Qiyməti</a>
+
+                </div>
+            </div> -->
+        </div>
+        <table width="" class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Qr</th>
+                    <th scope="col">Ad</th>
+                    <th scope="col">Miqdar</th>
+                    <th scope="col">OlcuVahidi</th>
+                    <th scope="col">Alis Qiymeti</th>
+                    <th scope="col">Satis Qiymeti</th>
+                    <th scope="col">Sekil</th>
+                    <th scope="col">Alternatif kodlar</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        12312312312
+                    </th>
+                    <td>
+                        dqwdwqd
+                    </td>
+                    <td>
+                        12
+                    </td>
+                    <td>
+                        Əd
+                    </td>
+                    <td>
+                        123
+                    </td>
+                    <td>
+                        31231
+                    </td>
+                    <td class="product-img-content">
+                        <h5>-</h5>
+                    </td>
+                    <td class=" codes">
+                        <span>
+                            12312312312
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    const exportmodal = document.querySelector(".exportmodal")
+    const closeExport = document.querySelector(".closeExport")
+    const closeModal = () => {
+        exportmodal.style.display = "none"
+    }
+    closeExport.addEventListener("click", closeModal)
+</script>

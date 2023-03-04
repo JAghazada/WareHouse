@@ -1,7 +1,6 @@
 require("express-async-errors")
 const express = require("express");
 const app = express();
-const socket = require("socket.io")
 const multer = require("multer");
 const dotenv = require("dotenv");
 const router = require("./routers");
@@ -45,13 +44,6 @@ require("./database/connection/connect")()
 app.use(errorHandlerMiddleware)
 
 //!listen server
-const server = app.listen(port, () => {
+app.listen(port, () => {
     console.warn(`Server running on port: ${port}`);
 });
-const io = socket(server)
-io.on("connection",(socket)=>{
-  console.log(socket.id)
-  socket.on("chat",data=>{
-    io.sockets.emit("chat",{data,msg:"senin datan frontdan geldi"})
-  })
-})

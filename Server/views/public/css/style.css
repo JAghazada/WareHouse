@@ -134,3 +134,47 @@ nav{
     /* top: 0; */
 }
 .custom-file-input:focus ~ .custom-file-label{color:#495057;background-color:#fff;border-color:#80bdff;outline:0;box-shadow:0 0 0 .2rem rgba(0,123,255,.25)}
+
+
+.exportmodal{
+    position: fixed;
+    z-index: 300;
+    display: flex;
+    width: 100%;
+    background-color: #00000085;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.export-layout{
+    width: 85%;
+    overflow-y: auto;
+    height: 85%;
+    border-radius: 8px;
+    background-color: #eeeeeef6;
+}
+.export-layout>div{
+    padding: 10px;
+    display: flex;
+    justify-content: end;
+}
+.closeExport{
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #FAFAFC;
+    width: 35px;
+    font-size: 22px;
+    font-family: sans-serif;
+}
+.selecttype{
+    width:20%!important;
+}
+.export-layout>table{
+    width: 85%;
+    margin: 0 auto;
+}
