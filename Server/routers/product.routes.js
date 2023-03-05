@@ -42,7 +42,4 @@ router.get("/getProduct", (req, res) => {
     name: "dbasdnam",
   });
 });
-module.exports = {
-  product: router,
-  uploads,
-};
+module.exports = router

@@ -7,9 +7,9 @@
             <div class="closeExport">x</div>
         </div>
         <div class="d-flex">
-            <input type="text" class="form-control" placeholder="Ex:596149841486"
+            <input type="text" class="form-control search-product" placeholder="Ex:596149841486"
                 aria-label="Text input with dropdown button">
-            <select class="selecttype form-control">
+            <select class="selecttype select-type form-control">
                 <option selected value="name">
                     Ad
                 </option>
@@ -79,11 +79,5 @@
         </table>
     </div>
 </div>
-<script>
-    const exportmodal = document.querySelector(".exportmodal")
-    const closeExport = document.querySelector(".closeExport")
-    const closeModal = () => {
-        exportmodal.style.display = "none"
-    }
-    closeExport.addEventListener("click", closeModal)
-</script>
+<script src="/js/ExportProduct/closeModal.js"></script>
+<script src="/js/ExportProduct/search.js"></script>
