@@ -2,14 +2,10 @@ const router = require("express").Router()
 const auth = require("./auth.routes");
 const admin = require("./admin.routes");
 const page = require("./page.routes");
-const {product} = require("./product.routes");
+const product = require("./product.routes");
 const listProduct = require("./listproducts.routes")
-const multer = require("multer");
-const uploadFile = require("../middlewares/lib/upload/upload");
-const Response = require("../utils/response");
-// const uploadImage = require("./image.upload.routes")
-
-// router.use(uploadImage)
+const testController = require("./test.routes")
+router.use(testController);
 router.use(product);
 router.use(listProduct)
 router.use(page);

@@ -15,26 +15,38 @@ window.addEventListener("keyup", (e) => {
   const index = inputs.indexOf(activeElement);
   if (e.key === "ArrowDown") {
     inputs[index + 1].focus()
-    console.log("dasbdksaj")
   } else if (e.key === "ArrowUp") {
     if (index > 0) inputs[index - 1].focus();
     else inputs[inputs.length - 2].focus();
   }
 });
+// document.querySelector(".custom-file-input").addEventListener("focus",()=>{
+//   document.querySelector(".custom-file-label").style.border = "2px solid darkblue"
+// })
 inputs.map(input=>{
-  console.log(input.classList[1])
-  if(input.classList[1]==="product_qrcode"){
-    // alert()
+  if(input.classList[1]==="unit-1-inp"){
     input.addEventListener("input",(e)=>{
-      // console.log(document.querySelector(".preview-qrcode"))
+      document.querySelector(".preview-unit").innerText = e.target.value +" " + translateJson[UnitOfMeasurmentValue]
+
+    })
+  }
+  else if(input.classList[1]==="unit-2-inp"){
+    input.addEventListener("input",(e)=>{
+      document.querySelector(".preview-unit-2").innerText = e.target.value +" " +translateJson[UnitOfMeasurmentValue_second]
+
+    })
+  }
+  else if(input.classList[1]==="product_qrcode"){
+      input.addEventListener("input",(e)=>{
       document.querySelector(".preview-qrcode").innerText = e.target.value.split(" ").join(",")
     })
   }
+  else if(input.classList[0]==='custom-file-input'){
+    return false
+  }
   else{
   input.addEventListener("input",(e)=>{
-    // console.log([...e.target.classList][1])
     const inputClass  ="preview-" +  [...e.target.classList][1].split("_")[1]
-
     document.querySelector(`.${inputClass}`).innerText = e.target.value
   })}
 })

@@ -6,18 +6,27 @@ class ProductValidation {
   static addProduct = async (req, res, next) => {
     const schema = await joi.object({
       ProductName: joi.string().required(),
+      CompanyName: joi.string().optional(),
+      Unit1: joi.number().optional(),
+      Unit2: joi.number().optional(),
       NumberOfProducts: joi.number().required(),
-      OneProductContentCount: joi.allow(),
       UnitOfMeasurment: joi.string().required(),
+      SecondUnitOfMeasurment: joi.string().required(),
       PurchasePrice: joi.number().required(),
       SellingPrice: joi.number().required(),
+      files:joi.optional(),
       QRcode: joi.string().required(),
-      MainCode: joi.string().required(),
-      Link: joi.string(),
+      MainCode: joi.string().required().custom((value,helper)=>{
+        const MainCode = parseFloat(value)
+        const MatchCode = parseFloat(req.body.QRcode.split(",")[0])
+        if(MainCode!==MatchCode) throw new APIError("QRcode -da xeta bash verdi");
+        
+      }),
+      Link: joi.string().optional(),
       // İmage: joi.object().required(),
     });
     try {
-      const value = await schema.validateAsync(req.body);
+      const value =  schema.validateAsync(req.body);
       next();
     } catch (error) {
       if (error.details && error?.details[0].message)

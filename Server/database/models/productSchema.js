@@ -4,22 +4,17 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true,
         trim: true
+    }, 
+    CompanyName: {
+        type: String,
+        required: true,
+        trim: true
     },
     NumberOfProducts: {
         type: Number,
         required: true,
         trim: true
     }, 
-    OneProductContentCount: {
-        type: Number,
-        required: false,
-        trim: true
-    },
-    UnitOfMeasurment: {
-        type: String,
-        required: true,
-        trim: true
-    },
     PurchasePrice: {
         type: Number,
         required: true,
@@ -30,6 +25,7 @@ const productSchema = mongoose.Schema({
         required: true,
         trim: true
     },
+    
     QRcode: {
         type:Array,
         required: true,
@@ -42,7 +38,28 @@ const productSchema = mongoose.Schema({
     },
     Link:{
         type:String,
-    }
+    },
+    UnitOfMeasurment: {
+        type: String,
+        required: true,
+        trim: true
+    }, 
+    SecondUnitOfMeasurment: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    Unit1:{
+        type:Number,
+        required:true
+    }, 
+    Unit2:{
+        type:Number,
+        required:true
+    },
     
-})
+  
+
+    
+},{ collection: "products", timestamps: true });
 module.exports = mongoose.model("productSchema", productSchema)

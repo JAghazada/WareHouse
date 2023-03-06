@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/style.css">
+<div class="exportmodal">
+    <div class="export-layout">
+        <div>
+            <div class="closeExport">x</div>
+        </div>
+        <div class="d-flex">
+            <input type="text" class="form-control search-product" placeholder="Ex:596149841486"
+                aria-label="Text input with dropdown button">
+            <select class="selecttype select-type form-control">
+                <option selected value="ProductName">
+                    Ad
+                </option>
+                <option value="QRcode">Qrkod</option>
+                <option value="PurchasePrice">Alış Qiyməti</option>
+                <option value="SellingPrice">Satış Qiyməti</option>
+            </select>
+        </div>
+        <div class="search-wrapper-t">
+            <table  class="table search-wrapper-table  table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Qr</th>
+                        <th scope="col">Ad</th>
+                        <th scope="col">Miqdar</th>
+                        <th scope="col">OlcuVahidi</th>
+                        <th scope="col">Alis Qiymeti</th>
+                        <th scope="col">Satis Qiymeti</th>
+                        <th scope="col">Sekil</th>
+                        <th scope="col">Alternatif kodlar</th>
+    
+                    </tr>
+                </thead>
+                <tbody class="search-table">
+                   
+                </tbody>
+            </table>
+        </div>
+       
+        <div class="empty"></div>
+    </div>
+</div>
+<script src="/js/ExportProduct/closeModal.js"></script>
+<script src="/js/ExportProduct/search.js"></script>
