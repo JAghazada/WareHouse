@@ -37,9 +37,7 @@ router.post(
   ],
   uploadProduct
 );
-router.get("/getProduct", (req, res) => {
-  res.send({
-    name: "dbasdnam",
-  });
+router.get("/addProduct", (req, res) => {
+  res.render("addProduct");
 });
 module.exports = router

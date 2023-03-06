@@ -70,22 +70,25 @@ th,td{
 }
 .closeModal{
     cursor: pointer;
-    background-color: gray;
    vertical-align: middle;
    text-align: center;
    margin: 5px;
    border-radius: 4px;
    /* padding: 0px 10px; */
+   /* background-color: #00b8bb; */
+   border: 2px solid #dedede;
 }
 .closeModal>p{
     padding: 0px 10px;
     font-size: 18px;
     font-weight: 600;
 }
-.closeModal :hover{
+.closeModal:hover{
+    border: 2px solid #000009aa;
     background-color: #000;
-   border-radius: 4px;
-   transition: .2s ease-in;
+    border-radius: 4px;
+    color: #fff;
+    transition: .2s ease-in;
 
 }
 .custommodal>div{
@@ -139,7 +142,7 @@ nav{
 .exportmodal{
     position: fixed;
     z-index: 300;
-    display: flex;
+    display: none;
     width: 100%;
     background-color: #00000085;
     height: 100%;
@@ -177,4 +180,15 @@ nav{
 .export-layout>table{
     width: 85%;
     margin: 0 auto;
+}
+.export-table{
+    cursor: pointer;
+}
+.export-table:hover{
+    background-color: rgb(21, 21, 21) !important;
+
+}
+.search-wrapper-t{
+    height: 400px !important;
+    overflow-y: auto;
 }
