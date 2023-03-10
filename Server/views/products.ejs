@@ -13,6 +13,9 @@
 <body>
   <%- include("partials/insertProduct.ejs") %>
     <%- include("partials/exportProduct.ejs") %>
+    <%- include("partials/addProduct.ejs") %>
+    <%- include("partials/increase.ejs") %>
+
       <%- include("partials/navbar.ejs") %>
 
 
@@ -61,14 +64,13 @@
                      <% }%>
               </td>
               <td class=" codes">
-                    <%product.QRcode.map(code=>{%>
-                      <%(code.split(",").map(code=>{%>
-                        <span>
-                          <%=code%>
-                        </span>,
-                        <%}))%>
-
-                          <% })%>
+                <%product.QRcode.map(code=>{%>
+                  <span>
+                    <%=code%>
+                  </span>,
+                  <% })%>
+                  
+                      
                 </td>
               </tr>
               <!-- <div></div> -->
@@ -90,6 +92,9 @@
           integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
           <script src="/js/socket/getproducts.js"></script>
+          <script src="/js/insert/index.js"></script>
+          <script src="/js/func/clickRow.js"></script>
+          <script src="/js/func/closeOperations/closeModal.js"></script>
    
 
 </body>

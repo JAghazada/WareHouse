@@ -19,6 +19,8 @@ class ProductValidation {
       MainCode: joi.string().required().custom((value,helper)=>{
         const MainCode = parseFloat(value)
         const MatchCode = parseFloat(req.body.QRcode.split(",")[0])
+        console.log(MainCode)
+        console.log(MatchCode)
         if(MainCode!==MatchCode) throw new APIError("QRcode -da xeta bash verdi");
         
       }),
