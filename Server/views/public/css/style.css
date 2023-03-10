@@ -132,14 +132,11 @@ span.val{
 input,select {
     height: 35px !important;
 }
-nav{
-    /* position: absolute !important; */
-    /* top: 0; */
-}
+
 .custom-file-input:focus ~ .custom-file-label{color:#495057;background-color:#fff;border-color:#80bdff;outline:0;box-shadow:0 0 0 .2rem rgba(0,123,255,.25)}
 
 
-.exportmodal{
+.exportmodal,.addproductm,.increase-wrapper{
     position: fixed;
     z-index: 300;
     display: none;
@@ -149,31 +146,43 @@ nav{
     justify-content: center;
     align-items: center;
 }
-.export-layout{
+.export-layout,.addproductm-layout{
     width: 85%;
     overflow-y: auto;
     height: 85%;
     border-radius: 8px;
     background-color: #eeeeeef6;
 }
-.export-layout>div{
+.increase-layout {
+    background-color: #fff;
+    border-radius: 16px;
+}
+.export-layout>div,.addproductm-layout>div{
     padding: 10px;
     display: flex;
     justify-content: end;
 }
-.closeExport{
+input.info{
+    margin: 5px auto;
+}
+.info-input-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.closeExport,.close,.close-apm,.closeIncrease{
     cursor: pointer;
     padding: 3px;
     border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000;
-    color: #FAFAFC;
+    background-color: #000 !important;
+    color: #FAFAFC !important;
     width: 35px;
     font-size: 22px;
     font-family: sans-serif;
 }
+
 .selecttype{
     width:20%!important;
 }
@@ -191,4 +200,30 @@ nav{
 .search-wrapper-t{
     height: 400px !important;
     overflow-y: auto;
+}
+.card {
+    overflow-y: auto;
+    margin: 0 auto;
+    width: 550px;
+    padding: 10px;
+    /* height: 300px; */
+
+    border-radius: 18px;
+    background-color: rgb(251, 251, 251)
+}
+
+.card img {
+    height: 100px;
+}
+
+.codes {
+    word-wrap: break-word;
+
+}
+
+.card div {
+    padding: 5px 10px;
+    color: #000;
+    /* font-size: 18px; */
+    font-family: sans-serif;
 }

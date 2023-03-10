@@ -3,6 +3,12 @@ const APIError = require("../utils/errors");
 const Response = require("../utils/response");
 const uploadProduct = async (req, res) => {
   let data = JSON.parse(JSON.stringify(req.body));
+  let barcodes = []
+  data.QRcode.split(",").map(code=>{
+    barcodes.push(parseFloat(code))
+  })
+  data.QRcode = barcodes
+  console.log((data.QRcode))
   if(req.file && req.file.originalname) data.image = req.file.originalname;
   const saveProduct = new productSchema(data);
   await saveProduct.save()

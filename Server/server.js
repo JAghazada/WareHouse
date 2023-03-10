@@ -2,7 +2,6 @@ require("express-async-errors")
 const express = require("express");
 const app = express();
 const socket = require("socket.io") 
-const multer = require("multer");
 const dotenv = require("dotenv");
 const router = require("./routers");
 const cors = require("cors");
@@ -10,7 +9,6 @@ const corsOption = require("./helpers/corsOptions")
 const mongoSanitize = require("express-mongo-sanitize")
 const errorHandlerMiddleware = require("./middlewares/ErrorHandler");
 const bodyParser = require("body-parser");
-const upload = multer()
     //?dotenv configuration
 dotenv.config();
 const port = process.env.PORT || 5001;
@@ -20,7 +18,6 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.text({type: '/'}));
 // app.use(upload.none())
-// app.use(multer().any());
 app.use(express.static(__dirname + "/views/public"));
 // app.use("/uploads/images",express.static(__dirname))
 // app.use("/uploadProduct",express.static(__dirname))
