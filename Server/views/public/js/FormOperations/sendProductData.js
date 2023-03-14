@@ -68,11 +68,11 @@ submitForm.addEventListener("submit", (action) => {
   formData.append("SellingPrice", SellingPrice.value);
   formData.append(
     "QRcode",
-    QRcode.value.split(" ").map((code) => parseFloat(code))
+    QRcode.value.split(" ").map((code) => (code))
   );
   formData.append(
     "MainCode",
-    QRcode.value.split(" ").map((code) => parseFloat(code))[0]
+    QRcode.value.split(" ").map((code) => (code))[0]
   );
   formData.append("ProductName", productName.value);
   formData.append("files", ChooseImage.files[0]);
@@ -84,7 +84,7 @@ submitForm.addEventListener("submit", (action) => {
     const link =
       productName.value +
       "_" +
-      QRcode.value.split(" ").map((code) => parseFloat(code))[0] +
+      QRcode.value.split(" ").map((code) => (code))[0] +
       "." +
       extension;
     formData.append("Link", link);

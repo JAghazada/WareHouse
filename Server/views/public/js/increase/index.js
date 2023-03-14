@@ -6,16 +6,10 @@ increaseCostButton.addEventListener("click",()=>{
     const formData = {
      obj_id :id ,
      alter_code,
-     count:product_count  
+     count:product_count,
+     type:"increase"
     }
-    fetch("http://localhost:5000/increaseProduct",{
-        method:"POST",
-        body:JSON.stringify(formData),
-        headers:{
-            'Content-Type':"application/json"
-        }
-    }).then(Res=>{
-        console.log(Res.json())
-    })
+  
     // console.log(formData)
+    IDcrease(formData)
 })

@@ -136,7 +136,7 @@ input,select {
 .custom-file-input:focus ~ .custom-file-label{color:#495057;background-color:#fff;border-color:#80bdff;outline:0;box-shadow:0 0 0 .2rem rgba(0,123,255,.25)}
 
 
-.exportmodal,.addproductm,.increase-wrapper{
+.exportmodal,.addproductm,.increase-wrapper,.decrease-wrapper{
     position: fixed;
     z-index: 300;
     display: none;
@@ -153,9 +153,12 @@ input,select {
     border-radius: 8px;
     background-color: #eeeeeef6;
 }
-.increase-layout {
+.increase-layout,.decrease-layout {
     background-color: #fff;
     border-radius: 16px;
+}
+.decrease-wrapper  > .card {
+    background-color: rgb(0, 0, 0) !important;
 }
 .export-layout>div,.addproductm-layout>div{
     padding: 10px;
@@ -169,7 +172,7 @@ input.info{
     display: flex;
     flex-direction: column;
 }
-.closeExport,.close,.close-apm,.closeIncrease{
+.closeExport,.close,.close-apm,.closeIncrease,.closeDecrease{
     cursor: pointer;
     padding: 3px;
     border-radius: 4px;
@@ -226,4 +229,11 @@ input.info{
     color: #000;
     /* font-size: 18px; */
     font-family: sans-serif;
+}
+.decrease-wrapper > .card div{
+    color: #fafafe;
+}
+.preview-qrcode{
+    font-size: 17px;
+    font-weight: bold;
 }
