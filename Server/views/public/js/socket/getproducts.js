@@ -5,6 +5,8 @@ socket.on('all-products', data => {
 
   tbody.innerHTML = ``
   data.products.map(product => {
+  
+
    const tr = document.createElement("tr")
     tr.innerHTML = `<th scope="row">${product.MainCode} </th>
         <td>
@@ -26,11 +28,10 @@ socket.on('all-products', data => {
           ${product.Link !== undefined? `<img height='40' src="/img/${product.Link}"" alt=''>` : "<h5>-</h5>"}
         </td>
         <td class=" codes">
-          ${product.QRcode.map(codes=>{
-            codes.split(",").map(code=>{
-             `<span>${code}</span>`
-            })
-          })}
+          ${product.QRcode.map(codes=>
+             `<span>${codes}</span>`
+            
+          )}
       </td>`
       tbody.append(tr)
 

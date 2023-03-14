@@ -1,4 +1,4 @@
-const listToTable = (data ,tbody)=>{
+const listToTable = (data ,tbody,type)=>{
     tbody.innerHTML=``
     data.map(product => {
       const tr = document.createElement("tr")
@@ -30,7 +30,12 @@ const listToTable = (data ,tbody)=>{
               }
             })}
          </td>`
-         tr.classList.add("export-table")
+         if(type==="export"){
+          tr.classList.add("decrease-count")
+         }
+           tr.classList.add("export-table");
+
+
          tbody.append(tr)
    
      })

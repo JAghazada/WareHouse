@@ -44,7 +44,7 @@ class Response {
         return res.status(429).json({
             success: false,
             data: this.data,
-            message: this.message ? this.message : "So many requrests",
+            message: this.message ? this.message : "So many requests",
         });
     }
 }

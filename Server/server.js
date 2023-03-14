@@ -15,7 +15,8 @@ const port = process.env.PORT || 5001;
 //!Middlewares
 app.use(cors(corsOption))
 app.use(express.json({ limit: "50mb" }));
-app.use(express.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.text({type: '/'}));
 // app.use(upload.none())
 app.use(express.static(__dirname + "/views/public"));
