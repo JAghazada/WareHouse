@@ -57,6 +57,9 @@ const billSchema = new mongoose.Schema(
     QRcode: {
       type: Array,
     },
+    Date:{
+      type:Date
+    }
   },{collection: "Bills",timestamps: true, }
 );
 module.exports = mongoose.model("billSchema", billSchema);

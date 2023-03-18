@@ -10,5 +10,7 @@ const translateJson = {
     bag: "Kisə",
     set: "Dəst",
     packet: "Paket",
+    add:"Əlavə edilmə",
+    create:"Anbara yazılma"
   };
 module.exports = translateJson

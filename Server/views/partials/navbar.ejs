@@ -5,9 +5,16 @@
         <li class="nav-item active">
           <a class="nav-link" href="#">Anbar <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Fakturalar</a>
-        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Fakturalar
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item profit-bill-link" href="#">Mədaxil Fakturalari</a>
+            <a class="dropdown-item" href="/product/bill/expense">Məxaric Fakturalari</a>
+          </div>
+        </li> 
+   
         <li class="nav-item">
           <a class="nav-link" href="#">PDF Sistem</a>
         </li>   <li class="nav-item">
@@ -37,3 +44,4 @@
   </nav>
 <script src="/js/ModalOperations/addProduct.js"></script>
 <script src="/js/ModalOperations/getProducts.js"></script>
+<script src="/js/navbar/dateModal.js"></script>

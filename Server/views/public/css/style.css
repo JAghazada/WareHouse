@@ -10,6 +10,17 @@ nav{
 .img-area {
     width: 100%;
 }
+.pickupdt> * {
+    margin: 10px;
+}
+
+.pickupdt{   
+    display: flex;
+    justify-content: space-evenly;
+}
+.h6{
+    font-size: 16px !important;
+}
 .image-properties{
     width: 300px;
     height: 200px;
@@ -136,7 +147,7 @@ input,select {
 .custom-file-input:focus ~ .custom-file-label{color:#495057;background-color:#fff;border-color:#80bdff;outline:0;box-shadow:0 0 0 .2rem rgba(0,123,255,.25)}
 
 
-.exportmodal,.addproductm,.increase-wrapper,.decrease-wrapper{
+.exportmodal,.addproductm,.increase-wrapper,.decrease-wrapper,.dateModal{
     position: fixed;
     z-index: 300;
     display: none;
@@ -145,6 +156,11 @@ input,select {
     height: 100%;
     justify-content: center;
     align-items: center;
+}
+.dmLayout{
+    width: 450px;
+    padding:7px 14px;
+    background-color: #fff;
 }
 .export-layout,.addproductm-layout{
     width: 85%;
