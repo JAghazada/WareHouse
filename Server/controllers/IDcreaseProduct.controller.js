@@ -1,5 +1,6 @@
 const billSchema = require("../database/models/billSchema");
 const productSchema = require("../database/models/productSchema");
+const dateToday = require("../helpers/Date");
 
 const IDcreaseProductController = async (req, res) => {
   const { obj_id, alter_code,count,type } = req.body;
@@ -26,6 +27,7 @@ const IDcreaseProductController = async (req, res) => {
       delete data._id
       data["Operation"] = "add";
       data["AmountAdded"] = count;
+      data["Date"] = dateToday
       // console.log(data)
       const bill = new billSchema(data);
       await bill.save()
@@ -33,7 +35,7 @@ const IDcreaseProductController = async (req, res) => {
     }else if(type==="decrease"){
       product.NumberOfProducts -= parseFloat(count);
     }
-    // await product.save();
+    await product.save();
   
     res.json({ message: "Ürün sayısı güncellendi!" });
   } catch (err) {

@@ -2,6 +2,7 @@ const productSchema = require("../database/models/productSchema");
 const APIError = require("../utils/errors");
 const billSchema = require("../database/models/billSchema")
 const Response = require("../utils/response");
+const dateToday = require("../helpers/Date");
 const uploadProduct = async (req, res) => {
   let data = JSON.parse(JSON.stringify(req.body));
   let barcodes = []
@@ -14,6 +15,7 @@ const uploadProduct = async (req, res) => {
   const saveProduct = new productSchema(data);
   data["Operation"] = "create";
   data["AmountAdded"] = data.NumberOfProducts;
+  data["Date"] = dateToday
   const bill = new billSchema(data);
   await bill.save()
   await saveProduct.save()
