@@ -2,7 +2,6 @@ const productSchema = require("../database/models/productSchema")
 const translateJson = require("../routers/Translate/translate.json")
 const productInfoController = async(req,res)=>{
     const {obj_id} =req.body
-    console.log(req.body)
     const products = await productSchema.find({_id:obj_id})
     products.map(product=>{
         product.UnitOfMeasurment = translateJson[product.UnitOfMeasurment.toLowerCase()]
