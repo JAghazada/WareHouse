@@ -26,7 +26,7 @@ const listToTable = (data ,tbody,type)=>{
              ${product.QRcode.map(code=>{
               if(code!==undefined){
                 // console.log("thisISQr ",code)
-                return `<span>${code}</span>|`
+                return `<span>${code}</span>`
               }
             })}
          </td>`

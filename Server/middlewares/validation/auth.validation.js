@@ -29,11 +29,6 @@ class AuthValidation {
                     "string.required": "Password is required",
                     "string.equal": "Password and Reppasword must be same"
                 }),
-                code: joi.boolean().required().messages({
-                    "string.base": "code must be boolean",
-                    "string.empty": "code can't be empty",
-
-                })
             }).validateAsync(req.body)
         } catch (error) {
             if(error.details && error?.details[0].message)

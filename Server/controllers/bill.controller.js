@@ -8,13 +8,6 @@ const getBill =async (req,res)=>{
         return product;
 
     })
-    // products.map(product=>{
-    // //   const createdAt = (JSON.stringify(product.createdAt).split("T")[0].split(`"`)[1])
-    // //   const updatedAt = (JSON.stringify(product.updatedAt).split("T")[0].split(`"`)[1])
-    //     if(createdAt===date ||updatedAt===date){
-    //         billInfo.push(product)
-    //     }
-    // })
     
     res.json(products)
 

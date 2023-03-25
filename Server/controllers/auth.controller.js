@@ -13,17 +13,19 @@ const login = async(req, res) => {
     if(!comparePassword){
         throw new APIError("Password or Email is wrong",403)
     }
+    req.session.userID = findUser._id;
+    console.log("session id",req.session.userID)
     createToken(findUser,res)
 
 }
 const register = async(req, res) => {
-    const { name, pass, repass, code } = req.body
+    const { name, pass, repass } = req.body
 
     if (pass === repass) {
         const userInfo = {
             name,
             pass,
-            isAdmin: code === 13 ? true : false
+            isAdmin: false
         }
         const checkUser = await user.findOne({ name });
 
@@ -41,7 +43,7 @@ const register = async(req, res) => {
             .catch(err => {
                 throw new APIError("Something went wrong at registiration time", 400)
             })
-
+        req.session.userID = saveUser._id
     } else {
         return res.send({
             msg: "Passwords is not same",

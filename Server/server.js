@@ -4,11 +4,14 @@ const app = express();
 const socket = require("socket.io") 
 const dotenv = require("dotenv");
 const router = require("./routers");
+const session = require("express-session");
 const cors = require("cors");
 const corsOption = require("./helpers/corsOptions")
 const mongoSanitize = require("express-mongo-sanitize")
 const errorHandlerMiddleware = require("./middlewares/ErrorHandler");
 const bodyParser = require("body-parser");
+const MongoStore = require("connect-mongo");
+const requireLogin = require("./middlewares/auth/requireLogin");
     //?dotenv configuration
 dotenv.config();
 const port = process.env.PORT || 5001;
@@ -16,12 +19,15 @@ const port = process.env.PORT || 5001;
 app.use(cors(corsOption))
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.text({type: '/'}));
-// app.use(upload.none())
 app.use(express.static(__dirname + "/views/public"));
-// app.use("/uploads/images",express.static(__dirname))
-// app.use("/uploadProduct",express.static(__dirname))
+app.use(session({
+  secret:"VanqedMaster",
+  resave:false,
+  saveUninitialized:true,
+  store:MongoStore.create({mongoUrl:process.env.DB_URI}),
+
+}))
 
 
 //!Enjection Middleware
@@ -31,8 +37,8 @@ app.use(
     }),
   );
 //!Router Middleware
+// app.use(requireLogin)
 app.use("/", router);
-
 //?view engine configuration  
 app.set("view engine", "ejs");
 
