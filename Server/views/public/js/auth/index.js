@@ -53,5 +53,31 @@ registerButton.addEventListener("click",(e)=>{
         }
     }).then(res=>res.json())
     .then(resp=>console.log(resp.success))
-    .catch(err=>console.log(JSON.stringify(err)))
+    .catch(err=>console.log(err));
+    
+})
+// !login user 
+loginButton.addEventListener("click",(e)=>{
+    e.preventDefault();
+    const name =loginName.value.trim();
+    const pass = loginPass.value.trim();
+    const loginData={name,pass};
+    fetch("/login",{
+        method:"POST",
+        body:JSON.stringify(loginData),
+        headers:{
+            "Content-Type":"application/json"
+        }
+    })
+    .then(res=>res.json())
+    .then(resp=>{
+        if(resp.success){
+            window.location.href="/products"
+        };
+
+
+    })
+    .catch(err=>console.log(err))
+    
+
 })

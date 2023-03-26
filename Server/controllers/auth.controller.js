@@ -14,7 +14,6 @@ const login = async(req, res) => {
         throw new APIError("Password or Email is wrong",403)
     }
     req.session.userID = findUser._id;
-    console.log("session id",req.session.userID)
     createToken(findUser,res)
 
 }

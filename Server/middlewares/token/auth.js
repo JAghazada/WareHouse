@@ -14,7 +14,7 @@ const createToken = async(user,res) =>{
         expiresIn:process.env.JWT_EXPIRES_IN
     })
     return res.status(201).json({
-        succes:true,
+        success:true,
         token,
         message:"success"
     })

@@ -11,7 +11,6 @@ const mongoSanitize = require("express-mongo-sanitize")
 const errorHandlerMiddleware = require("./middlewares/ErrorHandler");
 const bodyParser = require("body-parser");
 const MongoStore = require("connect-mongo");
-const requireLogin = require("./middlewares/auth/requireLogin");
     //?dotenv configuration
 dotenv.config();
 const port = process.env.PORT || 5001;
@@ -37,7 +36,6 @@ app.use(
     }),
   );
 //!Router Middleware
-// app.use(requireLogin)
 app.use("/", router);
 //?view engine configuration  
 app.set("view engine", "ejs");
