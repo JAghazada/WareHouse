@@ -34,7 +34,7 @@ addBasketButton.addEventListener("click",(e)=>{
     e.preventDefault();
     const obj_id = objidinp.value;
     const productCount = D_ProductInput.value
-    fetch("http://localhost:5000/addBasket",{
+    fetch("/addBasket",{
         method:"POST",
         headers: {
             "Content-Type": "application/json"
