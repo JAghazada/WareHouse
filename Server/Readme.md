@@ -1,0 +1,38 @@
+# Project Name
+## This project is an inventory management system designed for a warehouse. The system offers features such as adding and removing products, managing inventory, generating invoices, and printing barcode labels. Additionally, there are some security features to allow certain functionalities to be restricted to specific users, such as the ability to prevent an employee from removing products from inventory.
+
+# Please note that this project is still in development and not yet ready for production use.
+
+# Features
+### User Authentication: Users can log in to the system to manage their inventory.
+### User Registration: Users can register to the system.
+### Product Management: Users can add new products or remove existing ones from inventory.
+### Inventory Management: Users can manage their inventory and track stock levels.
+### Invoice Generation: Users can generate invoices for their customers.
+### Barcode Label Printing: Users can print barcode labels for their products.
+### Role-Based Access Control: The system offers role-based access control to restrict certain functionalities to specific users. For example, an employer can restrict an employee's ability to remove products from inventory.
+### Frameworks and Libraries Used
+## This project uses the following frameworks and libraries:
+
+<ul>
+<li>Axios</li>
+<li>Bcrypt</li>
+<li>Connect</li>
+<li>Cors</li>
+<li>Dotenv</li>
+<li>EJS</li>
+<li>Express</li>
+<li>Express-async-errors</li>
+<li>Express-mongo-sanitize</li>
+<li>Express-session</li>
+<li>Joi</li>
+<li>Jsonwebtoken</li>
+<li>Mongoose</li>
+<li>Multer</li>
+<li>Nodemon</li>
+<li>Socket</li>
+</ul>
+
+#### Please note that this list may not be exhaustive, and other libraries or frameworks may be added as the project evolves.
+
+### Thank you for your interest in this projec

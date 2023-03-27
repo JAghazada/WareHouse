@@ -253,7 +253,7 @@ input.info{
 }
 .decrease-modal{
     z-index: 10000;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -331,9 +331,25 @@ ul{
 .export-product-count{
     width: 80%;
 }
+.deleteProductFromBasket{
+    font-family: sans-serif;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    background-color: #babbba;
+    color: #bb221a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 30px;
+}
 .basket-component{
     padding: 8px;
     margin-top: 4px;
+    position: relative;
     border-bottom: 2px solid #979797;
     width: 100%;
     display: flex;
