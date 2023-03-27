@@ -5,5 +5,5 @@ DateInput.value = today;
 
 SearchButton.addEventListener("click", () => {
     const date = DateInput.value;
-    window.location.href = `http://localhost:5000/products/bill/profits?date=${date}`
+    window.location.href = `/products/bill/profits?date=${date}`
 });

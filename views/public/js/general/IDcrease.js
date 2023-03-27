@@ -1,6 +1,6 @@
 
 const IDcrease = (formData)=>{
-    fetch("http://localhost:5000/increaseProduct",{
+    fetch("/increaseProduct",{
         method:"POST",
         body:JSON.stringify(formData),
         headers:{
