@@ -48,7 +48,7 @@ const listUsers = async(name=inpVal,selectType=selectVal) => {
     name: inpVal,
     selectVal:selectType,
   };
- const data = await fetch("http://localhost:5000/getProducts", {
+ const data = await fetch("/getProducts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

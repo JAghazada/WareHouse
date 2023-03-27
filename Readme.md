@@ -11,7 +11,10 @@
 ### Invoice Generation: Users can generate invoices for their customers.
 ### Barcode Label Printing: Users can print barcode labels for their products.
 ### Role-Based Access Control: The system offers role-based access control to restrict certain functionalities to specific users. For example, an employer can restrict an employee's ability to remove products from inventory.
-### Frameworks and Libraries Used
+#### Please note that the feature of removing products from inventory is currently undergoing further development. In the current version, users can add products to a shopping cart before removing them from inventory. We are working to implement a more streamlined and efficient process for removing products directly from inventory without the need for a shopping cart.
+
+
+# Frameworks and Libraries Used
 ## This project uses the following frameworks and libraries:
 
 <ul>
