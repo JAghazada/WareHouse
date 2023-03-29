@@ -18,7 +18,7 @@ function handleProduct(){
 function getProductInfo(obj_id,type) {
   
     const formData = {obj_id}
-    fetch("http://localhost:5000/productInfo",{
+    fetch("/productInfo",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
