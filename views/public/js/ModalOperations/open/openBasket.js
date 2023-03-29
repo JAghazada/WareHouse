@@ -13,10 +13,11 @@ document.querySelector(".basket-link").addEventListener("click", () => {
         const totalPriceWrapper = document.querySelector(".total-price > span")
         let productsCost = 0 
         productWrapper.innerHTML = ``
-        const allProductsCount = products.length;
+        const allProductsCount = products.length || 0 ;
         document.querySelector(".products-count").innerText = "Məhsul sayi: " +  allProductsCount;
         products.map((basketProduct) => {
           let basketComponent = document.createElement("div");
+          basketComponent.setAttribute("data-product-id", basketProduct._id);
           basketComponent.classList.add("basket-component");
           basketComponent.innerHTML = `
             <div class="deleteProductFromBasket">x</div>
@@ -27,13 +28,38 @@ document.querySelector(".basket-link").addEventListener("click", () => {
             <div class="item-title">${basketProduct.ProductName}</div>
               <div class="item-barcode">${basketProduct.MainCode}</div>
             <div class="d-flex btn-wrapper justify-content-between align-items-center">
-              <div class="btn btn-danger">-</div>
+              <div class="btn quantity-btn decrease-quantity-btn  btn-danger">-</div>
               <span class="item-price">${basketProduct.productCount}</span>
-              <div class="btn btn-success">+</div>
+              <div class="btn quantity-btn increase-quantity-btn btn-success">+</div>
             </div></div>`;
           productWrapper.append(basketComponent);
           productsCost += parseFloat(basketProduct.SellingPrice) * parseFloat(basketProduct.productCount); 
-         
+          const deleteButton = basketComponent.querySelector(".deleteProductFromBasket");
+          const quantityButton =  document.querySelectorAll(".btn.quantity-btn");
+          [...quantityButton].map(btn=>btn.addEventListener("click",(event)=>{
+            console.log([...event.target.classList]);
+             const className =[...event.target.classList].indexOf("increase-quantity-btn"); 
+             if(className === -1){
+              // ? increase
+              if(basketProduct.productCount > 0){
+                 basketProduct.productCount --;
+              }
+              document.querySelector(".item-price").innerText = `${basketProduct.productCount} `
+             }else{
+              basketProduct.productCount ++;
+              document.querySelector(".item-price").innerText = `${basketProduct.productCount} `
+             }
+             
+             
+          }))
+          basketComponent.addEventListener("click", async(event) => {
+            if([...event.target.classList].indexOf("deleteProductFromBasket")!==-1){
+              const porductID = basketComponent.dataset.productId;
+               removeElement(porductID);
+            }
+          });
+          
+
         });
         productsCost= productsCost.toFixed(2);
         totalPriceWrapper.innerText = productsCost
@@ -42,5 +68,14 @@ document.querySelector(".basket-link").addEventListener("click", () => {
       
   }
 });
-
+const removeElement = (id)=>{
+   fetch("/deleteFromBasket",{
+    "method":"POST",
+    body:JSON.stringify({id}),
+    headers:{
+      "Content-Type":"application/json"
+    }
+  }).then(res=>res.json())
+  .then(res=>console.log(res))
+};
 
