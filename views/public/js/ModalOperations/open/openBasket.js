@@ -1,5 +1,11 @@
 const basket = document.querySelector(".basket");
-document.querySelector(".basket-link").addEventListener("click", () => {
+document.addEventListener("click",(event)=>{
+ if(!basket.contains(event.target) && basket.style.display ==="block"){
+  console.log("Aaaaaa")
+  basket.style.display = "none"
+}
+})
+document.querySelector(".basket-link").addEventListener("click", (event) => {
   if (basket.style.display === "block") {
     basket.style.display = "none";
   } else {
@@ -18,6 +24,7 @@ document.querySelector(".basket-link").addEventListener("click", () => {
         products.map((basketProduct) => {
           let basketComponent = document.createElement("div");
           basketComponent.setAttribute("data-product-id", basketProduct._id);
+          basketComponent.setAttribute("data-product-count", basketProduct.productCount);
           basketComponent.classList.add("basket-component");
           basketComponent.innerHTML = `
             <div class="deleteProductFromBasket">x</div>
@@ -34,24 +41,8 @@ document.querySelector(".basket-link").addEventListener("click", () => {
             </div></div>`;
           productWrapper.append(basketComponent);
           productsCost += parseFloat(basketProduct.SellingPrice) * parseFloat(basketProduct.productCount); 
-          const deleteButton = basketComponent.querySelector(".deleteProductFromBasket");
-          const quantityButton =  document.querySelectorAll(".btn.quantity-btn");
-          [...quantityButton].map(btn=>btn.addEventListener("click",(event)=>{
-            console.log([...event.target.classList]);
-             const className =[...event.target.classList].indexOf("increase-quantity-btn"); 
-             if(className === -1){
-              // ? increase
-              if(basketProduct.productCount > 0){
-                 basketProduct.productCount --;
-              }
-              document.querySelector(".item-price").innerText = `${basketProduct.productCount} `
-             }else{
-              basketProduct.productCount ++;
-              document.querySelector(".item-price").innerText = `${basketProduct.productCount} `
-             }
-             
-             
-          }))
+         
+       
           basketComponent.addEventListener("click", async(event) => {
             if([...event.target.classList].indexOf("deleteProductFromBasket")!==-1){
               const porductID = basketComponent.dataset.productId;
@@ -59,14 +50,17 @@ document.querySelector(".basket-link").addEventListener("click", () => {
             }
           });
           
+          
 
         });
+      
         productsCost= productsCost.toFixed(2);
         totalPriceWrapper.innerText = productsCost
       })
       .catch((err) => console.log(err));
       
   }
+  event.stopPropagation()
 });
 const removeElement = (id)=>{
    fetch("/deleteFromBasket",{
