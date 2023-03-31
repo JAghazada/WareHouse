@@ -365,7 +365,7 @@ ul{
     align-items: center;
 }
 .basket-img>img {
-    height: 130px;
+    width: 130px;
 }
 .item-price{
     font-weight: 600;
@@ -405,7 +405,7 @@ ul{
     height: 50px;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
+    color: #000000 !important;
     border: 1px solid #cedef3!important;
     border-radius: .2rem!important;
     background-color: rgb(209, 209, 209);
@@ -501,3 +501,46 @@ ul{
     display: none;
     background-image: line;
 }
+/* ?loadScreen */
+.lds-ring {
+    display: none;
+    justify-content: center;
+    background-color: #fff;
+    z-index: 3000;
+    align-items: center;
+    position: absolute;
+    opacity: .785;
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #000000;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #1a1818 transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

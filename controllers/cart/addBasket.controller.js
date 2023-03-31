@@ -1,4 +1,4 @@
-const productSchema = require("../database/models/productSchema");
+const productSchema = require("../../database/models/productSchema");
 const addBasketController = async (req, res) => {
   const { obj_id, productCount } = req.body;
   const product = await productSchema.findOne({ _id: obj_id });
