@@ -34,6 +34,9 @@ addBasketButton.addEventListener("click",(e)=>{
     e.preventDefault();
     const obj_id = objidinp.value;
     const productCount = D_ProductInput.value
+    if(data.NumberOfProducts< productCount ){
+        return alert("yeterli mehsul yoxdur")
+    }
     fetch("/addBasket",{
         method:"POST",
         headers: {
