@@ -1,48 +1,28 @@
-<style>
-   .m1 {
-    display: flex;
-    justify-content: space-around;
-    margin: 10px;
-   }
-   .btn{
-    background-color: brown;
-    padding: 15px;
-   }
-</style>
-<div class="m1" data-product-count="50" >
-    <btn class="btn quantity-btn decrease-quantity-btn  btn-danger">-</btn>
-    <span class="item-price">17</span>
-    <btn class="btn quantity-btn increase-quantity-btn btn-success">+</btn>
-</div>
-<div class="m1" data-product-count="20">
-    <btn class="btn quantity-btn decrease-quantity-btn  btn-danger">-</btn>
-    <span class="item-price">17</span>
-    <btn class="btn quantity-btn increase-quantity-btn btn-success">+</btn>
-</div>
-<div class="m1" data-product-count="10">
-    <btn class="btn quantity-btn decrease-quantity-btn  btn-danger">-</btn>
-    <span class="item-price">17</span>
-    <btn class="btn quantity-btn increase-quantity-btn btn-success">+</btn>
-</div>
-<div class="m1" data-product-count="35">
-    <btn class="btn quantity-btn decrease-quantity-btn  btn-danger">-</btn>
-    <span class="item-price">17</span>
-    <btn class="btn quantity-btn increase-quantity-btn btn-success">+</btn>
-</div>
-<div class="m1" data-product-count="58">
-    <btn class="btn quantity-btn decrease-quantity-btn  btn-danger">-</btn>
-    <span class="item-price">17</span>
-    <btn class="btn quantity-btn increase-quantity-btn btn-success">+</btn>
-</div>
-<div class="m1" data-product-count="96">
-    <btn class="btn quantity-btn decrease-quantity-btn  btn-danger">-</btn>
-    <span class="item-price">17</span>
-    <btn class="btn quantity-btn increase-quantity-btn btn-success">+</btn>
-</div>
-<script>
-    const decreaseButton  = document.querySelectorAll(".decrease-quantity-btn");
-    [...decreaseButton].forEach(btn=>{
-        btn.addEventListener("click",(e)=>console.log(e.target.closest(".m1").getAttribute("data-product-count")))
-    })
+<!--!  <script>
+    const countOperation = (id, type) => {
+    const productIndex = cartData.findIndex((prod) => prod.id === id);
 
-</script>
+    if (type === "increase") {
+      setCartData(state=>{
+        const updatedDATA = [...state];
+        updatedDATA[productIndex].productCount++;
+        return updatedDATA
+      })
+    }
+    else if(type==="decrease"){
+      setCartData((state) => {
+        const updatedCartData = [...state];
+        if(updatedCartData[productIndex].productCount>1 )
+        updatedCartData[productIndex].productCount--;
+        return updatedCartData;
+    })
+  }
+  
+  else{
+   setCartData((state)=>{
+    const updatedCartData = state.filter(product=>product.id !== id);
+    return updatedCartData
+   }) 
+  }
+}
+</script> -->
