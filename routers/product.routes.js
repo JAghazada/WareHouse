@@ -37,7 +37,5 @@ router.post(
   ],
   uploadProduct
 );
-router.get("/addProduct", (req, res) => {
-  res.render("addProduct");
-});
+
 module.exports = router
