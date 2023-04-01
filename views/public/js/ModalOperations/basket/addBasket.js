@@ -17,9 +17,10 @@ D_ProductInput.addEventListener("input",(e)=>{
     D_U2.innerHTML = `${numVal*data.Unit2} ${data.SecondUnitOfMeasurment}`
 })
 const openAddBasketModal=(vals)=>{
+    addBasketModal.style.display = "flex";
+
     data = {...vals}
     objidinp.value = data._id 
-    addBasketModal.style.display = "flex";
     D_U1.innerHTML = `${data.UnitOfMeasurment}`
     D_U2.innerHTML = `${data.SecondUnitOfMeasurment}`
     D_equals.innerHTML = `${data.Unit1} ${data.UnitOfMeasurment} = ${data.Unit2} ${data.SecondUnitOfMeasurment}`

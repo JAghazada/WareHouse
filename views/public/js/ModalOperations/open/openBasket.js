@@ -118,7 +118,6 @@ const setLoadingScreenState = (state=true)=>{
 }
 
 const updateBasketProduct = (updatedCount, id) => {
-  setLoadingScreenState()
   fetch("/updateBasketProductCount", {
     method: "PUT",
     body: JSON.stringify({
@@ -129,7 +128,10 @@ const updateBasketProduct = (updatedCount, id) => {
       "Content-Type": "application/json",
     },
   })
-    .then((res) => res.json())
+    .then((res) =>{
+    setLoadingScreenState();
+      
+    return   res.json()})
     .then((prods) => {
       listBasketProducts(prods)
     })
@@ -137,7 +139,7 @@ const updateBasketProduct = (updatedCount, id) => {
     .finally(()=>{
       setTimeout(()=>{
         setLoadingScreenState(false)
-      },1500);
+      },500);
     })
 };
 

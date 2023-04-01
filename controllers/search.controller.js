@@ -34,7 +34,6 @@ const searchProduct = async (req, res) => {
    })
     res.json(products);
    } catch (error) {
-    console.log(error)
    }
   
   } catch (error) {
