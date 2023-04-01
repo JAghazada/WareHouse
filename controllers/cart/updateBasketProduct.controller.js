@@ -5,7 +5,7 @@ const updateBasketProductController = (req,res)=>{
     const userID = req.session.userID;
 
     let basket = req.session.basket || {};
-    let userBasket = req.session.basket[userID] || [];
+    let userBasket = basket[userID] || [];
     if(userBasket.length === 0 ){
         return res.json({
             success:false,

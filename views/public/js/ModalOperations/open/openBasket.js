@@ -134,11 +134,7 @@ const updateBasketProduct = (updatedCount, id) => {
       listBasketProducts(prods)
     })
     .catch((error) => console.log(error))
-    .finally(()=>{
-      setTimeout(()=>{
-        setLoadingScreenState(false)
-      },1500);
-    })
+    
 };
 
 const clearBasket = ()=>{
@@ -149,11 +145,7 @@ const clearBasket = ()=>{
   }).then(res=>res.json())
   .then(res=>listBasketProducts(res))
   .catch((error) => console.log(error))
-  .finally(()=>{
-    setTimeout(()=>{
-      setLoadingScreenState(false)
-    },1500);
-  })
+ 
 }
 
 
