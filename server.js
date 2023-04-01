@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text({type: '/'}));
 app.use(express.static(__dirname + "/views/public"));
 app.use(session({
-  secret:process.env.SECRET_KEY,
+  secret:"VanqedMaster",
   resave:false,
   saveUninitialized:true,
   store:MongoStore.create({mongoUrl:process.env.DB_URI}),
