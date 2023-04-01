@@ -118,7 +118,6 @@ const setLoadingScreenState = (state=true)=>{
 }
 
 const updateBasketProduct = (updatedCount, id) => {
-  setLoadingScreenState()
   fetch("/updateBasketProductCount", {
     method: "PUT",
     body: JSON.stringify({
@@ -129,12 +128,19 @@ const updateBasketProduct = (updatedCount, id) => {
       "Content-Type": "application/json",
     },
   })
-    .then((res) => res.json())
+    .then((res) =>{
+    setLoadingScreenState();
+      
+    return   res.json()})
     .then((prods) => {
       listBasketProducts(prods)
     })
     .catch((error) => console.log(error))
-    
+    .finally(()=>{
+      setTimeout(()=>{
+        setLoadingScreenState(false)
+      },500);
+    })
 };
 
 const clearBasket = ()=>{
@@ -145,7 +151,11 @@ const clearBasket = ()=>{
   }).then(res=>res.json())
   .then(res=>listBasketProducts(res))
   .catch((error) => console.log(error))
- 
+  .finally(()=>{
+    setTimeout(()=>{
+      setLoadingScreenState(false)
+    },1500);
+  })
 }
 
 

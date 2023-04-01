@@ -1,7 +1,5 @@
 const updateBasketProductController = (req,res)=>{
-    console.log(req.body);
     const {updatedCount,id} = req.body;
-    console.log(updatedCount,id);
     const userID = req.session.userID;
 
     let basket = req.session.basket || {};

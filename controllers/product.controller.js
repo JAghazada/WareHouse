@@ -10,7 +10,6 @@ const uploadProduct = async (req, res) => {
     barcodes.push((code))
   })
   data.QRcode = barcodes
-  console.log((data.QRcode))
   if(req.file && req.file.originalname) data.image = req.file.originalname;
   const saveProduct = new productSchema(data);
   data["Operation"] = "create";
