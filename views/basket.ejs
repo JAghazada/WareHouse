@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- [
+  {
+    _id: '6426e2042b55ee42fee80c18',
+    ProductName: 'TestProdAfterDeleting',
+    CompanyName: 'seymur',
+    NumberOfProducts: 12,
+    PurchasePrice: 55,
+    SellingPrice: 46,
+    QRcode: [ '61651661651', '561561561651561', '56165156156' ],
+    MainCode: 61651661651,
+    Link: 'TestProdAfterDeleting_61651661651.jpg',
+    UnitOfMeasurment: 'number',
+    SecondUnitOfMeasurment: 'number',
+    Unit1: 1,
+    Unit2: 1,
+    createdAt: '2023-03-31T13:37:08.896Z',
+    updatedAt: '2023-03-31T13:37:08.896Z',
+    __v: 0,
+    productCount: 10
+  },
+  {
+    _id: '64199f6dfe7d06ac264e4492',
+    ProductName: 'Testprod',
+    CompanyName: 'seymyr',
+    NumberOfProducts: 220,
+    PurchasePrice: 12,
+    SellingPrice: 34,
+    QRcode: [
+      '312312312',
+      '313221312312',
+      '312123',
+      '000031',
+      '069',
+      '1',
+      '000000000000000000000'
+    ],
+    MainCode: 312312312,
+    Link: 'Testprod_312312312.png',
+    UnitOfMeasurment: 'packet',
+    SecondUnitOfMeasurment: 'number',
+    Unit1: 1,
+    Unit2: 6,
+    createdAt: '2023-03-21T12:13:33.832Z',
+    updatedAt: '2023-03-31T13:36:33.541Z',
+    __v: 4,
+    productCount: 9
+  }
+] -->
+
+<body>
+<%- include("partials/navbar.ejs") %>
+
+
+    <h1>Basket</h1>
+    <% basket.map(prod=>{ %>
+        <div class="d-flex">
+            <div class="basket-pg-image">
+                <% if(prod.Link!==undefined){ %>
+                    <img height="40" src="/img/<%= (prod.Link) %>"" alt="">
+                <%}
+                else{%>
+                    <img src="/img/vedre.png" alt="">
+                <% }%>
+            </div>
+            <div class="basket-pg-product-info"></div>
+            <div class="basket-pg-product-price-operations"></div>
+            <div class="basket-pg-product-delete"></div>
+        </div>
+    <% }) %>
+  
+</body>
+</html>

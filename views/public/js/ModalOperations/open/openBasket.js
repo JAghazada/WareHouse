@@ -1,6 +1,10 @@
 const basket = document.querySelector(".basket");
 let isBasketEmpty = false;
 const clearBasketButton = document.querySelector(".clear-basket");
+const shoppingCartContinue = document.querySelector(".shopping-cart-continue");
+shoppingCartContinue.addEventListener("click",async()=>{
+  window.location.href="/basket"
+})
 const listBasketProducts = (products) => {
   const productWrapper = document.querySelector(".product-wrapper");
   const totalPriceWrapper = document.querySelector(".total-price > span");
@@ -53,7 +57,7 @@ const listBasketProducts = (products) => {
         document.querySelector(
           `[data-prod-count="${basketProduct._id}"]`
         ).innerText = basketProduct.productCount;
-      }
+      };
       if (getClass.indexOf("increase-quantity-btn") !== -1) {
         if (basketProduct.productCount < basketProduct.NumberOfProducts) {
           basketProduct.productCount++;
@@ -151,4 +155,6 @@ const clearBasket = ()=>{
     },1500);
   })
 }
+
+
 clearBasketButton.addEventListener("click",clearBasket)
