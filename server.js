@@ -10,6 +10,7 @@ const mongoSanitize = require("express-mongo-sanitize")
 const errorHandlerMiddleware = require("./middlewares/ErrorHandler");
 const bodyParser = require("body-parser");
 const MongoStore = require("connect-mongo");
+const reports= require("./report");
     //?dotenv configuration
 dotenv.config();
 const port = process.env.PORT || 5001;
@@ -51,4 +52,5 @@ io = socket(server);
 app.set("socketio",io)
 server.listen(port, () => {
     console.warn(`Server running on port: ${port}`);
+    reports()
 });

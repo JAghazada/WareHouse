@@ -7,25 +7,25 @@ class AuthValidation {
     static register = async(req, res, next) => {
         try {
             await joi.object({
-                name: joi.string().trim().min(3).max(12).required().messages({
+                name: joi.string().trim().min(5).max(20).required().messages({
                     "string.base": " Namespace must be regular text",
                     "string.empty": "Namespace can't be empty",
-                    "string.min": "Name have to min 3 characters",
-                    "string.max": "Name have to max 12  characters",
+                    "string.min": "Name have to min 5 characters",
+                    "string.max": "Name have to max 20  characters",
                     "string.required": "Name is required"
                 }),
-                pass: joi.string().trim().min(3).max(12).required().messages({
+                pass: joi.string().trim().min(5).max(20).required().messages({
                     "string.base": " Password must be regular text",
                     "string.empty": "Password can't be empty",
-                    "string.min": "Password have to min 3 characters",
-                    "string.max": "Password have to max 12  characters",
+                    "string.min": "Password have to min 5 characters",
+                    "string.max": "Password have to max 20  characters",
                     "string.required": "Password is required"
                 }),
-                repass: joi.string().equal(req.body.pass).trim().min(3).max(12).required().messages({
+                repass: joi.string().equal(req.body.pass).trim().min(5).max(20).required().messages({
                     "string.base": " Password must be regular text",
                     "string.empty": "Password can't be empty",
-                    "string.min": "Password have to min 3 characters",
-                    "string.max": "Password have to max 12  characters",
+                    "string.min": "Password have to min 5 characters",
+                    "string.max": "Password have to max 20  characters",
                     "string.required": "Password is required",
                     "string.equal": "Password and Reppasword must be same"
                 }),
@@ -40,18 +40,18 @@ class AuthValidation {
     static login = async(req,res,next)=>{
         try{
             await joi.object({
-                name: joi.string().trim().min(3).max(12).required().messages({
+                name: joi.string().trim().min(5).max(20).required().messages({
                     "string.base": " Namespace must be regular text",
                     "string.empty": "Namespace can't be empty",
-                    "string.min": "Name have to min 3 characters",
-                    "string.max": "Name have to max 12  characters",
+                    "string.min": "Name have to min 5 characters",
+                    "string.max": "Name have to max 20  characters",
                     "string.required": "Name is required"
                 }),
-                pass: joi.string().trim().min(3).max(12).required().messages({
+                pass: joi.string().trim().min(5).max(20).required().messages({
                     "string.base": " Password must be regular text",
                     "string.empty": "Password can't be empty",
-                    "string.min": "Password have to min 3 characters",
-                    "string.max": "Password have to max 12  characters",
+                    "string.min": "Password have to min 5 characters",
+                    "string.max": "Password have to max 20  characters",
                     "string.required": "Password is required"
                 })
             }).validateAsync(req.body)

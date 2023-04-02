@@ -508,7 +508,7 @@ ul{
 }
 /* ?loadScreen */
 .lds-ring {
-    display: none;
+    display: none ;
     justify-content: center;
     background-color: #fff;
     z-index: 3000;
@@ -554,7 +554,7 @@ ul{
     width: 100%;
 }
 .basket-pg-image > img {
-    width: 60px;
+    height: 70px;
     background-color: #eee;
     padding: 10px;
 }
@@ -595,4 +595,10 @@ ul{
 .bordered{
     padding: 40px 30px;
 
+}
+@media only screen and (max-width:768px)  {
+    .other-infos{
+        display: flex !important;
+        flex-direction: column-reverse !important;
+    }    
 }
