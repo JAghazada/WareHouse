@@ -59,13 +59,13 @@
               <div class="basket-pg-product-price-operations  col-md-2">
 
                 <button class="btn quantity-btns decrease-btn secondary"
-                  onclick="changeProductCount('<%=prod._id%>','<%=prod.productCount-1%>')">-</button>
+                  onclick="changeProductCount('<%=prod._id%>','<%=parseFloat(prod.productCount)-1 %>')">-</button>
 
                 <span class="basket-pg-quantity">
                   <%=prod.productCount%>
                 </span>
 
-                <button class="btn quantity-btns increase-btn secondary">+</button>
+                <button class="btn quantity-btns increase-btn secondary" onclick="changeProductCount('<%=prod._id%>','<%=parseFloat(prod.productCount)+1 %>')">+</button>
 
               </div>
               <!-- !total price -->
@@ -91,7 +91,7 @@
             Ağazadə</span> </h5>
         <h5 class="text-md-center mt-3 mt-md-0 mb-0" style="font-weight: 600;"> Mehsullar Toplami:
           <!-- !basket total price -->
-          <%=basket.totalBasketPrice %>₼
+          <%=totalBasketPrice %>₼
         </h5>
       </div>
       <div class="mt-3 mt-md-2">
@@ -104,12 +104,12 @@
       </div>
       <div class="d-flex mt-md-3">
         <!-- !approve order button -->
-        <button style="background-color: #1072b3; color: #fafafa;padding: 7px 25px;" class="btn">Sifarişi
+        <button style="background-color: #1072b3; color: #fafafa;padding: 7px 25px;" class="btn confirm-order-btn">Sifarişi
           Təsdiqlə</button>
       </div>
     </div>
     <script src="/js/utilities/changeProductCount.js"></script>
-   
+   <script src="/js/cart/confirmOrder.js"></script>
 </body>
 <script>
 

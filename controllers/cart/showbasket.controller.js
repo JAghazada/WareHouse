@@ -7,10 +7,8 @@ const showBasketController = (req,res)=>{
     }
     let totalBasketPrice = 0
     userBasket.map(product=>totalBasketPrice+= parseFloat(product.SellingPrice)*parseFloat(product.productCount));
-    totalBasketPrice.toFixed(2);
-    userBasket["totalBasketPrice"] = totalBasketPrice;
-    
-    return res.render("basket",{basket:userBasket});
+    totalBasketPrice =  totalBasketPrice.toFixed(2);
+    return res.render("basket",{basket:userBasket,totalBasketPrice});
 
 }
 module.exports = showBasketController
