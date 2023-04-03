@@ -54,9 +54,7 @@ const listBasketProducts = (products) => {
           basketProduct.productCount--;
           updateBasketProduct(basketProduct.productCount, basketProduct._id);
         }
-        document.querySelector(
-          `[data-prod-count="${basketProduct._id}"]`
-        ).innerText = basketProduct.productCount;
+        document.querySelector( `[data-prod-count="${basketProduct._id}"]`).innerText = basketProduct.productCount;
       };
       if (getClass.indexOf("increase-quantity-btn") !== -1) {
         if (basketProduct.productCount < basketProduct.NumberOfProducts) {
@@ -109,8 +107,8 @@ const removeElement = (id) => {
     .then((res) => console.log(res));
 };
 
-const setLoadingScreenState = (state=true)=>{
-  const loadScreen = document.querySelector(".lds-ring");
+const setLoadingScreenState = (state=true,section)=>{
+  const loadScreen = document.querySelector(section);
   if(state){
     return loadScreen.style.display = "flex"  
   }
@@ -118,7 +116,6 @@ const setLoadingScreenState = (state=true)=>{
 }
 
 const updateBasketProduct = (updatedCount, id) => {
-  setLoadingScreenState()
   fetch("/updateBasketProductCount", {
     method: "PUT",
     body: JSON.stringify({
@@ -129,15 +126,18 @@ const updateBasketProduct = (updatedCount, id) => {
       "Content-Type": "application/json",
     },
   })
-    .then((res) => res.json())
+    .then((res) =>{
+    setLoadingScreenState(true,".lds-ring");
+      
+    return   res.json()})
     .then((prods) => {
       listBasketProducts(prods)
     })
     .catch((error) => console.log(error))
     .finally(()=>{
       setTimeout(()=>{
-        setLoadingScreenState(false)
-      },1500);
+        setLoadingScreenState(false,".lds-ring")
+      },500);
     })
 };
 

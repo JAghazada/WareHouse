@@ -32,7 +32,7 @@ const ModalOpen = (vals,type)=>{
         openAddBasketModal(vals)
     }else{
         let className = "increase-wrapper"
-        type==="export" ? className = "decrease-wrapper" : className = "increase-wrapper"  
+        document.querySelector(`.${className}`).style.display = "flex";
           document.querySelector(`.${className}>.card>.name>span`).innerText=vals.ProductName 
           document.querySelector(".objidinp").value=vals._id
           document.querySelector(`.${className}>.card>.count>span`).innerText=vals.NumberOfProducts
@@ -49,7 +49,6 @@ const ModalOpen = (vals,type)=>{
           }else{
               document.querySelector(`.${className}>.card>.img-area`).innerHTML =``
           }
-          document.querySelector(`.${className}`).style.display = "flex";
     }
 
 }

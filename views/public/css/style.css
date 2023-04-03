@@ -1,4 +1,8 @@
-/* ! I'm not just a CSS file, I'm the CSS file that disgusts JA from the front. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
 .form-wrapper{
     width: 500px;
     background-color: #fff;
@@ -315,8 +319,9 @@ ul{
     right: 10px;
     background-color: #fff;
     border-radius: 12px;
+    background-color: #eee;
+    padding: 20px 10px;
     width: 450px;
-    height: 600px;
     
 }
 .el-center{
@@ -503,7 +508,7 @@ ul{
 }
 /* ?loadScreen */
 .lds-ring {
-    display: none;
+    display: none ;
     justify-content: center;
     background-color: #fff;
     z-index: 3000;
@@ -543,4 +548,57 @@ ul{
       transform: rotate(360deg);
     }
   }
-  
+  /*? basket-page */
+.basket-pg-wrapper{
+    border: 1px solid #0000001d;
+    width: 100%;
+}
+.basket-pg-image > img {
+    height: 70px;
+    background-color: #eee;
+    padding: 10px;
+}
+.basket-pg-quantity{
+    font-size: 20px;
+}
+.quantity-btns {
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 17px;
+}
+.basket-pg-wrapper>div>div>*{
+    text-align: center;
+    font-weight: 500;
+}
+.basket-pg-product-price-operations{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.basket-pg-product-name{
+    color: #1072b3;
+    font-size: 17px;
+    font-weight: 600 ;
+}
+.basket-pg-product-delete{
+    cursor: pointer;
+    transition: .3s;
+    font-weight: 900 !important;
+}
+.basket-pg-product-delete:hover{
+    color: #ed2939;
+}
+.bold-price {
+    font-weight: 600 !important;
+}
+.bordered{
+    padding: 40px 30px;
+
+}
+@media only screen and (max-width:768px)  {
+    .other-infos{
+        display: flex !important;
+        flex-direction: column-reverse !important;
+    }    
+}
