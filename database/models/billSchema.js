@@ -60,6 +60,5 @@ const billSchema = new mongoose.Schema(
     Date:{
       type:Date
     }
-  },{collection: "Bills",timestamps: true, }
-);
+  },{collection: "Bills",timestamps: true});
 module.exports = mongoose.model("billSchema", billSchema);

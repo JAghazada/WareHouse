@@ -13,6 +13,7 @@ const login = async(req, res) => {
     if(!comparePassword){
         throw new APIError("Password or Email is wrong",403)
     }
+    req.session.user = findUser.name
     req.session.userID = findUser._id;
     createToken(findUser,res)
 
