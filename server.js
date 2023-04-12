@@ -51,6 +51,7 @@ const server = require("http").createServer(app)
 io = socket(server);
 app.set("socketio",io)
 server.listen(port, () => {
+  console.log("Hamina soxum");
     console.warn(`Server running on port: ${port}`);
     reports()
 });
