@@ -1,0 +1,169 @@
+// Register section start
+.register {
+  width: 100%;
+  background-color: #12192c;
+  .container {
+    width: 100%;
+    .row {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      .left-side {
+        flex: 0 0 25%;
+        max-width: 25%;
+        img {
+          width: 100%;
+          height: 100vh;
+          background-color: #0f1525;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+      .right-side {
+        flex: 0 0 75%;
+        max-width: 75%;
+        background-color: #12192c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 70px;
+        .right-side-inner {
+          padding: 0 120px;
+          form {
+            .caption {
+              padding: 0 20px;
+              .account {
+                margin-bottom: 5px;
+                font-size: 32px;
+                font-weight: 700;
+                line-height: 48px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #fff;
+              }
+              .caption-text {
+                padding-right: 200px;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 27px;
+                text-align: left;
+                color: #7f7f7f;
+              }
+            }
+            .input-field {
+              padding: 40px 20px 10px;
+              .ui-input {
+                width: 100%;
+                padding: 12px 20px;
+                margin-bottom: 30px;
+                background-color: transparent;
+                outline: none;
+                border: 1px solid #ccbfbf;
+                border-radius: 4px;
+                color: #fff;
+                transition: all 0.3s ease;
+                &::placeholder {
+                  font-weight: 400;
+                  font-size: 16px;
+                  line-height: 24px;
+                  color: #7f7f7f;
+                }
+                &:focus {
+                  border-color: #63ef5f;
+                  transition: all 0.3s ease;
+                }
+              }
+            }
+            .personal-action {
+              padding: 5px 20px 20px;
+              .ui-check {
+                position: relative;
+                padding-left: 40px;
+                color: #7f7f7f;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                display: block;
+                cursor: pointer;
+                max-width: 100%;
+                transition: all 0.3s ease;
+                &:hover {
+                  transition: all 0.3s ease;
+                  color: #fff;
+                  .ui-check-input {
+                    border: 0.1rem solid #fff;
+                  }
+                }
+                .ui-check-input {
+                  appearance: none;
+                  border-radius: 0;
+                  display: block;
+                  width: 20px;
+                  height: 20px;
+                  border: 1px solid #e8e8e8;
+                  border-radius: 4px;
+                  position: absolute;
+                  top: 2px;
+                  left: 0;
+                  transition: 0.25s;
+                }
+                .ui-check-input:checked {
+                  appearance: none;
+                  background-color: #00aec7;
+                  color: white;
+                  width: 20px;
+                  height: 20px;
+                  border: none;
+                  border-radius: 4px;
+                  transform: translateY(-0.075em);
+                }
+              }
+            }
+            .btn-action {
+              padding: 15px 20px;
+              .btn-continue {
+                color: #fff;
+                padding: 12px 63px;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                outline: none;
+                border: none;
+                background-color: #4b72c2;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+                &:hover {
+                  transition: all 0.3s ease;
+                  background-color: #1f3d7a;
+                  transform: scale(0.93);
+                }
+              }
+            }
+            .personal-help {
+              padding: 20px;
+              .help-text {
+                border-top: 2px solid rgba(61, 61, 61, 1);
+                padding-top: 30px;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: #ccbfbf;
+                a {
+                  color: rgba(75, 114, 194, 1);
+                  transition: all 0.3s ease;
+                  &:hover {
+                    transition: all 0.3s ease;
+                    color: rgb(135, 175, 255);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Register Media Query Start

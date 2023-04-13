@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+:root{
+    --bodyColor : #12192c;
+    --mainFont : 'Montserrat', sans-serif;
+}
+*{
+    font-family: var(--mainFont) !important;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+/* !body */
+body{
+   background-color:  var(--bodyColor);
+}
+.contain {
+    width: 95%;
+    margin: 0 auto;
+}
+.nav-item {
+    font-size: 25px;
+    color: #fff;
+}
+.nav-links{
+    margin-bottom: 0 ;
+
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    transition: .2s ease-in-out !important;
+
+}
+.nav-links>li{
+    cursor: pointer;
+}
+nav{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    height: 130px;
+}
+/* !burger menu */
+.burger-menu {
+    width: 50px;
+    z-index: 1000;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+  }
+  
+  .burger-menu > .line {
+    width: 50px;
+    height: 8px;
+    transition: .2s ease-in-out;
+    background-color: #fff;
+    transform-origin: center;
+  }
+  .burger-menu.active > .line:nth-child(1) {
+    transform: translateY(16px) rotate(45deg);
+  }
+  
+  .burger-menu.active > .line:nth-child(2) {
+    transform: scale(0);
+  }
+  
+  .burger-menu.active > .line:nth-child(3) {
+    transform: translateY(-16px) rotate(-45deg);
+  }
+.burger-menu{
+    display: none;
+}
+
+.nav-icons {
+    width: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.basket > img,.profile>img{
+        height: 45px;
+        cursor:pointer;
+} 
+
+/* ? queries */
+@media screen and (max-width:1245px) {
+    .nav-links{
+        width: 70%;
+    }
+    .nav-icons{
+        width: 12%;
+    }
+}
+@media screen and (max-width:1080px) {
+    .nav-links{
+        width: 80%;
+    }
+    .nav-icons{
+        width: 12%;
+    }
+}
+@media screen and (max-width:925px) {
+    .nav-links{
+        width: auto;
+        background-color: darkblue;
+        flex-direction: column;
+        z-index: 101;
+        align-items: center;
+        padding: 30px;
+        height: 30vh;
+        margin-top: 80px !important;
+        transition: .5s ease-in !important;
+
+    }    
+    .nav-item{
+        font-size: 20px;
+        line-break:strict;
+    }
+    .nav-items{
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+    .nav-items:first-child,.burger-menu{
+        margin-top: 22px;
+        margin-left: 20px;
+        margin-right: 0;
+    }
+
+
+    .nav-icons{
+        width: auto;
+    }
+    nav{
+        align-items: start;
+        justify-content:end;
+        padding: 0;
+    }
+    .basket{
+        margin-right: 20px
+    }
+    .contain{
+        width: 100%;
+    }
+    .burger-menu {
+        display: flex;
+    }
+    
+    .nav-links{
+        display:none ;
+    }
+  
+}
+
+@media screen and (min-width:1340px) {
+    .moveToRight { 
+        transform: translateX(-50%);
+        transition: .3s ease;
+    }
+    .moveToLeft { 
+        transform: translateX(0%);
+        transition: .3s ease;
+    }
+    .basket{
+        margin-right: 15px;
+    }
+    
+}
+
+/* ?quick search */
+#quick-search {
+    height: 75px;
+    border-radius: 22px;
+    position: relative;
+    outline: none;
+    background: rgba(217, 217, 217, 0.45);
+    border: 0.686117px solid #FFFFFF;
+    color: #fff;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+#quick-search > input {
+    width: 95%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 100%;
+    font-size: 22px;
+    color: #fafafa;
+}
+.search-answer-wrapper {
+
+    margin-top: 50px;
+    height: 550px;
+    background: rgba(217, 217, 217, 0.45);
+    border-radius: 33px;
+
+}
+#quick-search > input::placeholder{
+    font-size: 22px;
+    color: #fafafa;
+}
+
+/* ?BASKET */
+
+.basket-wrapper{
+    opacity: 0;
+    top: 130px;
+    height: 780px;
+    position: absolute;
+    right: 8%;
+    width: 500px;
+    border-radius: 33px;
+    background-color: rgba(217, 217, 217, 0.45);
+    transition: .3s ease-in-out;
+}
+@media screen and (max-width:1339px) {
+    .basket-wrapper {
+        width: 80%;
+        right: 10%;
+        left: 10%;
+        background-color: #fafafa;
+        z-index: 100;
+    }
+    
+}
+@media screen and (max-width:576px) {
+    
+    .basket-wrapper { 
+        width: 90%;
+        right: 5%;
+        left: 5%;
+    }
+    
+}
