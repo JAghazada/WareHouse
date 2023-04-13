@@ -1,0 +1,28 @@
+<!--!  <script>
+    const countOperation = (id, type) => {
+    const productIndex = cartData.findIndex((prod) => prod.id === id);
+
+    if (type === "increase") {
+      setCartData(state=>{
+        const updatedDATA = [...state];
+        updatedDATA[productIndex].productCount++;
+        return updatedDATA
+      })
+    }
+    else if(type==="decrease"){
+      setCartData((state) => {
+        const updatedCartData = [...state];
+        if(updatedCartData[productIndex].productCount>1 )
+        updatedCartData[productIndex].productCount--;
+        return updatedCartData;
+    })
+  }
+  
+  else{
+   setCartData((state)=>{
+    const updatedCartData = state.filter(product=>product.id !== id);
+    return updatedCartData
+   }) 
+  }
+}
+</script> -->
