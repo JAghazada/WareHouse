@@ -6,7 +6,9 @@ const basketIcon  = document.querySelector(".basket-icon");
 const animatedElements = [...document.querySelectorAll(".animate-to-left")]
 const searchAnswerWrapper = document.querySelector(".search-answer-wrapper");
 const searchInput = document.querySelector(".search-answer-wrapper");
-const basketWrapper = document.querySelector(".basket-wrapper")
+const basketWrapper = document.querySelector(".basket-wrapper");
+const profileIcon = document.querySelector(".profile")
+const profileMenu = document.querySelector(".profile-menu");
 burgerMenuIcon.addEventListener("click", (event) => {
   if (navLinks.style.display !== "flex") {
     navLinks.style.display = "flex";
@@ -57,4 +59,10 @@ basketIcon.addEventListener("click",()=>{
 }
  
   
+})
+profileIcon.addEventListener("click",()=>{
+  if(profileMenu.style.opacity !== "1")
+  profileMenu.style.opacity = "1"
+  else
+  profileMenu.style.opacity = "0"
 })
