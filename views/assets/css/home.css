@@ -7,7 +7,7 @@
     font-family: var(--mainFont) !important;
     margin: 0;
     padding: 0;
-    text-decoration: none;
+    text-decoration: none !important;
     list-style: none;
 }
 /* !body */
@@ -42,6 +42,51 @@ nav{
     padding: 30px;
     height: 130px;
 }
+
+ul#menu li{
+    height: 50px;
+    position: relative;
+}
+
+ul#menu li a {
+    display: block;
+    padding: 0 15px;
+    color: #fff;
+}
+ul#menu > li:hover  ul {
+    opacity: 1;
+    visibility: visible;
+    transition: 250ms ease-in-out;
+    top: 50px;
+}
+
+ul#submenu {
+    text-align: left;
+    background-color: #a8a8a8;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    width: 300px;
+    visibility: hidden;
+    top: 40px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+ul#submenu li {
+    border-radius: 16px;
+}
+ul#submenu li a{
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+ul#submenu li a:hover {
+    background-color: #173faa;
+}
+
+
+
 /* !burger menu */
 .burger-menu {
     width: 50px;
@@ -89,6 +134,104 @@ nav{
         height: 45px;
         cursor:pointer;
 } 
+
+
+/* ?quick search */
+#quick-search {
+    height: 75px;
+    border-radius: 22px;
+    position: relative;
+    outline: none;
+    background: rgba(217, 217, 217, 0.45);
+    border: 0.686117px solid #FFFFFF;
+    color: #fff;
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+#quick-search > input {
+    width: 95%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 100%;
+    font-size: 22px;
+    color: #fafafa;
+}
+.search-answer-wrapper {
+
+    margin-top: 50px;
+    height: 550px;
+    background: rgba(217, 217, 217, 0.45);
+    border-radius: 33px;
+
+}
+#quick-search > input::placeholder{
+    font-size: 22px;
+    color: #fafafa;
+}
+
+/* ?BASKET */
+
+.basket-wrapper{
+    opacity: 0;
+    top: 130px;
+    height: 780px;
+    position: absolute;
+    right: 8%;
+    width: 500px;
+    border-radius: 33px;
+    background-color: rgba(217, 217, 217, 0.45);
+    transition: .3s ease-in-out;
+}
+
+.profile-menu {
+    top: 110px;
+    opacity: 0;
+    transition: .3s ease;
+    position: absolute;
+    background-color: #000;
+    right: calc(4% - 22.5px);
+}
+.profile-menu > ul {
+    margin: 0;
+}
+.profile-menu > ul > li{
+    background-color: #12192cd7 ;
+    cursor: pointer;
+    padding: 15px 20px;
+    color: #fff;
+    font-weight: bold;
+}
+.profile-menu > ul > li:hover{
+    background-color: #12192c3c;
+}
+.square {
+    position: absolute;
+    bottom: 93%;
+    z-index: -2;
+    background-color: rgba(255, 255, 255, 0.878);
+    height: 8px;
+    width: 8px;
+    rotate: 45deg;
+    margin-bottom: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ? queries */
 @media screen and (max-width:1245px) {
@@ -174,56 +317,7 @@ nav{
     
 }
 
-/* ?quick search */
-#quick-search {
-    height: 75px;
-    border-radius: 22px;
-    position: relative;
-    outline: none;
-    background: rgba(217, 217, 217, 0.45);
-    border: 0.686117px solid #FFFFFF;
-    color: #fff;
-    margin-top: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-}
-#quick-search > input {
-    width: 95%;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    height: 100%;
-    font-size: 22px;
-    color: #fafafa;
-}
-.search-answer-wrapper {
 
-    margin-top: 50px;
-    height: 550px;
-    background: rgba(217, 217, 217, 0.45);
-    border-radius: 33px;
-
-}
-#quick-search > input::placeholder{
-    font-size: 22px;
-    color: #fafafa;
-}
-
-/* ?BASKET */
-
-.basket-wrapper{
-    opacity: 0;
-    top: 130px;
-    height: 780px;
-    position: absolute;
-    right: 8%;
-    width: 500px;
-    border-radius: 33px;
-    background-color: rgba(217, 217, 217, 0.45);
-    transition: .3s ease-in-out;
-}
 @media screen and (max-width:1339px) {
     .basket-wrapper {
         width: 80%;
@@ -231,6 +325,9 @@ nav{
         left: 10%;
         background-color: #fafafa;
         z-index: 100;
+    }
+    .profile-menu{
+        right: calc(6% - 22px);
     }
     
 }
@@ -240,6 +337,9 @@ nav{
         width: 90%;
         right: 5%;
         left: 5%;
+    }
+    .profile-menu{
+        right: calc(10% - 22px);
     }
     
 }

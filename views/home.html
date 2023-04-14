@@ -20,18 +20,40 @@
         <!-- ! burger menu end -->
         <!-- ? navbar conten start -->
         <nav class="contain">
-            <ul class="nav-items nav-links">
-                <li class="nav-item">Məhsullar</li>
-                <li class="nav-item">Məhsul əməliyyatları <span><img src="./assets/icons/arrow.png" alt=""></span></li>
-                <li class="nav-item">Fakturalar <span><img src="./assets/icons/arrow.png" alt=""></span></li>
-                <li class="nav-item">Print <span><img src="./assets/icons/arrow.png" alt=""></span></li>
+            <ul class="nav-items nav-links" id="menu">
+                <li class="nav-item"><a href="/products">Məhsullar</a></li>
+                <li class="nav-item dropdown"><a href="">Məhsul əməliyyatları <img src="./assets/icons/arrow.png" alt="" ></a>
+                    <ul id="submenu">
+                        <li><a href="">Məxaric</a></li>
+                        <li><a href="">Mədaxil</a></li>
+                        <li><a href="">Anbara Yaz</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="">Fakturalar <span><img src="./assets/icons/arrow.png" alt=""></span></a>
+                    <ul id="submenu">
+                        <li><a href="">Məxaric Fakturasi</a></li>
+                        <li><a href="">Mədaxil Fakturasi</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="">Print</a></li>
             </ul>
             <div class="nav-items nav-icons">
                 <div>
                     <div class="basket"><img src="./assets/icons/basket-icon.svg" class="basket-icon" alt=""></div>
                     <div class="basket-wrapper"></div>
                 </div>
+               <div>
                 <div class="profile"><img src="./assets/icons/profile-icon.svg" alt="" ></div>
+                <div class="profile-menu">
+                    <div class="w-100 d-flex justify-content-end">
+                        <div class="square"></div>
+                    </div>
+                    <ul>
+                        <li>Jamil Aghazada</li>
+                        <li>Admin</li>
+                    </ul>
+                </div>
+               </div>
             </div>
         </nav>
         <!-- ! navbar conten end -->
