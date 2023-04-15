@@ -10,6 +10,11 @@
   text-decoration: none !important;
   list-style: none;
 }
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
 /* !body */
 body {
   background-color: var(--bodyColor);
