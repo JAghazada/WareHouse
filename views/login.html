@@ -18,7 +18,7 @@
             </div>
             <div class="right-side">
               <div class="right-side-inner">
-                <form>
+                <form method="post">
                   <div class="caption">
                     <h3 class="account">Hesaba daxil olun</h3>
                     <p class="caption-text">
@@ -28,14 +28,14 @@
                   </div>
                   <div class="input-field">
                     <input
-                      class="ui-input"
+                      class="ui-input login-name"
                       type="text"
                       name="text"
                       placeholder="Ad, Soyad"
                       required
                     />
                     <input
-                      class="ui-input"
+                      class="ui-input login-password"
                       type="password"
                       name="password"
                       placeholder="Şifrə"
@@ -43,7 +43,9 @@
                     />
                   </div>
                   <div class="btn-action">
-                    <button class="btn-continue" type="submit">Davam et</button>
+                    <button class="btn-continue btn-login" type="submit">
+                      Davam et
+                    </button>
                   </div>
                   <div class="personal-help">
                     <p class="help-text">
@@ -65,6 +67,7 @@
 
     <!-- MY JS -->
     <script src="./assets/js/preventLinks.js"></script>
+    <script src="./assets/js/request/login.js"></script>
 
     <!-- FontAwesome -->
     <script
