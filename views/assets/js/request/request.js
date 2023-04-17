@@ -12,7 +12,7 @@ registerButton.addEventListener("click",(e)=>{
 
     // ?pass must be equal repass
     if(userPass !== userRePass){
-      return  alert("Tekrarlanakod duzgundeyil")
+      return  alert("Tekrarlanan kod duzgun deyil")
     }
     const formData = {
         name:userName,
