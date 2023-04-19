@@ -5,10 +5,13 @@ const userRegisterRePass = document.querySelector(".register-re-password");
 
 registerButton.addEventListener("click",(e)=>{
     e.preventDefault();
-
     const userName =userRegisterName.value.trim();
     const userPass = userRegisterPass.value.trim();
     const userRePass = userRegisterRePass.value.trim();
+
+    // ! alert messages
+
+  
 
     // ?pass must be equal repass
     if(userPass !== userRePass){
@@ -31,10 +34,11 @@ registerButton.addEventListener("click",(e)=>{
     .then(resp=>resp.json())
     .then(res=>{
         if(res.success){
+            return alert('Zortlandiq')
             return  window.location.href="../views/login.html" // ! change route
         }
         // ? error handling
-        alert("Xeta bash verdi");
+       return  alert("Xeta bash verdi");
     })
     .catch(err=>console.log(err))
 })
