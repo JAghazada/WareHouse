@@ -50,9 +50,7 @@ ul#sub-menu>li:hover {
 a,a:hover{
     color: #fff;
 }
-.dropdown-links > ul#sub-menu{
-   
-}
+
 
 ul#icons {
     display: flex;
