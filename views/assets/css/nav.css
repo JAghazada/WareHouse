@@ -51,8 +51,7 @@ a,a:hover{
     color: #fff;
 }
 .dropdown-links > ul#sub-menu{
-    word-wrap: break-word;
-    white-space: nowrap;
+   
 }
 
 ul#icons {
@@ -89,13 +88,10 @@ ul#icons >li>img{
 }
 ul#profile-info{
     margin: 0 !important;
-    width: 100%;
 }
 ul#profile-info>li{
     cursor: pointer;
     padding: 10px 10px;
-    word-wrap: break-word;
-    white-space: nowrap;
 }
 ul#profile-info>li:hover {
     background-color: #000;
@@ -133,7 +129,12 @@ ul#profile-info>li:nth-child(1):hover ~ .square {
 .active > .bar:nth-child(3) {
     transform: translateY(-16px) rotate(-45deg);
 }
-@media screen and (max-width:600px) {
+.dropdown-arrow {
+    height: 8px;
+}
+
+@media screen and (max-width:623px) {
+   
     .burger-icon{
         display: flex;
     }
@@ -144,7 +145,7 @@ ul#profile-info>li:nth-child(1):hover ~ .square {
         position: relative;
         margin-left: 2%;
         visibility: hidden;
-        top:  130px !important;
+        top:  140px !important;
         flex-direction: column;
         background-color: #8d1157;
         z-index: 2000;
@@ -158,15 +159,3 @@ ul#profile-info>li:nth-child(1):hover ~ .square {
     }
    
 }
-.basket-wrapper {
-    opacity: 0;
-    z-index: 1 !important;
-    top: 130px;
-    height: 780px;
-    position: absolute;
-    right: calc(2.5% + 10px);
-    width: 500px;
-    border-radius: 33px;
-    background-color: rgba(217, 217, 217, 0.45);
-    transition: 0.3s ease-in-out;
-  }

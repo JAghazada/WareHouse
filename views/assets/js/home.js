@@ -21,7 +21,7 @@ burgerMenuIcon.addEventListener("click", (event) => {
 });
 
 window.addEventListener("resize", function () {
-  if (window.innerWidth > 599) {
+  if (window.innerWidth > 623) {
     mainMenu.style.visibility = "visible"
   
   } else {
