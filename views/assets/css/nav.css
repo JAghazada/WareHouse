@@ -31,7 +31,7 @@ ul#sub-menu {
     position: absolute;
     background-color: darkblue;
     top: 30px;
-    transition: .100s ease-in-out;
+    /* transition: .100s ease-in-out; */
 }
 ul#sub-menu>li{
     padding: 7px 15px;
