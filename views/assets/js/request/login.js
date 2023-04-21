@@ -2,23 +2,37 @@ const loginButton = document.querySelector(".btn-login");
 const userLoginName = document.querySelector(".login-name");
 const userLoginPass = document.querySelector(".login-password");
 
+// Error function
+function showError(input, message) {
+  const formControl = input.parentElement;
+  formControl.className = "form-control error";
+  const span = formControl.querySelector(".err-message");
+  span.innerText = message;
+}
+
+// Success function
+function showSuccess(input) {
+  formControl = input.parentElement;
+  formControl.className = "form-control success";
+}
+
+// Event listener
 loginButton.addEventListener("click", (e) => {
   e.preventDefault();
 
   const userName = userLoginName.value.trim();
   const userPass = userLoginPass.value.trim();
 
-  // ?pass must be equal repass
-  //   if (userPass !== userRePass) {
-  //     return alert("Tekrarlanan kod duzgun deyil");
-  //   }
-
-  // alerts
-  if (userName === "") {
-    return alert("Ad yazilmalidir!");
+  if (userLoginName.value === "") {
+    showError(userLoginName, "İstifadəçi adı yazılmalıdır!");
+  } else {
+    showSuccess(userLoginName);
   }
-  if (userPass === "") {
-    return alert("Sifre yazilmalidir!");
+
+  if (userLoginPass.value === "") {
+    showError(userLoginPass, "Şifrə yazılmalıdır!");
+  } else {
+    showSuccess(userLoginPass);
   }
 
   const formData = {

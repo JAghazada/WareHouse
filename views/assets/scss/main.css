@@ -15,6 +15,11 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --success-color: #23cc71;
+  --error-color: #e74c3c;
+}
+
 .container {
   width: 90%;
   margin: 0 auto;
@@ -76,8 +81,9 @@ html {
 }
 .login .container .row .right-side .right-side-inner form .input-field {
   padding: 30px 20px 0px;
+  position: relative;
 }
-.login .container .row .right-side .right-side-inner form .input-field .ui-input {
+.login .container .row .right-side .right-side-inner form .input-field .form-control .ui-input {
   width: 100%;
   padding: 12px 20px;
   margin-bottom: 25px;
@@ -88,21 +94,42 @@ html {
   color: #fff;
   transition: all 0.3s ease;
 }
-.login .container .row .right-side .right-side-inner form .input-field .ui-input::-moz-placeholder {
+.login .container .row .right-side .right-side-inner form .input-field .form-control .ui-input::-moz-placeholder {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #7f7f7f;
 }
-.login .container .row .right-side .right-side-inner form .input-field .ui-input::placeholder {
+.login .container .row .right-side .right-side-inner form .input-field .form-control .ui-input::placeholder {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #7f7f7f;
 }
-.login .container .row .right-side .right-side-inner form .input-field .ui-input:focus {
+.login .container .row .right-side .right-side-inner form .input-field .form-control .ui-input:focus {
   border-color: #14dfff;
   transition: all 0.3s ease;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control .err-message {
+  color: var(--error-color);
+  position: absolute;
+  left: 25px;
+  margin-top: -18px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  visibility: hidden;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control.success .ui-input {
+  border-color: var(--success-color);
+  transition: all 0.3s ease;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control.error .ui-input {
+  border-color: var(--error-color);
+  transition: all 0.3s ease;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control.error .err-message {
+  transition: all 0.3s ease;
+  visibility: visible;
 }
 .login .container .row .right-side .right-side-inner form .btn-action {
   padding: 10px 20px;
@@ -338,8 +365,10 @@ html {
 }
 .register .container .row .right-side .right-side-inner form .input-field {
   padding: 30px 20px 0px;
+  position: relative;
 }
-.register .container .row .right-side .right-side-inner form .input-field .ui-input {
+.register .container .row .right-side .right-side-inner form .input-field .form-control .ui-input {
+  display: block;
   width: 100%;
   padding: 12px 20px;
   margin-bottom: 25px;
@@ -350,21 +379,45 @@ html {
   color: #fff;
   transition: all 0.3s ease;
 }
-.register .container .row .right-side .right-side-inner form .input-field .ui-input::-moz-placeholder {
+.register .container .row .right-side .right-side-inner form .input-field .form-control .ui-input::-moz-placeholder {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #7f7f7f;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
-.register .container .row .right-side .right-side-inner form .input-field .ui-input::placeholder {
+.register .container .row .right-side .right-side-inner form .input-field .form-control .ui-input::placeholder {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #7f7f7f;
+  transition: all 0.3s ease;
 }
-.register .container .row .right-side .right-side-inner form .input-field .ui-input:focus {
+.register .container .row .right-side .right-side-inner form .input-field .form-control .ui-input:focus {
   border-color: #14dfff;
   transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control .err-message {
+  color: var(--error-color);
+  position: absolute;
+  left: 25px;
+  margin-top: -84px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  visibility: hidden;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control.success .ui-input {
+  border-color: var(--success-color);
+  transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control.error .ui-input {
+  border-color: var(--error-color);
+  transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control.error .err-message {
+  transition: all 0.3s ease;
+  visibility: visible;
 }
 .register .container .row .right-side .right-side-inner form .personal-action {
   padding: 5px 20px;

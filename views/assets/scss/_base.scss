@@ -22,6 +22,12 @@ html {
   scroll-behavior: smooth;
 }
 
+// login&register input border color
+:root {
+  --success-color: #23cc71;
+  --error-color: #e74c3c;
+}
+
 // BASE CONTAINER
 .container {
   width: 90%;

@@ -27,20 +27,26 @@
                     </p>
                   </div>
                   <div class="input-field">
-                    <input
-                      class="ui-input login-name"
-                      type="text"
-                      name="text"
-                      placeholder="Ad, Soyad"
-                      required
-                    />
-                    <input
-                      class="ui-input login-password"
-                      type="password"
-                      name="password"
-                      placeholder="Şifrə"
-                      required
-                    />
+                    <div class="form-control">
+                      <input
+                        class="ui-input login-name"
+                        type="text"
+                        name="text"
+                        placeholder="Ad, Soyad"
+                        required
+                      />
+                      <span class="err-message">Error message</span>
+                    </div>
+                    <div class="form-control">
+                      <input
+                        class="ui-input login-password"
+                        type="password"
+                        name="password"
+                        placeholder="Şifrə"
+                        required
+                      />
+                      <span class="err-message">Error message</span>
+                    </div>
                   </div>
                   <div class="btn-action">
                     <button class="btn-continue btn-login" type="submit">
