@@ -25,27 +25,30 @@ registerButton.addEventListener("click", (e) => {
   const userPass = userRegisterPass.value.trim();
   const userRePass = userRegisterRePass.value.trim();
 
-  if (userRegisterName.value === "") {
-    showError(userRegisterName, "İstifadəçi adı yazılmalıdır!");
+    
+
+
+  if (userName === "") {
+   return  showError(userRegisterName, "İstifadəçi adı yazılmalıdır!");
   } else {
     showSuccess(userRegisterName);
   }
 
-  if (userRegisterPass.value === "") {
-    showError(userRegisterPass, "Şifrə yazılmalıdır!");
+  if (userPass === "") {
+   return  showError(userRegisterPass, "Şifrə yazılmalıdır!");
   } else {
     showSuccess(userRegisterPass);
   }
 
-  if (userRegisterRePass.value === "") {
-    showError(userRegisterRePass, "Təkrar şifrə yazılmalıdır!");
+  if (userRePass === "") {
+   return  showError(userRegisterRePass, "Təkrar şifrə yazılmalıdır!");
   } else {
     showSuccess(userRegisterRePass);
   }
 
   //  ?pass must be equal repass
   if (userPass !== userRePass) {
-    showError(userRegisterRePass, "Təkrarlanan kod düzgün deyil!");
+   return  showError(userRegisterRePass, "Təkrarlanan kod düzgün deyil!");
   }
 
   const formData = {

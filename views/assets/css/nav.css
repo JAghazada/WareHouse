@@ -37,7 +37,7 @@ ul#sub-menu>li{
     padding: 7px 15px;
 }
 ul#sub-menu>li:hover {
-    background-color: #000;
+    background-color: #624de3;
     transition: ease-in .25s;
 }
 
@@ -93,7 +93,7 @@ ul#profile-info>li{
     padding: 10px 10px;
 }
 ul#profile-info>li:hover {
-    background-color: #000;
+    background-color: #624de3;
 }
 ul#profile-info>li:nth-child(1):hover ~ .square {
     background-color: #000;

@@ -42,9 +42,9 @@ basketIcon.addEventListener("click", () => {
       element.classList.add("moveToRight");
     });
   } else {
-    basketWrapper.style.zIndex = "-1";
 
     basketWrapper.style.opacity = "0";
+    basketWrapper.style.zIndex = "-1";
     animatedElements.map((element) => {
       element.classList.remove("moveToRight");
       element.classList.add("moveToLeft");
