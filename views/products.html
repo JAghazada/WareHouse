@@ -4,28 +4,257 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/scss/main.css" />
+    <!-- <link rel="stylesheet" href="./assets/scss/main.css" /> -->
+    <link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="./assets/css/table.css">
+    <link rel="stylesheet" href="./assets/css/home.css">
+
     <title>Products</title>
   </head>
   <body>
     <!-- ---------------------------- Header start ----------------------------- -->
-    <header>
-      <div class="container">
-        <!-- ---------------------------- NavBar start ----------------------------- -->
-        <nav class="nav-bar"></nav>
-        <!-- ----------------------------- NavBar end ------------------------------ -->
-      </div>
+    <header class="contain">
+      <nav>
+        <div class="burger-icon">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <ul id="menu">
+          <li>Məhsullar </li>
+          <li class="dropdown-links">Məhsul əməliyyatları <img src="./assets/icons/arrow.png" class="dropdown-arrow" alt="arrow">
+            <ul id="sub-menu">
+              <li><a href="#"> Anbara Yaz</a></li>
+              <li><a href="#"> Məxaric</a></li>
+              <li><a href="#"> Mədaxil</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-links">Fakturalar   <img src="./assets/icons/arrow.png" class="dropdown-arrow" alt="arrow">
+            <ul id="sub-menu">
+              <li><a href="#"> Məxaric Fakturaları</a></li>
+              <li><a href="#"> Mədaxil Fakturaları</a></li>
+          </ul>  
+          
+          </li>
+          <li>Print</li>
+        </ul>
+        <ul id="icons">
+          <li class="profile-icon"><img src="./assets/icons/profile-icon.svg" alt="">
+            <div class="profile-wrapper">
+              <ul id="profile-info">
+                <li>Admin</li>
+                <li>Jamil Aghazada</li>
+              <div class="square"></div>
+
+              </ul>
+              
+             
+            </div>
+          </li>
+          <li class="basket-icon"><img src="./assets/icons/basket-icon.svg" alt="">
+            <div class="basket-wrapper"></div>
+          </li>
+        </ul>
+      </nav>
     </header>
     <!-- ----------------------------- Header end ------------------------------ -->
-    <main>
+    <!-- <main> -->
       <!-- --------------------------- Products start ---------------------------- -->
-      <section class="products">
-        <div class="container"></div>
-      </section>
+      <!-- <section class="products"> -->
+        <!-- <div class="container"></div> -->
+      <!-- </section> -->
       <!-- ---------------------------- Products end ----------------------------- -->
+    <!-- </main> -->
+    <main class="contain">
+     <header class="table-header">
+      <div class="header-text">Show 
+        <div class="entry-count">
+          10 <img src="./assets/icons/table-arrow.svg" alt="">
+        </div>
+        entries</div>
+        <div id="table-input-wrapper">
+          <img src="./assets/icons/search-icon.svg" alt="search" id="table-search-icon">
+          <input type="text" placeholder="Axtar..." maxlength="40" id="table-search-input">
+        </div>
+      <button class="btn btn-add-button">
+        <div>+</div> Əlavə et
+      </button>
+     </header>
+      <table>
+        <thead>
+          <tr>
+            <th>Qr Kod</th>
+            <th>Product</th>
+            <th>Firma</th>
+            <th class="point">Tarix <img src="./assets/icons/sort-icon.svg" alt="sort"></th>
+            <th class="point">Satış Qiyməti  <img src="./assets/icons/sort-icon.svg" alt="sort"></th>
+            <th class="point">Alış Qiyməti  <img src="./assets/icons/sort-icon.svg" alt="sort"></th>
+            <th>Ölçü vahidi </th>
+            <th>Alternatif Barkod </th>
+            <th>Əməliyyatlar </th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#20462731 </td>
+            <td class="prod-name-container"> <img src="./assets/icons/ex-product.png" alt="product-img">Laptop</td>
+            <td>Seymur</td>
+            <td>22/05/2022</td>
+            <td>₼48</td>
+            <td>₼56</td>
+            <td>Metr</td>
+            <td>#9817398139 #9812790128031</td>
+            <td class="table-operations">
+              <img class="point" src="./assets/icons/edit-icon.svg" alt="edit">
+              <img class="point" src="./assets/icons/delete-icon.svg" alt="delete">
+            </td>
+          </tr>
+          <tr>
+            <td>#20462731 </td>
+            <td class="prod-name-container"> <img src="./assets/icons/ex-product.png" alt="product-img">Laptop</td>
+            <td>Seymur</td>
+            <td>22/05/2022</td>
+            <td>₼48</td>
+            <td>₼56</td>
+            <td>Metr</td>
+            <td>#9817398139 #9812790128031</td>
+            <td class="table-operations">
+              <img class="point" src="./assets/icons/edit-icon.svg" alt="edit">
+              <img class="point" src="./assets/icons/delete-icon.svg" alt="delete">
+            </td>
+          </tr>
+          <tr>
+            <td>#20462731 </td>
+            <td class="prod-name-container"> <img src="./assets/icons/ex-product.png" alt="product-img">Laptop</td>
+            <td>Seymur</td>
+            <td>22/05/2022</td>
+            <td>₼48</td>
+            <td>₼56</td>
+            <td>Metr</td>
+            <td>#9817398139 #9812790128031</td>
+            <td class="table-operations">
+              <img class="point" src="./assets/icons/edit-icon.svg" alt="edit">
+              <img class="point" src="./assets/icons/delete-icon.svg" alt="delete">
+            </td>
+          </tr>
+          <tr>
+            <td>#20462731 </td>
+            <td class="prod-name-container"> <img src="./assets/icons/ex-product.png" alt="product-img">Laptop</td>
+            <td>Seymur</td>
+            <td>22/05/2022</td>
+            <td>₼48</td>
+            <td>₼56</td>
+            <td>Metr</td>
+            <td>#9817398139 #9812790128031</td>
+            <td class="table-operations">
+              <img class="point" src="./assets/icons/edit-icon.svg" alt="edit">
+              <img class="point" src="./assets/icons/delete-icon.svg" alt="delete">
+            </td>
+          </tr>
+          <tr>
+            <td>#20462731 </td>
+            <td class="prod-name-container"> <img src="./assets/icons/ex-product.png" alt="product-img">Laptop</td>
+            <td>Seymur</td>
+            <td>22/05/2022</td>
+            <td>₼48</td>
+            <td>₼56</td>
+            <td>Metr</td>
+            <td>#9817398139 #9812790128031</td>
+            <td class="table-operations">
+              <img class="point" src="./assets/icons/edit-icon.svg" alt="edit">
+              <img class="point" src="./assets/icons/delete-icon.svg" alt="delete">
+            </td>
+          </tr>
+          <tr>
+            <td>#20462731 </td>
+            <td class="prod-name-container"> <img src="./assets/icons/ex-product.png" alt="product-img">Laptop</td>
+            <td>Seymur</td>
+            <td>22/05/2022</td>
+            <td>₼48</td>
+            <td>₼56</td>
+            <td>Metr</td>
+            <td>#9817398139 #9812790128031</td>
+            <td class="table-operations">
+              <img class="point" src="./assets/icons/edit-icon.svg" alt="edit">
+              <img class="point" src="./assets/icons/delete-icon.svg" alt="delete">
+            </td>
+          </tr>
+          <tr>
+            <td>#20462731 </td>
+            <td class="prod-name-container"> <img src="./assets/icons/ex-product.png" alt="product-img">Laptop</td>
+            <td>Seymur</td>
+            <td>22/05/2022</td>
+            <td>₼48</td>
+            <td>₼56</td>
+            <td>Metr</td>
+            <td>#9817398139 #9812790128031</td>
+            <td class="table-operations">
+              <img class="point" src="./assets/icons/edit-icon.svg" alt="edit">
+              <img class="point" src="./assets/icons/delete-icon.svg" alt="delete">
+            </td>
+          </tr>
+          <tr>
+            <td>#20462731 </td>
+            <td class="prod-name-container"> <img src="./assets/icons/ex-product.png" alt="product-img">Laptop</td>
+            <td>Seymur</td>
+            <td>22/05/2022</td>
+            <td>₼48</td>
+            <td>₼56</td>
+            <td>Metr</td>
+            <td>#9817398139 #9812790128031</td>
+            <td class="table-operations">
+              <img class="point" src="./assets/icons/edit-icon.svg" alt="edit">
+              <img class="point" src="./assets/icons/delete-icon.svg" alt="delete">
+            </td>
+          </tr>
+          <tr>
+            <td>#20462731 </td>
+            <td class="prod-name-container"> <img src="./assets/icons/ex-product.png" alt="product-img">Laptop</td>
+            <td>Seymur</td>
+            <td>22/05/2022</td>
+            <td>₼48</td>
+            <td>₼56</td>
+            <td>Metr</td>
+            <td>#9817398139 #9812790128031</td>
+            <td class="table-operations">
+              <img class="point" src="./assets/icons/edit-icon.svg" alt="edit">
+              <img class="point" src="./assets/icons/delete-icon.svg" alt="delete">
+            </td>
+          </tr>
+          <tr>
+            <td>#20462731 </td>
+            <td class="prod-name-container"> <img src="./assets/icons/ex-product.png" alt="product-img">Laptop</td>
+            <td>Seymur</td>
+            <td>22/05/2022</td>
+            <td>₼48</td>
+            <td>₼56</td>
+            <td>Metr</td>
+            <td>#9817398139 #9812790128031</td>
+            <td class="table-operations">
+              <img class="point" src="./assets/icons/edit-icon.svg" alt="edit">
+              <img class="point" src="./assets/icons/delete-icon.svg" alt="delete">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination-wrapper">
+        <div>
+          <span class="point">Əvvəlki</span>
+          <div class="pagination">
+            <div class="active point">1</div>
+            <div class="point">2</div>
+            <div class="point">3</div>
+          </div>
+          <span class="point">Sonrakı</span>
+        </div>
+      </div>
     </main>
 
-    <!-- MY JS -->
-    <script src="./assets/js/preventLinks.js"></script>
+        
+    <script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/home.js"></script>
+
   </body>
 </html>

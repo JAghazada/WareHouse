@@ -59,6 +59,7 @@ ul#icons >li>img{
     height: 40px;
 
 }
+
 .profile-icon {
     margin-right: 15px;
 }
@@ -143,17 +144,28 @@ ul#profile-info>li:nth-child(1):hover ~ .square {
         position: relative;
         margin-left: 2%;
         visibility: hidden;
-        top:  140px !important;
+        top:  220px ;
         flex-direction: column;
         background-color: #8d1157;
         z-index: 2000;
     }
-    ul#sub-menu {
-        left: 100%;
-        top: 50%;
+    ul#sub-menu{
+        background-color: transparent;
+        position: static;
+        visibility:unset ;
     }
+    
     ul#icons{
         margin-right: 2%;
     }
    
+}
+@media screen and (max-width:330px) {
+    ul#menu {
+        top: 240px;
+    }
+}
+.basket-wrapper {
+    cursor: default;
+    z-index: -1;
 }
