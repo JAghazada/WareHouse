@@ -11,74 +11,57 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./assets/css/nav.css">
+
     <link rel="stylesheet" href="./assets/css/home.css" />
   </head>
   <body>
-    <!-- ? navbar start -->
-    <header>
-      <!-- ? burger menu start -->
-      <div class="burger-menu">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
-      <!-- ! burger menu end -->
-      <!-- ? navbar conten start -->
-      <nav class="contain">
-        <ul class="nav-items nav-links" id="menu">
-          <li class="nav-item"><a href="/products">Məhsullar</a></li>
-          <li class="nav-item dropdown">
-            <a href=""
-              >Məhsul əməliyyatları <img src="./assets/icons/arrow.png" alt=""
-            /></a>
-            <ul id="submenu">
-              <li><a href="">Məxaric</a></li>
-              <li><a href="">Mədaxil</a></li>
-              <li><a href="">Anbara Yaz</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href=""
-              >Fakturalar
-              <span><img src="./assets/icons/arrow.png" alt="" /></span
-            ></a>
-            <ul id="submenu">
-              <li><a href="">Məxaric Fakturasi</a></li>
-              <li><a href="">Mədaxil Fakturasi</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="">Print</a></li>
-        </ul>
-        <div class="nav-items nav-icons">
-          <div>
-            <div class="basket">
-              <img
-                src="./assets/icons/basket-icon.svg"
-                class="basket-icon"
-                alt=""
-              />
-            </div>
-            <div class="basket-wrapper"></div>
-          </div>
-          <div>
-            <div class="profile">
-              <img src="./assets/icons/profile-icon.svg" alt="" />
-            </div>
-            <div class="profile-menu">
-              <div class="w-100 d-flex justify-content-end">
-                <div class="square"></div>
-              </div>
-              <ul>
-                <li>Jamil Aghazada</li>
-                <li>Admin</li>
-              </ul>
-            </div>
-          </div>
+   <!-- ? header start -->
+    <header class="contain">
+      <nav>
+        <div class="burger-icon">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
+        <ul id="menu">
+          <li>Məhsullar </li>
+          <li class="dropdown-links">Məhsul əməliyyatları <img src="./assets/icons/arrow.png" class="dropdown-arrow" alt="arrow">
+            <ul id="sub-menu">
+              <li><a href="#"> Anbara Yaz</a></li>
+              <li><a href="#"> Məxaric</a></li>
+              <li><a href="#"> Mədaxil</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-links">Fakturalar   <img src="./assets/icons/arrow.png" class="dropdown-arrow" alt="arrow">
+            <ul id="sub-menu">
+              <li><a href="#"> Məxaric Fakturaları</a></li>
+              <li><a href="#"> Mədaxil Fakturaları</a></li>
+          </ul>  
+          
+          </li>
+          <li>Print</li>
+        </ul>
+        <ul id="icons">
+          <li class="profile-icon"><img src="./assets/icons/profile-icon.svg" alt="">
+            <div class="profile-wrapper">
+              <ul id="profile-info">
+                <li>Admin</li>
+                <li>Jamil Aghazada</li>
+              <div class="square"></div>
+
+              </ul>
+              
+             
+            </div>
+          </li>
+          <li class="basket-icon"><img src="./assets/icons/basket-icon.svg" alt="">
+            <div class="basket-wrapper"></div>
+          </li>
+        </ul>
       </nav>
-      <!-- ! navbar conten end -->
     </header>
-    <!--! navbar end -->
+   <!-- ! header end -->
     <!-- ?quick search start -->
     <div class="quick-search-wrapper contain">
       <div class="d-flex t justify-content-center align-items-center">
@@ -88,7 +71,7 @@
           class="col-md-5 col-sm-9 col-10 animate-to-left"
         >
           <input type="text" maxlength="50" placeholder="Axtar ..." />
-          <img src="./assets/icons/search-icon.svg" alt="" />
+          <img id="search-icon" src="./assets/icons/search-icon.svg" alt="" />
         </div>
       </div>
       <div class="d-flex justify-content-center align-items-center">
@@ -101,7 +84,7 @@
     <!-- !quick search end -->
 
     <!-- ?scripts -->
-    <script src="./assets/js/home.js"></script>
-    <script src="./assets/js/preventLinks.js"></script>
+    <script src="./assets/js/nav.js"></script>
+    <!-- <script src="./assets/js/preventLinks.js"></script> -->
   </body>
 </html>
