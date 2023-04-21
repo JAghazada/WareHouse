@@ -135,6 +135,7 @@ html {
   padding: 10px 20px;
 }
 .login .container .row .right-side .right-side-inner form .btn-action .btn-continue {
+  cursor: pointer;
   color: #fff;
   padding: 12px 40px;
   font-weight: 400;
@@ -472,6 +473,7 @@ html {
   padding: 20px 20px 10px;
 }
 .register .container .row .right-side .right-side-inner form .btn-action .btn-continue {
+  cursor: pointer;
   color: #fff;
   padding: 12px 40px;
   font-weight: 400;

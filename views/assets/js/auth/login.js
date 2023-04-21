@@ -24,13 +24,13 @@ loginButton.addEventListener("click", (e) => {
   const userPass = userLoginPass.value.trim();
 
   if (userLoginName.value === "") {
-    showError(userLoginName, "İstifadəçi adı yazılmalıdır!");
+    return showError(userLoginName, "İstifadəçi adı yazılmalıdır!");
   } else {
     showSuccess(userLoginName);
   }
 
   if (userLoginPass.value === "") {
-    showError(userLoginPass, "Şifrə yazılmalıdır!");
+    return showError(userLoginPass, "Şifrə yazılmalıdır!");
   } else {
     showSuccess(userLoginPass);
   }
@@ -52,9 +52,9 @@ loginButton.addEventListener("click", (e) => {
       if (res.success) {
         return (window.location.href = "../views/home.html"); // ! change route
       }
-      if(res.success === false){
-        showError(userLoginName,"Şifrə və ya istifadəçi adı yanlışdır"); 
-        return showError(userLoginPass,""); 
+      if (res.success === false) {
+        showError(userLoginName, "Şifrə və ya istifadəçi adı yanlışdır");
+        return showError(userLoginPass, "");
       }
       // ? error handling
       alert("Xeta bash verdi");
