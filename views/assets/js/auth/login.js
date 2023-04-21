@@ -53,7 +53,8 @@ loginButton.addEventListener("click", (e) => {
         return (window.location.href = "../views/home.html"); // ! change route
       }
       if(res.success === false){
-        return showError(userLoginName,"Şifrə və ya istifadəçi adı yanlışdır"); 
+        showError(userLoginName,"Şifrə və ya istifadəçi adı yanlışdır"); 
+        return showError(userLoginPass,""); 
       }
       // ? error handling
       alert("Xeta bash verdi");
