@@ -25,30 +25,27 @@ registerButton.addEventListener("click", (e) => {
   const userPass = userRegisterPass.value.trim();
   const userRePass = userRegisterRePass.value.trim();
 
-    
-
-
   if (userName === "") {
-   return  showError(userRegisterName, "İstifadəçi adı yazılmalıdır!");
+    return showError(userRegisterName, "İstifadəçi adı yazılmalıdır!");
   } else {
     showSuccess(userRegisterName);
   }
 
   if (userPass === "") {
-   return  showError(userRegisterPass, "Şifrə yazılmalıdır!");
+    return showError(userRegisterPass, "Şifrə yazılmalıdır!");
   } else {
     showSuccess(userRegisterPass);
   }
 
   if (userRePass === "") {
-   return  showError(userRegisterRePass, "Təkrar şifrə yazılmalıdır!");
+    return showError(userRegisterRePass, "Təkrar şifrə yazılmalıdır!");
   } else {
     showSuccess(userRegisterRePass);
   }
 
   //  ?pass must be equal repass
   if (userPass !== userRePass) {
-   return  showError(userRegisterRePass, "Təkrarlanan kod düzgün deyil!");
+    return showError(userRegisterRePass, "Təkrarlanan kod düzgün deyil!");
   }
 
   const formData = {
@@ -70,7 +67,7 @@ registerButton.addEventListener("click", (e) => {
         return (window.location.href = "../views/login.html"); // ! change route
       }
       // ? error handling
-      // alert("Xeta bash verdi.");
+      alert("Bu istifadəçi artıq mövcuddur!");
     })
     .catch((err) => console.log(err));
 });
