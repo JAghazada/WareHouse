@@ -44,5 +44,5 @@
 ### Rasul Aghamammadli (Frontend Developer) rasul.aghamemmedli@gmail.com
 ### Samir Cumshudzade (UX/UI Designer)  samircumsudzade11@gmail.com
 
-### Thank you for your interest in this project
+#### Thank you for your interest in this project
 
