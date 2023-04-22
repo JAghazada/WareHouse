@@ -162,7 +162,7 @@ table {
   .entry-count > .entry-count-dropdown {
     position: absolute;
     top: 30px;
-    background-color: #624DE3;
+    background-color: #272776;
     right: calc(100% - 30px);
     outline: 0;
     visibility: hidden;

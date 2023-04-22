@@ -25,6 +25,7 @@ li{
 }
 .dropdown-links{
     position: relative;
+    z-index: 1;
 }
 ul#sub-menu {
     visibility: hidden;
@@ -45,7 +46,7 @@ ul#sub-menu>li:hover {
 .dropdown-links:hover  ul#sub-menu{
     transition: .250s;
     visibility: visible;
-    top: 45px;
+    top: 43px;
 }
 a,a:hover{
     color: #fff;
@@ -71,7 +72,7 @@ ul#icons >li>img{
     position: absolute;
     right: calc(2.5% + 15px - 4px);
     background-color: #8d1157;
-    z-index: 100 !important;
+    z-index: -1;
     opacity: 0;
     transition: 250ms;
 

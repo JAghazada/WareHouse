@@ -9,26 +9,23 @@ const searchInput = document.querySelector(".search-answer-wrapper");
 const basketWrapper = document.querySelector(".basket-wrapper");
 const profileIcon = document.querySelector(".profile-icon >img");
 const profileMenu = document.querySelector(".profile-wrapper");
-const mainMenu  =  document.querySelector("ul#menu")
+const mainMenu = document.querySelector("ul#menu");
 burgerMenuIcon.addEventListener("click", (event) => {
   burgerMenuIcon.classList.toggle("active");
-  if( mainMenu.style.visibility !== "visible"){
-    mainMenu.style.visibility = "visible"
-  }else{
-    mainMenu.style.visibility = "hidden"
-
+  if (mainMenu.style.visibility !== "visible") {
+    mainMenu.style.visibility = "visible";
+  } else {
+    mainMenu.style.visibility = "hidden";
   }
 });
 
 window.addEventListener("resize", function () {
   if (window.innerWidth > 623) {
-    mainMenu.style.visibility = "visible"
-  
+    mainMenu.style.visibility = "visible";
   } else {
     mainMenu.style.visibility = "hidden";
 
-    burgerMenuIcon.classList.remove("active")
-   
+    burgerMenuIcon.classList.remove("active");
   }
 });
 const moveToLeft = () => {};
@@ -42,7 +39,6 @@ basketIcon.addEventListener("click", () => {
       element.classList.add("moveToRight");
     });
   } else {
-
     basketWrapper.style.opacity = "0";
     basketWrapper.style.zIndex = "-1";
     animatedElements.map((element) => {
@@ -51,9 +47,12 @@ basketIcon.addEventListener("click", () => {
     });
   }
 });
-profileIcon.addEventListener("click",()=>{
-  if(profileMenu.style.opacity !== "1")
-  profileMenu.style.opacity = "1"
-  else
-  profileMenu.style.opacity = "0"
-})
+profileIcon.addEventListener("click", () => {
+  if (profileMenu.style.opacity !== "1") {
+    profileMenu.style.opacity = "1";
+    profileMenu.style.zIndex = "1";
+  } else {
+    profileMenu.style.opacity = "0";
+    profileMenu.style.zIndex = "-1";
+  }
+});
