@@ -42,7 +42,7 @@
 
 ### Jamil Aghazada (Backend & Frontend Developer) jamil.aghazada03@gmail.com
 ### Rasul Aghamammadli (Frontend Developer) rasul.aghamemmedli@gmail.com
-### Samir Cumshudzade (UX/UI Designer)  samircumsudzade11@gmail.com
+### Samir Jumshudzada (UX/UI Designer)  samircumsudzade11@gmail.com
 
 #### Thank you for your interest in this project
 
