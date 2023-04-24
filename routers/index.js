@@ -7,9 +7,10 @@ const productInfo = require("./productInfo.routes")
 const increaseProduct = require("./IDcreaseProduct.routes");
 const bill = require("./bill.routes");
 const BasketRoute = require("./basket.routes");
-
+const HomeRoute = require("./home.routes")
 
 router.use(bill)
+router.use(HomeRoute)
 router.use(BasketRoute)
 router.use(increaseProduct)
 router.use(productInfo)

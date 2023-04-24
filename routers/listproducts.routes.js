@@ -4,7 +4,7 @@ const productSchema = require("../database/models/productSchema")
 const {requireLogin} = require("../middlewares/auth/requireLogin")
 
 const router = require("express").Router()
-router.get("/products",requireLogin,listProducts)
+router.get("/products",listProducts)
 router.post("/getProducts",searchProduct)
 
 

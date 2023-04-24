@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/scss/main.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <main>
+      <!-- --------------------------- Login start ---------------------------- -->
+      <section class="login">
+        <div class="container">
+          <div class="row">
+            <div class="left-side">
+              <img src="/images/Frame 1.png" alt="" />
+            </div>
+            <div class="right-side">
+              <div class="right-side-inner">
+                <form method="post">
+                  <div class="caption">
+                    <h3 class="account">Hesaba daxil olun</h3>
+                    <p class="caption-text">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry.
+                    </p>
+                  </div>
+                  <div class="input-field">
+                    <div class="form-control">
+                      <input
+                        class="ui-input login-name"
+                        type="text"
+                        name="text"
+                        placeholder="Ad, Soyad"
+                        required
+                      />
+                      <span class="err-message">Error message</span>
+                    </div>
+                    <div class="form-control">
+                      <input
+                        class="ui-input login-password"
+                        type="password"
+                        name="password"
+                        placeholder="Şifrə"
+                        required
+                      />
+                      <span class="err-message">Error message</span>
+                    </div>
+                  </div>
+                  <div class="btn-action">
+                    <button class="btn-continue btn-login" type="submit">
+                      Davam et
+                    </button>
+                  </div>
+                  <div class="personal-help">
+                    <p class="help-text">
+                      Hesabınız yoxdur ?
+                      <a href="/register"
+                        >Qeydiyyatdan keçin
+                        <i class="fa-solid fa-arrow-right"></i
+                      ></a>
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ---------------------------- Login end ----------------------------- -->
+    </main>
+
+    <!-- MY JS -->
+    <script src="/js/auth/login.js"></script>
+
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/46a0505f50.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

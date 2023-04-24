@@ -8,8 +8,8 @@ const router = express.Router();
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const rootDir = path.dirname(require.main.filename);
-    fs.mkdirSync(path.join(rootDir, "./views/public/img"), { recursive: true });
-    cb(null, path.join(rootDir, "./views/public/img"));
+    fs.mkdirSync(path.join(rootDir, "./views/assets/uploads"), { recursive: true });
+    cb(null, path.join(rootDir, "./views/assets/uploads"));
   },
   filename: (req, file, cb) => {
     const { ProductName, QRcode } = JSON.parse(JSON.stringify(req.body));
@@ -27,7 +27,6 @@ router.post(
   [
     (req, res, next) => {
       if (!req.files || !req.files.length) {
-        // Eğer resim gönderilmediyse, hata vermeden next fonksiyonunu çağırarak işlemi devam ettiriyoruz.
         return next();
       }
       next();

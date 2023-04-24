@@ -1,0 +1,234 @@
+main {
+  border: 1px solid rgba(255, 255, 255, 0.63);
+  border-radius: 33px;
+  height: 830px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr {
+  color: #fff;
+  height: 64px;
+}
+tr:nth-child(even) {
+  background-color: #28284d;
+}
+tr:nth-child(odd) {
+  background-color: #12192c;
+}
+
+thead {
+  background-color: black;
+  color: white;
+}
+thead > tr {
+  height: 49px;
+}
+header.table-header {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#table-input-wrapper {
+  position: relative;
+  width: 40%;
+  height: 32px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  padding-left: 10px;
+}
+#table-search-icon {
+  position: absolute;
+  top: calc(50% - 10px);
+  height: 20px;
+}
+#table-search-input {
+  width: 100%;
+  margin-left: 30px;
+  background-color: transparent;
+  outline: none;
+  color: #fff;
+  height: 100%;
+  border: none;
+  font-size: 14px;
+}
+#table-search-input::placeholder {
+  color: #fff;
+}
+.btn-add-button {
+  padding: 8px 12px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  background: #624de3;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  line-height: 16px;
+  display: flex;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+}
+.btn-add-button > div {
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0 5px 0 0;
+}
+.header-text {
+  width: 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fafafa;
+}
+
+thead > tr > th {
+  line-height: 49px;
+  vertical-align: middle;
+  text-align: center;
+}
+thead > tr > th > img {
+  height: 11px;
+}
+
+.point {
+  cursor: pointer !important;
+}
+
+.table-operations > img {
+  cursor: pointer !important;
+}
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+.pagination-wrapper > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fafafa;
+  width: 15%;
+}
+.pagination {
+  display: flex;
+}
+.pagination > div {
+  padding: 5px 12px;
+}
+.active {
+  background-color: #624de3;
+  border-radius: 8px;
+}
+.header-text > .entry-count {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.header-text > .entry-count > img {
+  height: 6px;
+  margin-left: 5px;
+}
+.entry-count > .entry-count-dropdown {
+  position: absolute;
+  top: 30px;
+  background-color: #272776;
+  right: calc(100% - 30px);
+  outline: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+ul#entry-count-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30px;
+}
+ul#entry-count-menu > li {
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ul#entry-count-menu > li:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.prod-name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 44px;
+  position: relative;
+  cursor: pointer;
+}
+.prod-name-container > img {
+  margin-right: 5px;
+  height: 50px;
+  border-radius: 8px;
+}
+.product-operation-wrapper {
+  position: absolute;
+  right: 20px;
+  background-color: #000;
+  border: 1px #eee solid;
+  bottom: 80%;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;
+  border-radius: 4px;
+  transition: "250ms ease-in";
+}
+.product-operation-wrapper > span {
+  cursor: pointer;
+  padding: 5px 10px;
+  width: 50%;
+  border-radius: 4px;
+  max-width: 50% !important;
+}
+
+.square-l {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  z-index: -1 !important;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  background-color: #000;
+  transform: rotate(45deg);
+  bottom: -8px;
+  left: calc(50% - 10px);
+  border-radius: 3px;
+}
+
+.open-wrapper {
+  z-index: 2;
+  visibility: visible;
+  opacity: 1;
+  transition: 250ms ease-in;
+}
+.product-operation-wrapper > span:hover {
+  background-color: #272776;
+}
+.product-operation-wrapper > span:hover ~ .square-l {
+  background: linear-gradient(to bottom right, #000 50%, #272776 50%);
+}

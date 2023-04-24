@@ -11,7 +11,7 @@ const errorHandlerMiddleware = require("./middlewares/ErrorHandler");
 const bodyParser = require("body-parser");
 const MongoStore = require("connect-mongo");
 const reports= require("./report");
-    //?dotenv configuration
+//?dotenv configuration
 dotenv.config();
 const port = process.env.PORT || 5001;
 //!Middlewares
@@ -19,7 +19,7 @@ app.use(cors())
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text({type: '/'}));
-app.use(express.static(__dirname + "/views/public"));
+app.use(express.static(__dirname + "/views/assets"));
 app.use(session({
   secret:"VanqedMaster",
   resave:false,
@@ -52,5 +52,5 @@ io = socket(server);
 app.set("socketio",io)
 server.listen(port, () => {
     console.warn(`Server running on port: ${port}`);
-    reports()
+    // reports()
 });

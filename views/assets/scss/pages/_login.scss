@@ -1,0 +1,339 @@
+// Login page start
+.login {
+  width: 100%;
+  height: 100vh;
+  background-color: #12192c;
+  .container {
+    width: 100%;
+    .row {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      .left-side {
+        flex: 0 0 25%;
+        max-width: 25%;
+        img {
+          width: 100%;
+          height: 100vh;
+          background-color: #0f1525;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+      .right-side {
+        flex: 0 0 75%;
+        max-width: 75%;
+        background-color: #12192c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 80px;
+        .right-side-inner {
+          width: 70%;
+          form {
+            .caption {
+              padding: 0 20px;
+              .account {
+                font-size: 30px;
+                font-weight: 700;
+                line-height: 45px;
+                text-align: left;
+                color: #fff;
+              }
+              .caption-text {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 25px;
+                text-align: left;
+                color: #7f7f7f;
+              }
+            }
+            .input-field {
+              padding: 30px 20px 0px;
+              position: relative;
+              .form-control {
+                .ui-input {
+                  width: 100%;
+                  padding: 12px 20px;
+                  margin-bottom: 25px;
+                  background-color: transparent;
+                  outline: none;
+                  border: 1px solid #ccbfbf;
+                  border-radius: 4px;
+                  color: #fff;
+                  transition: all 0.3s ease;
+                  &::placeholder {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #7f7f7f;
+                  }
+                  &:focus {
+                    border-color: #14dfff;
+                    transition: all 0.3s ease;
+                  }
+                }
+                .err-message {
+                  color: var(--error-color);
+                  position: absolute;
+                  left: 25px;
+                  margin-top: -18px;
+                  font-size: 13px;
+                  transition: all 0.3s ease;
+                  visibility: hidden;
+                }
+              }
+              .form-control.success {
+                .ui-input {
+                  border-color: var(--success-color);
+                  transition: all 0.3s ease;
+                }
+              }
+              .form-control.error {
+                .ui-input {
+                  border-color: var(--error-color);
+                  transition: all 0.3s ease;
+                }
+                .err-message {
+                  transition: all 0.3s ease;
+                  visibility: visible;
+                }
+              }
+            }
+            .btn-action {
+              padding: 10px 20px;
+              .btn-continue {
+                cursor: pointer;
+                color: #fff;
+                padding: 12px 40px;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                outline: none;
+                border: none;
+                background-color: #4b72c2;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+                &:hover {
+                  transition: all 0.3s ease;
+                  color: #0f1525;
+                  font-weight: 600;
+                  background-color: #1f3d7a;
+                  transform: scale(0.93);
+                }
+              }
+            }
+            .personal-help {
+              padding: 20px 20px 0;
+              .help-text {
+                border-top: 2px solid rgba(61, 61, 61, 1);
+                padding-top: 20px;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: #ccbfbf;
+                a {
+                  color: rgba(75, 114, 194, 1);
+                  transition: all 0.3s ease;
+                  &:hover {
+                    transition: all 0.3s ease;
+                    color: rgb(135, 175, 255);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Login Media Query Start
+@media (max-width: 1200px) {
+  .login {
+    padding: 50px 0;
+    .container {
+      .row {
+        .left-side {
+          display: none;
+        }
+        .right-side {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .login {
+    padding: 50px 0;
+    .container {
+      .row {
+        .right-side {
+          .right-side-inner {
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login {
+    padding: 80px 0;
+    .container {
+      .row {
+        .right-side {
+          padding: 20px 60px;
+          .right-side-inner {
+            width: 100%;
+            form {
+              .caption {
+                .account {
+                  font-size: 25px;
+                  font-weight: 700;
+                  line-height: 40px;
+                }
+                .caption-text {
+                  font-weight: 400;
+                  font-size: 14px;
+                  line-height: 20px;
+                }
+              }
+              .input-field {
+                padding: 20px 20px 0px;
+                .ui-input {
+                  padding: 10px 15px;
+                  margin-bottom: 20px;
+                }
+              }
+              .btn-action {
+                padding: 10px 20px 5px;
+                .btn-continue {
+                  padding: 10px 25px;
+                }
+              }
+              .personal-help {
+                padding: 25px 20px 0;
+                .help-text {
+                  font-size: 14px;
+                  line-height: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 549px) {
+  .login {
+    padding: 80px 0;
+    .container {
+      .row {
+        .right-side {
+          padding: 20px;
+          .right-side-inner {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .login {
+    padding: 75px 0;
+    .container {
+      .row {
+        .right-side {
+          .right-side-inner {
+            form {
+              .caption {
+                .caption-text {
+                  font-weight: 400;
+                  font-size: 14px;
+                  line-height: 20px;
+                }
+              }
+              .input-field {
+                padding: 20px 20px 0px;
+                .ui-input {
+                  .ui-input {
+                    &::placeholder {
+                      font-weight: 400;
+                      font-size: 14px;
+                      line-height: 20px;
+                    }
+                  }
+                }
+              }
+              .btn-action {
+                padding: 10px 20px;
+                .btn-continue {
+                  padding: 8px 20px;
+                  font-size: 14px;
+                  line-height: 24px;
+                }
+              }
+              .personal-help {
+                padding: 20px 20px 0;
+                .help-text {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  .login {
+    padding: 80px 0 100px;
+    .container {
+      .row {
+        .right-side {
+          .right-side-inner {
+            form {
+              .caption {
+                .caption-text {
+                  font-weight: 400;
+                  font-size: 12px;
+                  line-height: 18px;
+                }
+              }
+              .btn-action {
+                padding: 10px 20px 0px;
+                .btn-continue {
+                  padding: 5px 15px;
+                  font-size: 12px;
+                  line-height: 24px;
+                }
+              }
+              .personal-help {
+                padding: 20px 20px 0;
+                .help-text {
+                  padding-top: 10px;
+                  font-weight: 400;
+                  font-size: 12px;
+                  line-height: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
