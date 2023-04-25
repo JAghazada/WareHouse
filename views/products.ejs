@@ -97,7 +97,7 @@
             </td>
             <td class="table-operations">
               <img class="point" src="/icons/edit-icon.svg" alt="edit">
-              <img class="point" src="/icons/delete-icon.svg" alt="delete">
+              <img class="point" onclick="deleteProductHandler('<%=product._id%>')"  src="/icons/delete-icon.svg" alt="delete">
             </td>
           </tr>
 
@@ -125,6 +125,7 @@
   <script src="/js/products/modals/onoff-modal.js"></script>
   <script src="/js/products/table-product-operation.js"></script>
   <script src="/js/table/search-product.js"></script>
+  <script src="/js/table/delete-product.js"></script>
 
 </body>
 
