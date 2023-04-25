@@ -11,6 +11,7 @@ const errorHandlerMiddleware = require("./middlewares/ErrorHandler");
 const bodyParser = require("body-parser");
 const MongoStore = require("connect-mongo");
 const reports= require("./report");
+const searchProduct = require("./controllers/search.controller");
 //?dotenv configuration
 dotenv.config();
 const port = process.env.PORT || 5001;
@@ -46,10 +47,27 @@ require("./database/connection/connect")()
 //! error handler middleware
 app.use(errorHandlerMiddleware)
 
-//!listen server
 const server = require("http").createServer(app)
-io = socket(server);
+// ? socket
+const io = socket(server);
+io.on("connection",(socket)=>{
+  socket.on("getProducts", async (search_value) => {
+    let products = await searchProduct(search_value);
+    
+    products = products.map((product) => {
+      return {
+        ...product.toObject(),
+        Date: 'class mimarisine kecilecek'
+      }
+    });
+    console.log(products);
+    return socket.emit("products", products);
+  });
+  
+})
 app.set("socketio",io)
+//!listen server
+
 server.listen(port, () => {
     console.warn(`Server running on port: ${port}`);
     // reports()

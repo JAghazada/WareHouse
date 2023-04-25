@@ -31,6 +31,10 @@ span.val{
 #preview-img{
     width: 200px;
 }
+
+#preview-img >img{
+    height: 130px;
+}
 .preview-qrcode{
     font-size: 17px;
     font-weight: bold;

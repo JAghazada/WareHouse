@@ -1,44 +1,23 @@
 const productSchema = require("../database/models/productSchema");
-const translateJson = require("../routers/Translate/translate.json");
 
-const searchProduct = async (req, res) => {
-  try {
-    let { name, selectVal } = req.body;
-    let query = {};
-    if ((selectVal === "PurchasePrice" || selectVal === "SellingPrice") && !/^[0-9]+$/.test(name)) {
-        name = 0
-    }
-    switch (selectVal) {
-      case "ProductName":
-        query = { ProductName: { $regex: new RegExp(name, "i") } };
-        break;
-      case "QRcode":
-        
-        query = { QRcode: { $regex: new RegExp(name, "i") } };
-        break;
-      case "PurchasePrice":
-        query = {PurchasePrice: parseFloat(name) };
-        break;
-      case "SellingPrice":
-        query = { SellingPrice: parseFloat(name) };
-        break;
-      default:
-        throw new Error("Invalid selectVal value");
-    }
-   try {
-    const products = await productSchema.find(query).sort({ createdAt: -1 });
-    products.map(product=>{
-      product.UnitOfMeasurment = translateJson[product.UnitOfMeasurment.toLowerCase()]
-      product.SecondUnitOfMeasurment = translateJson[product.SecondUnitOfMeasurment.toLowerCase()]
-      return product
-   })
-    res.json(products);
-   } catch (error) {
-   }
-  
-  } catch (error) {
-    console.log(error);
-  }
+const searchProduct = async (search_value) => {
+  return await productSchema.find({
+    $or: [
+      { ProductName: { $regex: search_value, $options: "i" } },
+      { CompanyName: { $regex: search_value, $options: "i" } },
+      { NumberOfProducts: parseInt(search_value) || null },
+      { PurchasePrice: parseInt(search_value) || null },
+      { SellingPrice: parseInt(search_value) || null },
+      { QRcode: { $regex: search_value, $options: "i" } },
+      { MainCode: parseInt(search_value) || null },
+      { Link: { $regex: search_value, $options: "i" } },
+      { UnitOfMeasurment: { $regex: search_value, $options: "i" } },
+      { SecondUnitOfMeasurment: { $regex: search_value, $options: "i" } },
+      { Unit1: parseInt(search_value) || null },
+      { Unit2: parseInt(search_value) || null },
+      { Date: { $regex: search_value, $options: "i" } },
+    ],
+  });
 };
 
 module.exports = searchProduct;

@@ -1,6 +1,6 @@
 // // corss between inputs
 const inputs = [...document.querySelectorAll("input")];
-console.log(inputs);
+
 const _p_name = document.querySelector(".preview-name");
 const _p_count = document.querySelector(".preview-count");
 const _p_unit = document.querySelector(".preview-unit");

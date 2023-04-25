@@ -5,7 +5,7 @@ const {requireLogin} = require("../middlewares/auth/requireLogin")
 
 const router = require("express").Router()
 router.get("/products",listProducts)
-router.post("/getProducts",searchProduct)
+router.put("/getProducts",searchProduct)
 
 
 // ! delete method 
