@@ -76,6 +76,7 @@ body {
   border-radius: 33px;
   background-color: rgba(217, 217, 217, 0.45);
   transition: 0.3s ease-in-out;
+  z-index: -2;
 }
 .basket-icon { 
   cursor: pointer;
@@ -119,7 +120,6 @@ body {
     right: 10%;
     left: 10%;
     background-color: #fafafa;
-    z-index: 100;
   }
 
 }

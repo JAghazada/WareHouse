@@ -11,7 +11,7 @@ const deleteProductController = (req,res) =>{
         await updateCache()
         res.json({
             success:true,
-            message:"Produckt silindi"
+            message:"Product silindi"
         })
     })
 }

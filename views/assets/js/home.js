@@ -34,6 +34,7 @@ basketIcon.addEventListener("click", () => {
     basketWrapper.style.opacity = "1";
     basketWrapper.style.zIndex = "1";
 
+
     animatedElements.map((element) => {
       element.classList.remove("moveToLeft");
       element.classList.add("moveToRight");

@@ -14,118 +14,164 @@
   <link rel="stylesheet" href="/css/table.css">
   <link rel="stylesheet" href="/css/home.css">
   <link rel="stylesheet" href="/css/modals.css">
+  <link rel="stylesheet" href="/css/product-input-modal.css">
+
 
 
   <title>Products</title>
 </head>
 
 <body>
-  <%- include("partials/navbar.ejs") %>
-  <%- include("partials/layouts/insert-modal.ejs") %>
 
-  <!-- !export-modal -->
-  <%- include("partials/layouts/decrease-modal.ejs") %>
   <!-- !export-modal-end -->
 
 
   <!-- ! nav -->
   <!-- ! insert-modal -->
- 
-  
-  <main class="contain">
-    <header class="table-header">
-      <div class="header-text">Show
-        <div class="entry-count">
-          10 <img src="/icons/table-arrow.svg" alt="">
-          <div class="entry-count-dropdown">
-            <ul id="entry-count-menu">
-              <li>10</li>
-              <li>20</li>
-              <li>30</li>
-              <li>40</li>
-              <li>&#x221e;</li>
-            </ul>
-          </div>
+
+  <div class="product-input-modal">
+    <div class="product-input-layout">
+      <div class="porduct-input-layout-close">x</div>
+      <div class="input-layout-content">
+
+        <div>
+          <p><i>product elavesi</i></p>
+          <img class="product-input-img" src="/uploads/Mehsul1_23712393123.jpeg" alt="">
+          <div>Stekan 753</div>
+          <span>512azn</span>
+
+          <p class="product-input-count-ops">
+            <button class="btn count-decrease-btn">-</button>
+
+            <span>12</span>
+            <button class="btn count-increase-btn">+</button>
+
+          </p>
+          <input  class="form-control" type="number"  placeholder="Alternatif Barkod">
         </div>
-        entries
-      </div>
-      <div id="table-input-wrapper">
-        <img src="/icons/search-icon.svg" alt="search" id="table-search-icon">
-        <input type="text" placeholder="Axtar..." maxlength="40" id="table-search-input">
-      </div>
-      <button class="btn btn-add-button add-product-btn">
-        <div>+</div> Əlavə et
-      </button>
-    </header>
-    <table>
-      <thead>
-        <tr>
-          <th>Qr Kod</th>
-          <th>Product</th>
-          <th>Firma</th>
-          <th class="point">Tarix <img src="/icons/sort-icon.svg" alt="sort"></th>
-          <th class="point">Satış Qiyməti <img src="/icons/sort-icon.svg" alt="sort"></th>
-          <th class="point">Alış Qiyməti <img src="/icons/sort-icon.svg" alt="sort"></th>
-          <th>Ölçü vahidi </th>
-          <th>Alternatif Barkod </th>
-          <th>Əməliyyatlar </th>
 
-
-        </tr>
-      </thead>
-      <tbody>
-        <%products.map(product=>{%>
-          <tr>
-            <td>#<%=product.MainCode%> </td>
-            <td  onclick="handleOpenWrapper('<%=product._id%>')" class="prod-name-container"data-container-id="<%=product._id%>">
-              <div class="product-operation-wrapper" data-wrapper-id="<%=product._id%>">
-                <span class="p1">Mədaxil</span>
-                <span class="p2">Məxaric</span>
-                <div class="square-l">
-                </div>
-              </div>
-              <img src="/uploads/<%=product.Link%>" alt="product-img"><%=product.ProductName%></td>
-            <td><%=product.CompanyName%></td>
-            <td><%=product.Date%></td>
-            <td><%=product.PurchasePrice%></td>
-            <td><%=product.SellingPrice%></td>
-            <td><%=product.UnitOfMeasurment%></td>
-            <td>
-              <%product.QRcode.map(code=>{%>
-                #<span><%=code%></span>
-              <%})%>
-            </td>
-            <td class="table-operations">
-              <img class="point" src="/icons/edit-icon.svg" alt="edit">
-              <img class="point" onclick="deleteProductHandler('<%=product._id%>')"  src="/icons/delete-icon.svg" alt="delete">
-            </td>
-          </tr>
-
-        <%})%>
-      </tbody>
-    </table>
-    <div class="pagination-wrapper">
-      <div>
-        <span class="point">Əvvəlki</span>
-        <div class="pagination">
-          <div class="active point">1</div>
-          <div class="point">2</div>
-          <div class="point">3</div>
-        </div>
-        <span class="point">Sonrakı</span>
       </div>
     </div>
-  </main>
-  <!-- ? socket cdn -->
-  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 
-  <!-- ? own scripts -->
-  <script src="/js/home.js"></script>
-  <script src="/js/table/entry-dropdown.js"></script>
-  <script src="/js/products/modals/onoff-modal.js"></script>
-  <script src="/js/products/table-product-operation.js"></script>
-  <script src="/js/table/search-product.js"></script>
-  <script src="/js/table/delete-product.js"></script>
+  </div>
+  <%- include("partials/navbar.ejs") %>
+    <%- include("partials/layouts/insert-modal.ejs") %>
+
+      <!-- !export-modal -->
+      <%- include("partials/layouts/decrease-modal.ejs") %>
+        <main class="contain">
+          <header class="table-header">
+            <div class="header-text">Show
+              <div class="entry-count">
+                10 <img src="/icons/table-arrow.svg" alt="">
+                <div class="entry-count-dropdown">
+                  <ul id="entry-count-menu">
+                    <li>10</li>
+                    <li>20</li>
+                    <li>30</li>
+                    <li>40</li>
+                    <li>&#x221e;</li>
+                  </ul>
+                </div>
+              </div>
+              entries
+            </div>
+            <div id="table-input-wrapper">
+              <img src="/icons/search-icon.svg" alt="search" id="table-search-icon">
+              <input type="text" placeholder="Axtar..." maxlength="40" id="table-search-input">
+            </div>
+            <button class="btn btn-add-button add-product-btn">
+              <div>+</div> Əlavə et
+            </button>
+          </header>
+          <table>
+            <thead>
+              <tr>
+                <th>Qr Kod</th>
+                <th>Product</th>
+                <th>Firma</th>
+                <th class="point">Tarix <img src="/icons/sort-icon.svg" alt="sort"></th>
+                <th class="point">Satış Qiyməti <img src="/icons/sort-icon.svg" alt="sort"></th>
+                <th class="point">Alış Qiyməti <img src="/icons/sort-icon.svg" alt="sort"></th>
+                <th>Ölçü vahidi </th>
+                <th>Alternatif Barkod </th>
+                <th>Əməliyyatlar </th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <%products.map(product=>{%>
+                <tr>
+                  <td>#<%=product.MainCode%>
+                  </td>
+                  <td onclick="handleOpenWrapper('<%=product._id%>')" class="prod-name-container"
+                    data-container-id="<%=product._id%>">
+                    <div class="product-operation-wrapper" data-wrapper-id="<%=product._id%>">
+                      <span class="p1" onclick="handleProductİnput('<%=product._id%>')">Mədaxil</span>
+                      <span onclick="handleProductExport('<%=product._id%>')" class="p2">Məxaric</span>
+                      <div class="square-l">
+                      </div>
+                    </div>
+                    <img src="/uploads/<%=product.Link%>" alt="product-img">
+                    <%=product.ProductName%>
+                  </td>
+                  <td>
+                    <%=product.CompanyName%>
+                  </td>
+                  <td>
+                    <%=product.Date%>
+                  </td>
+                  <td>
+                    <%=product.PurchasePrice%>
+                  </td>
+                  <td>
+                    <%=product.SellingPrice%>
+                  </td>
+                  <td>
+                    <%=product.UnitOfMeasurment%>
+                  </td>
+                  <td>
+                    <%product.QRcode.map(code=>{%>
+                      #<span>
+                        <%=code%>
+                      </span>
+                      <%})%>
+                  </td>
+                  <td class="table-operations">
+                    <img class="point" src="/icons/edit-icon.svg" alt="edit">
+                    <img class="point" onclick="deleteProductHandler('<%=product._id%>')" src="/icons/delete-icon.svg"
+                      alt="delete">
+                  </td>
+                </tr>
+
+                <%})%>
+            </tbody>
+          </table>
+          <div class="pagination-wrapper">
+            <div>
+              <span class="point">Əvvəlki</span>
+              <div class="pagination">
+                <div class="active point">1</div>
+                <div class="point">2</div>
+                <div class="point">3</div>
+              </div>
+              <span class="point">Sonrakı</span>
+            </div>
+          </div>
+        </main>
+        <!-- ? socket cdn -->
+        <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+        <!-- ? own scripts -->
+        <script src="/js/home.js"></script>
+        <script src="/js/table/entry-dropdown.js"></script>
+        <script src="/js/products/modals/onoff-modal.js"></script>
+        <script src="/js/products/table-product-operation.js"></script>
+        <script src="/js/table/search-product.js"></script>
+        <script src="/js/table/delete-product.js"></script>
+        <script src="/js/products/handle-product-operation.js"></script>
+
 
 </body>
 
