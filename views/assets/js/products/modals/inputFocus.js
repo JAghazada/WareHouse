@@ -1,5 +1,5 @@
 // // corss between inputs
-const inputs = [...document.querySelectorAll("input")];
+const inputs = [...document.querySelectorAll("input.insert-input")];
 
 const _p_name = document.querySelector(".preview-name");
 const _p_count = document.querySelector(".preview-count");
@@ -59,6 +59,7 @@ inputs.map((input) => {
     
     else {
       const inputClass = "preview-" + [...e.target.classList][1].split("_")[1];
+      console.log(inputClass);
       document.querySelector(`.${inputClass}`).innerText = e.target.value;
     }
   });

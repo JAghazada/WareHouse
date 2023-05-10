@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="/css/home.css">
   <link rel="stylesheet" href="/css/modals.css">
   <link rel="stylesheet" href="/css/product-input-modal.css">
+  <link rel="stylesheet" href="/css/product-export-modal.css">
 
 
 
@@ -23,8 +24,34 @@
 
 <body>
 
+  <!-- !export-modal -->
+
+
   <!-- !export-modal-end -->
 
+ <div class="product-export-modal">
+    <div class="product-export-layout">
+      <div class="porduct-export-layout-close">x</div>
+      <div class="export-layout-content">
+
+        <div>
+          <p><i>product cixarisi</i></p>
+          <img class="product-export-img" src="/uploads/Mehsul1_23712393123.jpeg" alt="">
+          <div>Stekan 753</div>
+          <span>512azn</span>
+
+          <p class="product-export-count-ops">
+            <button class="btn expcount-decrease-btn">-</button>
+
+            <span>12</span>
+            <button class="btn expcount-increase-btn">+</button>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 
   <!-- ! nav -->
   <!-- ! insert-modal -->
@@ -45,9 +72,11 @@
 
             <span>12</span>
             <button class="btn count-increase-btn">+</button>
-
           </p>
-          <input  class="form-control" type="number"  placeholder="Alternatif Barkod">
+          <input  class="form-control alternative-barcode-input" type="number"  placeholder="Alternatif Barkod">
+          <div class="codes-wrapper">
+
+          </div>
         </div>
 
       </div>
@@ -171,7 +200,8 @@
         <script src="/js/table/search-product.js"></script>
         <script src="/js/table/delete-product.js"></script>
         <script src="/js/products/handle-product-operation.js"></script>
-
+        <script src="/js/products/product-input-handler.js"></script>
+        <script src="/js/products/product-export-handler.js"></script>
 
 </body>
 

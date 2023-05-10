@@ -1,4 +1,4 @@
-.product-input-modal{
+.product-export-modal{
     width: 100%;
     height: 100%;
     position: fixed;
@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
 }
-.product-input-layout {
+.product-export-layout {
     position: relative;
     padding: 10px;
     width: 300px;
@@ -16,10 +16,10 @@
     border: 1px solid #d2d2d2;
     background-color: #fff;
 }
-.product-input-img{
+.product-export-img{
     height: 100px;
 }
-.porduct-input-layout-close{
+.porduct-export-layout-close{
     height: 30px;
     border-radius: 4px;
     width: 30px;
@@ -33,43 +33,46 @@
     font-weight: bold;
     cursor: pointer;
 }
-.input-layout-content{
+.export-layout-content{
     height: 100%;
     display: flex;
     justify-content: center;
     padding-top: 35px;
 }
 
-.input-layout-content > div {
+.export-layout-content > div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.count-decrease-btn,.count-increase-btn{
+.expcount-decrease-btn,.expcount-increase-btn{
     padding: 3px 12px;
     font-size: 18px;
-    background-color: #000;
+    background-color: #ed2939;
     color: #fff;
     transition: 250ms ease;
     margin: 5px;
 }
-.count-increase-btn:hover,.count-decrease-btn:hover{
+.expcount-increase-btn{
+    background-color: #4BB543;
+}
+.expcount-increase-btn:hover,.expcount-decrease-btn:hover{
     transition: 250ms ease;
     transform: scale(102%);
     font-size: 20px;
     padding-top: 2px;
 
 }
-.product-input-count-ops >span{
+.product-export-expcount-ops >span{
     font-size: 18px;
 }
-.product-input-count-ops{
+.product-export-expcount-ops{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.input-layout-content >div  p>i {
-    color: #ed2939;
+p>i {
+    color: #110857;
     font-weight: bold;
 }
