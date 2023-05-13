@@ -8,9 +8,12 @@ class ProductModel {
     constructor() {
         this.backendURI = "http://localhost:3000";
     }
+    
     addProduct() {
 
     }
+
+
     async getProduct(id) {
         const response = await fetch(this.backendURI + "/productInfo", {
             method: "POST",
@@ -26,33 +29,70 @@ class ProductModel {
 
 }
 class ProductView {
+
     constructor() {
-        this.loadingInterval = null;
+        this.alternativeBarcodeList = []
+        this.loader = null;
         this.inputModal = this.getElement(".product-input-modal");
         this.exportModal = this.getElement(".product-export-modal");
         this.prodOpsContainer = this.getElement(".prod-name-container");
         this.tbody = this.getElement("tbody");
         this.spanp1 = this.getElement("span.p1");
         this.spanp2 = this.getElement("span.p2");
-        this.modalCloseButton = this.getAllElement(".modal-close")
-
+        this.modalCloseButton = this.getAllElement(".modal-close");
+        
+        //* product-input-elements
+        this.productInputTitle = this.getElement(".product-input-title");
+        this.productInputPrice = this.getElement(".product-input-price")
+        this.productInputImg = this.getElement(".product-input-img");
+        this.alternativeBarcodeInput = this.getElement(".alternative-barcode-input");
+        this.alternativeBarcodeListWrapper = this.getElement(".codes-wrapper")
+        
+        //* product-export-elements
+        this.productExportTitle = this.getElement(".product-export-title");
+        this.productExportPrice=this.getElement(".product-export-price");
+        this.productExportImg=this.getElement(".product-export-img");
     }
+
     bindAddProduct() {
         this.inputModal.style.display = "flex"
     }
+    _alternativeBarcodeListener(){
+
+        this.alternativeBarcodeInput.addEventListener("keydown",(e)=>{
+            const regex = /^\d+$/;
+
+            if(e.key==="Enter" && regex.test(e.target.value.trim())) {
+                this.alternativeBarcodeList.push(e.target.value);
+                this.alternativeBarcodeListWrapper.innerHTML = ``
+                this.displayAlternativeBarcodes()
+                console.log(this.alternativeBarcodeList);
+            }
+        });
+    };
+    displayAlternativeBarcodes(){
+        this.alternativeBarcodeList.map(barcode=>{
+            const DIV  =  this.createElement("div","alter-code");
+            DIV.textContent = barcode
+            this.alternativeBarcodeListWrapper.append(DIV);
+        });
+    };
     getElement(selector) {
         const element = document.querySelector(`${selector}`)
         return element
     }
+
     getAllElement(selector) {
         const element = document.querySelectorAll(`${selector}`)
         return element
     }
+
     createElement(tag, className) {
         const element = document.createElement(tag);
         if (className) element.classList.add(className)
         return element
     }
+
     bindProductOps() {
         this.prodOpsContainer.addEventListener("click", (e) => {
             const prodContainerID = e.target.getAttribute('data-element-id');
@@ -74,40 +114,46 @@ class ProductView {
             return productOperationWrapper.classList.remove("open-wrapper")
         })
     }
-
- 
   
-    openProductOpModal(handler) {
-
+    openProductOpModal(handler) {    
         //* open product input modal 
         this.spanp1.addEventListener("click",async (e) => {
+            this.loader = this.getElement(".lds-dual-ring");
             const productID = e.target.parentNode.getAttribute("data-wrapper-id");
             this.inputModal.style.display = "flex";
-            this.showLoading()
-            const productInfo = await handler(productID)
-            console.log(productInfo)
-            this.hideLoading()
+            this.showLoading();
+            const productInfo = await handler(productID);
+            this.productInputPrice.textContent =productInfo[0].SellingPrice;
+            this.productInputTitle.textContent = productInfo[0].ProductName;
+            this.productInputImg.src = "/uploads/"+productInfo[0].Link;
+            this.hideLoading();
+            this._alternativeBarcodeListener();
+
 
         });
 
         //* open product export modal
-        this.spanp2.addEventListener("click", (e) => {
+        this.spanp2.addEventListener("click", async(e) => {
+            this.loader = this.getElement(".lds-dual-ring-1");
             const productID = e.target.parentNode.getAttribute("data-wrapper-id");
-            this.exportModal.style.display = "flex"
+            this.exportModal.style.display = "flex";
+            this.showLoading();
+            const productInfo = await handler(productID);
+            this.productExportPrice.textContent =productInfo[0].SellingPrice;
+            this.productExportTitle.textContent = productInfo[0].ProductName;
+            this.productExportImg.src = "/uploads/"+productInfo[0].Link;
+            this.hideLoading();
 
         });
         
 
     }
     showLoading() {
-        this.loadingInterval = setInterval(() => {
-            console.log("Loading...");
-        }, 1000);
+       this.loader.style.display = "flex"
     }
 
     hideLoading() {
-        clearInterval(this.loadingInterval);
-        console.log("Loading complete.");
+        this.loader.style.display = "none"
     }
     closeButtonListener() {
         [...this.modalCloseButton].map(btn => {

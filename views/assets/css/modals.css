@@ -142,4 +142,9 @@ span.val{
 .export-product-count{
     width: 80%;
 }
+.alter-code {
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+}
 /* !decrease-product-modal-end */
