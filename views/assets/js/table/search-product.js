@@ -6,8 +6,6 @@ tabelSearchInput.addEventListener("input", (e) => {
   socket.emit("getProducts", search_value);
 });
 socket.on("products", (products) => {
-    console.log(products);
-
   listProductsToTable(products)
 });
 const listProductsToTable = (products) => {

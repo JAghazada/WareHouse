@@ -1,9 +1,10 @@
 const alternativeBarcodeInput = document.querySelector(".alternative-barcode-input");
 const codesWrapper = document.querySelector(".codes-wrapper");
-const closeProductInputButton = document.querySelector(".porduct-input-layout-close");
+const closeProductInputButton = document.querySelector(".product-input-layout-close");
+const productInputCount = document.querySelector(".product-input-count");
 const productBarcodeHandler = ()=>{
-    
     let barcodeList = [];
+    
     function listCodes(){
         codesWrapper.innerHTML = ``
         barcodeList.forEach(code=>{
@@ -28,9 +29,11 @@ const productBarcodeHandler = ()=>{
         barcodeList.splice(barcodeListIndex,1); //! delete code from array
         return listCodes()
     }
+
     return {addBarcode,getBarcode,deleteCode};
 
 };
+
 const barcodeHandler =productBarcodeHandler();
 alternativeBarcodeInput.addEventListener("keydown",(e)=>{
     if(e.key === "Enter"){
@@ -45,4 +48,4 @@ alternativeBarcodeInput.addEventListener("keydown",(e)=>{
 
 const codeDeleteHandler =(code)=>barcodeHandler.deleteCode(code);
 
-closeProductInputButton.addEventListener("click",()=>document.querySelector(".product-input-modal").style.display = "none")
+closeProductInputButton.addEventListener("click",()=>document.querySelector(".product-input-modal").style.display = "none");

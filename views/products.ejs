@@ -31,7 +31,7 @@
 
  <div class="product-export-modal">
     <div class="product-export-layout">
-      <div class="porduct-export-layout-close">x</div>
+      <div class="modal-close product-export-layout-close">x</div>
       <div class="export-layout-content">
 
         <div>
@@ -58,7 +58,7 @@
 
   <div class="product-input-modal">
     <div class="product-input-layout">
-      <div class="porduct-input-layout-close">x</div>
+      <div class="modal-close product-input-layout-close">x</div>
       <div class="input-layout-content">
 
         <div>
@@ -67,12 +67,8 @@
           <div>Stekan 753</div>
           <span>512azn</span>
 
-          <p class="product-input-count-ops">
-            <button class="btn count-decrease-btn">-</button>
+          <input type="number" class="form-control m-2" placeholder="Miqdar" id="product-input-count">
 
-            <span>12</span>
-            <button class="btn count-increase-btn">+</button>
-          </p>
           <input  class="form-control alternative-barcode-input" type="number"  placeholder="Alternatif Barkod">
           <div class="codes-wrapper">
 
@@ -134,11 +130,14 @@
                 <tr>
                   <td>#<%=product.MainCode%>
                   </td>
-                  <td onclick="handleOpenWrapper('<%=product._id%>')" class="prod-name-container"
-                    data-container-id="<%=product._id%>">
+                  <!-- onclick="handleOpenWrapper('<%=product._id%>')"-->
+                   <td   class="prod-name-container"> 
+                    <div class="container-id" data-element-id="<%=product._id%>">
+
+                    </div>
                     <div class="product-operation-wrapper" data-wrapper-id="<%=product._id%>">
-                      <span class="p1" onclick="handleProductİnput('<%=product._id%>')">Mədaxil</span>
-                      <span onclick="handleProductExport('<%=product._id%>')" class="p2">Məxaric</span>
+                      <span class="p1" >Mədaxil</span>
+                      <span class="p2">Məxaric</span>
                       <div class="square-l">
                       </div>
                     </div>
@@ -191,17 +190,22 @@
         </main>
         <!-- ? socket cdn -->
         <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+        <script src="/js/socket/product-operation.js"></script>
+        
 
         <!-- ? own scripts -->
+
+
         <script src="/js/home.js"></script>
         <script src="/js/table/entry-dropdown.js"></script>
         <script src="/js/products/modals/onoff-modal.js"></script>
-        <script src="/js/products/table-product-operation.js"></script>
-        <script src="/js/table/search-product.js"></script>
+        <!-- <script src="/js/products/table-product-operation.js"></script> -->
+        <!-- <script src="/js/table/search-product.js"></script> -->
         <script src="/js/table/delete-product.js"></script>
-        <script src="/js/products/handle-product-operation.js"></script>
-        <script src="/js/products/product-input-handler.js"></script>
-        <script src="/js/products/product-export-handler.js"></script>
+        <!-- <script src="/js/products/handle-product-operation.js"></script> -->
+        <!-- <script src="/js/products/product-input-handler.js"></script> -->
+        <!-- <script src="/js/products/product-export-handler.js"></script> -->
+        <script src="/js/Model/product.js"></script>
 
 </body>
 
