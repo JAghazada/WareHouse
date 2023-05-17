@@ -1,0 +1,259 @@
+// NavBar Start
+.invoice-header {
+  .nav-bar {
+    padding: 10px 20px;
+    .container {
+      .nav-center {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 0;
+        .nav-left {
+          .left-list {
+            display: flex;
+            gap: 50px;
+            .list-item {
+              color: #fff;
+              font-size: 20px;
+              transition: all 0.3s ease;
+              cursor: pointer;
+              &:hover {
+                transition: all 0.3s ease;
+                color: #9a9a9a;
+              }
+              i {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+        .nav-right {
+          .right-icons {
+            display: flex;
+            gap: 30px;
+            .list-icon {
+              color: #fff;
+              font-size: 30px;
+              transition: all 0.3s ease;
+              cursor: pointer;
+              &:hover {
+                transition: all 0.3s ease;
+                color: #9a9a9a;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Main Start
+.invoice-main {
+  .invoice-section-in {
+    padding: 10px;
+    .container {
+      .row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .invoice-card-side {
+          flex: 0 0 40%;
+          max-width: 40%;
+          // width: 550px;
+          .invoice-card {
+            padding: 20px;
+            height: auto;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 7px 8px 28px -8px rgba(0, 0, 0, 0.8);
+            -webkit-box-shadow: 7px 8px 28px -8px rgba(0, 0, 0, 0.8);
+            -moz-box-shadow: 7px 8px 28px -8px rgba(0, 0, 0, 0.8);
+            .card-head {
+              border-bottom: 2px solid rgba(0, 0, 0, 0.46);
+              padding: 0 25px 10px 20px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .subheading {
+                font-size: 20px;
+                padding: 15px 40px 15px 0px;
+                font-size: 25px;
+                border-right: 2px solid rgba(0, 0, 0, 0.46);
+              }
+              .invoice-date {
+                padding: 15px 25px;
+                background-color: rgba(217, 217, 217, 0.7);
+                border-radius: 10px;
+                box-shadow: 8px 8px 14px -10px rgba(0, 0, 0, 1);
+                -webkit-box-shadow: 8px 8px 14px -10px rgba(0, 0, 0, 1);
+                -moz-box-shadow: 8px 8px 14px -10px rgba(0, 0, 0, 1);
+                p {
+                  font-size: 14px;
+                  font-weight: 500;
+                  line-height: 23px;
+                }
+              }
+            }
+            .card-table-head {
+              padding: 20px;
+              .table-head-caption {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                .caption-in {
+                  border-right: 2px solid rgba(0, 0, 0, 0.46);
+                  padding-right: 70px;
+                  .bold {
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 18px;
+                  }
+                  p {
+                    line-height: 18px;
+                    font-size: 12px;
+                  }
+                }
+                .caption {
+                  .bold {
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 18px;
+                  }
+                  p {
+                    line-height: 18px;
+                    font-size: 12px;
+                  }
+                }
+              }
+            }
+            .card-table {
+              padding: 10px 0px;
+              .table {
+                width: 100%;
+                border-collapse: collapse;
+                .table-tr-head {
+                  th {
+                    border: 1px solid #000;
+                    font-size: 12px;
+                    font-weight: 500;
+                    background-color: rgba(217, 217, 217, 1);
+                    padding: 5px 10px;
+                    text-align: center;
+                  }
+                }
+                .table-list {
+                  td {
+                    text-align: center;
+                    border: 1px solid #000;
+                    font-size: 12px;
+                    font-weight: 500;
+                    padding: 5px 10px;
+                  }
+                }
+              }
+            }
+            .card-table-price {
+              padding: 20px 0 60px;
+              .table-first-price {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                border-bottom: 2px solid rgba(0, 0, 0, 0.46);
+                .price-in {
+                  .price,
+                  .value-added {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 5px;
+                    .title {
+                      font-size: 12px;
+                      font-weight: 600;
+                      padding-right: 80px;
+                    }
+                    .amount {
+                      font-size: 12px;
+                      font-weight: 400;
+                    }
+                  }
+                }
+              }
+              .table-total-price {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                .total-price-in {
+                  padding-top: 4px;
+                  .price {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .title {
+                      font-size: 12px;
+                      font-weight: 600;
+                      padding-right: 45px;
+                    }
+                    .total-amount {
+                      font-size: 18px;
+                      font-weight: 600;
+                    }
+                  }
+                }
+              }
+            }
+            .card-info {
+              padding: 20px 10px 0;
+              .info-title {
+                width: 100%;
+                .title {
+                  font-size: 14px;
+                  font-weight: 600;
+                  line-height: 22px;
+                }
+              }
+              .info-barcode {
+                padding: 20px 0 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                .info-text {
+                  flex: 0 0 50%;
+                  max-width: 50%;
+                  font-size: 10px;
+                  line-height: 14px;
+                }
+                .barcode {
+                  flex: 0 0 50%;
+                  max-width: 50%;
+                  text-align: right;
+                  .barcode-title {
+                    margin-bottom: -7px;
+                    .bold {
+                      font-size: 9px;
+                      font-weight: 600;
+                    }
+                    span {
+                      font-size: 9px;
+                      font-weight: 300;
+                    }
+                  }
+                  .barcode-image {
+                    padding-left: 10px;
+                    padding-bottom: 20px;
+                    img {
+                      width: 80%;
+                      height: auto;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

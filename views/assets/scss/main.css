@@ -11,6 +11,10 @@
   display: none;
 }
 
+body {
+  background-color: #12192c;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -654,4 +658,242 @@ html {
     font-size: 12px;
     line-height: 20px;
   }
+}
+.invoice-header .nav-bar {
+  padding: 10px 20px;
+}
+.invoice-header .nav-bar .container .nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+.invoice-header .nav-bar .container .nav-center .nav-left .left-list {
+  display: flex;
+  gap: 50px;
+}
+.invoice-header .nav-bar .container .nav-center .nav-left .left-list .list-item {
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.invoice-header .nav-bar .container .nav-center .nav-left .left-list .list-item:hover {
+  transition: all 0.3s ease;
+  color: #9a9a9a;
+}
+.invoice-header .nav-bar .container .nav-center .nav-left .left-list .list-item i {
+  font-size: 14px;
+}
+.invoice-header .nav-bar .container .nav-center .nav-right .right-icons {
+  display: flex;
+  gap: 30px;
+}
+.invoice-header .nav-bar .container .nav-center .nav-right .right-icons .list-icon {
+  color: #fff;
+  font-size: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.invoice-header .nav-bar .container .nav-center .nav-right .right-icons .list-icon:hover {
+  transition: all 0.3s ease;
+  color: #9a9a9a;
+}
+
+.invoice-main .invoice-section-in {
+  padding: 10px;
+}
+.invoice-main .invoice-section-in .container .row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card {
+  padding: 20px;
+  height: auto;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 7px 8px 28px -8px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 7px 8px 28px -8px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 7px 8px 28px -8px rgba(0, 0, 0, 0.8);
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-head {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.46);
+  padding: 0 25px 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-head .subheading {
+  font-size: 20px;
+  padding: 15px 40px 15px 0px;
+  font-size: 25px;
+  border-right: 2px solid rgba(0, 0, 0, 0.46);
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-head .invoice-date {
+  padding: 15px 25px;
+  background-color: rgba(217, 217, 217, 0.7);
+  border-radius: 10px;
+  box-shadow: 8px 8px 14px -10px rgb(0, 0, 0);
+  -webkit-box-shadow: 8px 8px 14px -10px rgb(0, 0, 0);
+  -moz-box-shadow: 8px 8px 14px -10px rgb(0, 0, 0);
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-head .invoice-date p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 23px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head {
+  padding: 20px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption-in {
+  border-right: 2px solid rgba(0, 0, 0, 0.46);
+  padding-right: 70px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption-in .bold {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption-in p {
+  line-height: 18px;
+  font-size: 12px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption .bold {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption p {
+  line-height: 18px;
+  font-size: 12px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table {
+  padding: 10px 0px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table .table .table-tr-head th {
+  border: 1px solid #000;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: rgb(217, 217, 217);
+  padding: 5px 10px;
+  text-align: center;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table .table .table-list td {
+  text-align: center;
+  border: 1px solid #000;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 10px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price {
+  padding: 20px 0 60px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.46);
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .price,
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .value-added {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .price .title,
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .value-added .title {
+  font-size: 12px;
+  font-weight: 600;
+  padding-right: 80px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .price .amount,
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .value-added .amount {
+  font-size: 12px;
+  font-weight: 400;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-total-price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-total-price .total-price-in {
+  padding-top: 4px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-total-price .total-price-in .price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-total-price .total-price-in .price .title {
+  font-size: 12px;
+  font-weight: 600;
+  padding-right: 45px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-total-price .total-price-in .price .total-amount {
+  font-size: 18px;
+  font-weight: 600;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info {
+  padding: 20px 10px 0;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-title {
+  width: 100%;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-title .title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode {
+  padding: 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .info-text {
+  flex: 0 0 50%;
+  max-width: 50%;
+  font-size: 10px;
+  line-height: 14px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode {
+  flex: 0 0 50%;
+  max-width: 50%;
+  text-align: right;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode .barcode-title {
+  margin-bottom: -7px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode .barcode-title .bold {
+  font-size: 9px;
+  font-weight: 600;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode .barcode-title span {
+  font-size: 9px;
+  font-weight: 300;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode .barcode-image {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode .barcode-image img {
+  width: 80%;
+  height: auto;
 }/*# sourceMappingURL=main.css.map */
