@@ -39,15 +39,11 @@
         <div>
           <p><i>product cixarisi</i></p>
           <img class="product-export-img" src="/uploads/Mehsul1_23712393123.jpeg" alt="">
-          <div class="product-export-title"></div>
-          <span class="product-export-price"></span>
-
-          <p class="product-export-count-ops">
-            <button class="btn expcount-decrease-btn">-</button>
-
-            <span>12</span>
-            <button class="btn expcount-increase-btn">+</button>
-          </p>
+          <div class="product-export-title p-1"></div>
+          <span class="product-export-price p-1"></span>
+          <span class="product-export-product_count p-1"></span>
+          <input type="number"  id="product-export-count-input" class="form-control">
+          <button class="btn btn-danger m-2 p-2 export-product-btn">Səbətə at!</button>
         </div>
 
       </div>
@@ -67,12 +63,14 @@
         <div>
           <p><i>product elavesi</i></p>
           <img class="product-input-img"  alt="product-img">
-          <div class="product-input-title"></div>
-          <span class="product-input-price"></span>
+          <div class="product-input-title p-1"></div>
+          <span class="product-input-price p-1"></span>
+          <span class="product-input-product_count p-1"></span>
+          <input  class="form-control alternative-barcode-input" type="text"  placeholder="Alternatif Barkod">
 
-          <input type="number" class="form-control m-2" placeholder="Miqdar" id="product-input-count">
+          <input type="text" class="form-control m-2" placeholder="Miqdar" id="product-input-count">
 
-          <input  class="form-control alternative-barcode-input" type="number"  placeholder="Alternatif Barkod">
+          <button class="btn btn-success m-2 p-2 add-product-btn">Göndər</button>
           <div class="codes-wrapper">
 
           </div>
@@ -108,7 +106,7 @@
               <img src="/icons/search-icon.svg" alt="search" id="table-search-icon">
               <input type="text" placeholder="Axtar..." maxlength="40" id="table-search-input">
             </div>
-            <button class="btn btn-add-button add-product-btn">
+            <button class="btn btn-add-button open-create-product-btn">
               <div>+</div> Əlavə et
             </button>
           </header>
@@ -164,14 +162,14 @@
                   </td>
                   <td>
                     <%product.QRcode.map(code=>{%>
-                      #<span>
-                        <%=code%>
+                      <span>
+                         #<%=code%>
                       </span>
                       <%})%>
                   </td>
                   <td class="table-operations">
                     <img class="point" src="/icons/edit-icon.svg" alt="edit">
-                    <img class="point" onclick="deleteProductHandler('<%=product._id%>')" src="/icons/delete-icon.svg"
+                    <img class="point" src="/icons/delete-icon.svg"
                       alt="delete">
                   </td>
                 </tr>
@@ -201,7 +199,7 @@
 
         <script src="/js/home.js"></script>
         <script src="/js/table/entry-dropdown.js"></script>
-        <script src="/js/products/modals/onoff-modal.js"></script>
+        <!-- <script src="/js/products/modals/onoff-modal.js"></script> -->
         <!-- <script src="/js/products/table-product-operation.js"></script> -->
         <!-- <script src="/js/table/search-product.js"></script> -->
         <script src="/js/table/delete-product.js"></script>

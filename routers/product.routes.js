@@ -5,6 +5,8 @@ const ProductValidation = require("../middlewares/validation/product.validation"
 const path = require("path");
 const fs = require("fs");
 const deleteProductController = require("../controllers/delete-product.controller");
+const addProductController = require("../controllers/addProduct.controller");
+const exportProductController = require("../controllers/exportProduct.controller");
 const router = express.Router();
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -37,6 +39,7 @@ router.post(
   ],
   uploadProduct
 );
-
+router.post("/addProduct",addProductController)
+router.post("/exportProduct",exportProductController)
 router.delete("/deleteProduct",deleteProductController);
-module.exports = router
+module.exports = router;

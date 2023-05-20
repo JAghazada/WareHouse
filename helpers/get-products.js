@@ -1,10 +1,21 @@
 const productSchema = require("../database/models/productSchema");
 const translateJson = require("../routers/Translate/translate.json");
-const getProductsHelper = async () => {
-  const products = await productSchema
+
+const getProductsHelper = async (query) => {
+  let products; 
+  if(query){
+    console.log(query);
+    products =await productSchema.find(query)
+    .sort({createdAt:-1})
+    .lean()
+
+  }else{
+    products = await productSchema
     .find()
     .sort({ createdAt: -1 })
-    .lean(); // Bu "lean" fonksiyonu, verilerin daha hızlı alınmasını sağlar.
+    .lean(); // ! Bu "lean" fonksiyonu, verilerin daha hızlı alınmasını sağlar.
+  }
+   
 
   products.forEach((product) => {
     const parts = JSON.stringify(product.createdAt)

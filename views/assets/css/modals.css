@@ -37,7 +37,12 @@ span.val{
 }
 .preview-qrcode{
     font-size: 17px;
+    display: flex;
     font-weight: bold;
+    flex-wrap: wrap;
+    max-height: 180px;
+    overflow: auto;
+    
 }
 
 
@@ -146,5 +151,10 @@ span.val{
     text-align: center;
     font-style: italic;
     font-weight: 700;
+    cursor: pointer;
+    margin: 5px;
+}
+.alter-code:hover {
+    color: #ed2939;
 }
 /* !decrease-product-modal-end */

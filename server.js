@@ -12,6 +12,7 @@ const bodyParser = require("body-parser");
 const MongoStore = require("connect-mongo");
 const reports= require("./report");
 const searchProduct = require("./controllers/search.controller");
+const getProductsHelper = require("./helpers/get-products");
 //?dotenv configuration
 dotenv.config();
 const port = process.env.PORT || 5001;
@@ -63,6 +64,10 @@ io.on("connection",(socket)=>{
     console.log(products);
     return socket.emit("products", products);
   });
+  socket.on("request:get-all-product",async()=>{
+    const products = await getProductsHelper();
+    return socket.emit("response:get-all-product",products)
+  })
   
 })
 app.set("socketio",io)
