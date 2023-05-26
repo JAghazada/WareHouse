@@ -659,47 +659,6 @@ html {
     line-height: 20px;
   }
 }
-.invoice-header .nav-bar {
-  padding: 10px 20px;
-}
-.invoice-header .nav-bar .container .nav-center {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 0;
-}
-.invoice-header .nav-bar .container .nav-center .nav-left .left-list {
-  display: flex;
-  gap: 50px;
-}
-.invoice-header .nav-bar .container .nav-center .nav-left .left-list .list-item {
-  color: #fff;
-  font-size: 20px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-.invoice-header .nav-bar .container .nav-center .nav-left .left-list .list-item:hover {
-  transition: all 0.3s ease;
-  color: #9a9a9a;
-}
-.invoice-header .nav-bar .container .nav-center .nav-left .left-list .list-item i {
-  font-size: 14px;
-}
-.invoice-header .nav-bar .container .nav-center .nav-right .right-icons {
-  display: flex;
-  gap: 30px;
-}
-.invoice-header .nav-bar .container .nav-center .nav-right .right-icons .list-icon {
-  color: #fff;
-  font-size: 30px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-.invoice-header .nav-bar .container .nav-center .nav-right .right-icons .list-icon:hover {
-  transition: all 0.3s ease;
-  color: #9a9a9a;
-}
-
 .invoice-main .invoice-section-in {
   padding: 10px;
 }
@@ -710,12 +669,11 @@ html {
   flex-wrap: wrap;
 }
 .invoice-main .invoice-section-in .container .row .invoice-card-side {
-  flex: 0 0 40%;
-  max-width: 40%;
+  width: 814px;
+  height: 1080px;
 }
 .invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card {
   padding: 20px;
-  height: auto;
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 7px 8px 28px -8px rgba(0, 0, 0, 0.8);
@@ -731,7 +689,7 @@ html {
 }
 .invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-head .subheading {
   font-size: 20px;
-  padding: 15px 40px 15px 0px;
+  padding: 15px 170px 15px 0px;
   font-size: 25px;
   border-right: 2px solid rgba(0, 0, 0, 0.46);
 }
@@ -758,7 +716,7 @@ html {
 }
 .invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption-in {
   border-right: 2px solid rgba(0, 0, 0, 0.46);
-  padding-right: 70px;
+  padding-right: 100px;
 }
 .invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption-in .bold {
   font-size: 14px;

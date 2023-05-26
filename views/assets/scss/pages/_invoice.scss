@@ -1,52 +1,52 @@
 // NavBar Start
-.invoice-header {
-  .nav-bar {
-    padding: 10px 20px;
-    .container {
-      .nav-center {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 15px 0;
-        .nav-left {
-          .left-list {
-            display: flex;
-            gap: 50px;
-            .list-item {
-              color: #fff;
-              font-size: 20px;
-              transition: all 0.3s ease;
-              cursor: pointer;
-              &:hover {
-                transition: all 0.3s ease;
-                color: #9a9a9a;
-              }
-              i {
-                font-size: 14px;
-              }
-            }
-          }
-        }
-        .nav-right {
-          .right-icons {
-            display: flex;
-            gap: 30px;
-            .list-icon {
-              color: #fff;
-              font-size: 30px;
-              transition: all 0.3s ease;
-              cursor: pointer;
-              &:hover {
-                transition: all 0.3s ease;
-                color: #9a9a9a;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
+// .invoice-header {
+//   .nav-bar {
+//     padding: 10px;
+//     .container {
+//       .nav-center {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         padding: 10px 0;
+//         .nav-left {
+//           .left-list {
+//             display: flex;
+//             gap: 30px;
+//             .list-item {
+//               color: #fff;
+//               font-size: 18px;
+//               transition: all 0.3s ease;
+//               cursor: pointer;
+//               &:hover {
+//                 transition: all 0.3s ease;
+//                 color: #9a9a9a;
+//               }
+//               i {
+//                 font-size: 14px;
+//               }
+//             }
+//           }
+//         }
+//         .nav-right {
+//           .right-icons {
+//             display: flex;
+//             gap: 30px;
+//             .list-icon {
+//               color: #fff;
+//               font-size: 30px;
+//               transition: all 0.3s ease;
+//               cursor: pointer;
+//               &:hover {
+//                 transition: all 0.3s ease;
+//                 color: #9a9a9a;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 // Main Start
 .invoice-main {
@@ -59,12 +59,13 @@
         justify-content: center;
         flex-wrap: wrap;
         .invoice-card-side {
-          flex: 0 0 40%;
-          max-width: 40%;
+          // flex: 0 0 40%;
+          // max-width: 40%;
           // width: 550px;
+          width: 814px;
+          height: 1080px;
           .invoice-card {
             padding: 20px;
-            height: auto;
             background-color: #fff;
             border-radius: 15px;
             box-shadow: 7px 8px 28px -8px rgba(0, 0, 0, 0.8);
@@ -78,7 +79,7 @@
               justify-content: space-between;
               .subheading {
                 font-size: 20px;
-                padding: 15px 40px 15px 0px;
+                padding: 15px 170px 15px 0px;
                 font-size: 25px;
                 border-right: 2px solid rgba(0, 0, 0, 0.46);
               }
@@ -104,7 +105,7 @@
                 justify-content: space-around;
                 .caption-in {
                   border-right: 2px solid rgba(0, 0, 0, 0.46);
-                  padding-right: 70px;
+                  padding-right: 100px;
                   .bold {
                     font-size: 14px;
                     font-weight: 700;
