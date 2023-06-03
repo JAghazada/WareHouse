@@ -854,4 +854,345 @@ html {
 .invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode .barcode-image img {
   width: 80%;
   height: auto;
+}
+
+.admin-panel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.admin-panel .admin-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+  padding: 20px;
+  padding-left: 50px;
+  flex: 0 0 20%;
+  max-width: 20%;
+  background-color: #f1f1f1;
+}
+.admin-panel .admin-left .admin-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.admin-panel .admin-left .admin-logo img {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #f1f1f1;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.admin-panel .admin-left .admin-logo .header {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.admin-panel .admin-left .choices {
+  padding: 30px 0;
+}
+.admin-panel .admin-left .choices .admin-statistics-btn {
+  cursor: pointer;
+  padding: 10px;
+}
+.admin-panel .admin-left .choices .admin-statistics-btn .statistic-btn-in {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-left .choices .admin-statistics-btn .statistic-btn-in:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+}
+.admin-panel .admin-left .choices .admin-statistics-btn .statistic-btn-in i {
+  color: rgb(52, 52, 52);
+  margin-right: 10px;
+}
+.admin-panel .admin-left .choices .admin-statistics-btn .statistic-btn-in .statistic {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.admin-panel .admin-left .choices .admin-users-btn {
+  cursor: pointer;
+  padding: 10px;
+}
+.admin-panel .admin-left .choices .admin-users-btn .user-btn-in {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  background-color: #0832de;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-left .choices .admin-users-btn .user-btn-in:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.84);
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.84);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.84);
+}
+.admin-panel .admin-left .choices .admin-users-btn .user-btn-in i {
+  color: #fff;
+  margin-right: 10px;
+}
+.admin-panel .admin-left .choices .admin-users-btn .user-btn-in .users {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.admin-panel .admin-left .logout {
+  padding-top: 300px;
+}
+.admin-panel .admin-left .logout .logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-left .logout .logout-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+}
+.admin-panel .admin-left .logout .logout-btn i {
+  color: rgb(52, 52, 52);
+  margin-right: 10px;
+}
+.admin-panel .admin-left .logout .logout-btn .sign-out {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.admin-panel .admin-right {
+  flex: 0 0 80%;
+  max-width: 80%;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.admin-panel .admin-right .title-for-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 120px 20px 0px;
+}
+.admin-panel .admin-right .title-for-info .peoples {
+  text-align: center;
+  border-right: 2px solid #c4c4c4;
+  padding: 0 180px 0 100px;
+}
+.admin-panel .admin-right .title-for-info .peoples .number-of-people {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 75px;
+  color: #343434;
+}
+.admin-panel .admin-right .title-for-info .peoples p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #c4c4c4;
+}
+.admin-panel .admin-right .title-for-info .departments {
+  text-align: center;
+  border-right: 2px solid #c4c4c4;
+  padding: 0 155px 0 20px;
+}
+.admin-panel .admin-right .title-for-info .departments .number-of-department {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 75px;
+  color: #343434;
+}
+.admin-panel .admin-right .title-for-info .departments p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #c4c4c4;
+}
+.admin-panel .admin-right .title-for-info .guests {
+  text-align: center;
+}
+.admin-panel .admin-right .title-for-info .guests .number-of-guest {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 75px;
+  color: #343434;
+}
+.admin-panel .admin-right .title-for-info .guests p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #c4c4c4;
+}
+.admin-panel .admin-right .search-section {
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+.admin-panel .admin-right .search-section .search-label {
+  flex: 0 0 70%;
+  max-width: 70%;
+}
+.admin-panel .admin-right .search-section .search-label i {
+  position: absolute;
+  padding-top: 12px;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #c4c4c4;
+}
+.admin-panel .admin-right .search-section .search-label .search-input {
+  width: 100%;
+  padding: 8px 20px 8px 45px;
+  border-radius: 5px;
+  border: 2px solid #c4c4c4;
+  outline: none;
+  font-size: 15px;
+  color: #343434;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-right .search-section .search-label .search-input:focus {
+  transition: all 0.3s ease;
+  border-color: #4f6de6;
+}
+.admin-panel .admin-right .search-section .search-label .search-input::-moz-placeholder {
+  color: #c4c4c4;
+  font-size: 15px;
+}
+.admin-panel .admin-right .search-section .search-label .search-input::placeholder {
+  color: #c4c4c4;
+  font-size: 15px;
+}
+.admin-panel .admin-right .search-section .invite-btn {
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding: 0 25px;
+}
+.admin-panel .admin-right .search-section .invite-btn .invite-btn-in {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0832de;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-right .search-section .invite-btn .invite-btn-in:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+}
+.admin-panel .admin-right .search-section .invite-btn .invite-btn-in i {
+  color: #fff;
+  padding-right: 10px;
+  font-size: 14px;
+}
+.admin-panel .admin-right .search-section .invite-btn .invite-btn-in p {
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+}
+.admin-panel .admin-right .search-section .other-btn .other-btn-in {
+  padding: 10px 18px;
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-right .search-section .other-btn .other-btn-in:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.18);
+  -webkit-box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.18);
+}
+.admin-panel .admin-right .search-section .other-btn .other-btn-in i {
+  color: #0832de;
+}
+.admin-panel .admin-right .users-table-section {
+  padding: 40px 0;
+  margin-left: -20px;
+}
+.admin-panel .admin-right .users-table-section .user-table {
+  padding: 10px 0px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table {
+  width: 70%;
+  border-collapse: collapse;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-tr-head .for-checkbox {
+  text-align: start;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-tr-head .for-checkbox input {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-tr-head .for-checkbox span {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-tr-head th {
+  border-bottom: 2px solid #f1f1f1;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 20px 0px;
+  text-align: center;
+  color: #959494;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored {
+  background-color: #f1f1f1;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored .for-checkbox {
+  text-align: start;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored .for-checkbox input {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored .for-checkbox span {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored td {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 20px 0px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored td i {
+  font-size: 10px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list {
+  background-color: transparent;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list .for-checkbox {
+  text-align: start;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list .for-checkbox input {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list .for-checkbox span {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list td {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 20px 0px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list td i {
+  font-size: 10px;
 }/*# sourceMappingURL=main.css.map */
