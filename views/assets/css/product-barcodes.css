@@ -1,0 +1,55 @@
+main { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute !important;
+    width: 800px;
+    z-index: 100;
+    margin-top: 50px;
+    left: calc(50% - 400px);
+}
+.products-wrapper{
+    max-height: 500px;
+    width: 100%;
+    background-color: #f8f8f8;
+    overflow-y: auto;
+}
+.search-result {
+    width: 100%;
+    height: 50px;
+    background-color: #eee;
+    border-bottom: 2px solid #c8c1c1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.barcode-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    margin: 10px 0;
+}
+.barcode-info {
+    font-weight: 600;
+}
+section{
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+
+.print-barcode-btn {
+    position: absolute;
+    padding: 50px 2px;
+    cursor: pointer;
+    top: 42%;
+    left: 0%;
+}
+
+.print-barcode-btn>div {
+    transform: rotate(90deg);
+}

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // Register section start
+=======
+// Register page start
+>>>>>>> 8fe1a422b1bb421a26bf5651442d2e48f8baa844
 .register {
   width: 100%;
   height: 100vh;
@@ -51,6 +55,7 @@
             }
             .input-field {
               padding: 30px 20px 0px;
+<<<<<<< HEAD
               .ui-input {
                 width: 100%;
                 padding: 12px 20px;
@@ -70,6 +75,57 @@
                 &:focus {
                   border-color: #14dfff;
                   transition: all 0.3s ease;
+=======
+              position: relative;
+              .form-control {
+                .ui-input {
+                  display: block;
+                  width: 100%;
+                  padding: 12px 20px;
+                  margin-bottom: 25px;
+                  background-color: transparent;
+                  outline: none;
+                  border: 1px solid #ccbfbf;
+                  border-radius: 4px;
+                  color: #fff;
+                  transition: all 0.3s ease;
+                  &::placeholder {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #7f7f7f;
+                    transition: all 0.3s ease;
+                  }
+                  &:focus {
+                    border-color: #14dfff;
+                    transition: all 0.3s ease;
+                  }
+                }
+                .err-message {
+                  color: var(--error-color);
+                  position: absolute;
+                  left: 25px;
+                  margin-top: -84px;
+                  font-size: 13px;
+                  transition: all 0.3s ease;
+                  visibility: hidden;
+                }
+              }
+              .form-control.success {
+                .ui-input {
+                  border-color: var(--success-color);
+                  transition: all 0.3s ease;
+                }
+              }
+              .form-control.error {
+                .ui-input {
+                  border-color: var(--error-color);
+                  transition: all 0.3s ease;
+                }
+                .err-message {
+                  transition: all 0.3s ease;
+                  visibility: visible;
+>>>>>>> 8fe1a422b1bb421a26bf5651442d2e48f8baa844
                 }
               }
             }
@@ -121,6 +177,10 @@
             .btn-action {
               padding: 20px 20px 10px;
               .btn-continue {
+<<<<<<< HEAD
+=======
+                cursor: pointer;
+>>>>>>> 8fe1a422b1bb421a26bf5651442d2e48f8baa844
                 color: #fff;
                 padding: 12px 40px;
                 font-weight: 400;

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/css/home.css"> -->
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/loader.css">
+    <style>
+        .redirect-links {
+            text-decoration: underline;
+            color: #1c308a;
+        }
+    </style>
+    <style>
+        img {
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lds-dual-ring-3"></div>
+
+    <%- include("partials/navbar.ejs",{user,orders}) %>
+        <h1 class="text-center fetch-status  d-none p-1 m-3 bg-danger">
+            Xəta baş verdi
+        </h1>
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Sekli</th>
+                        <th scope="col">Emeliyyat novu</th>
+                        <th scope="col">Mehsul Adi</th>
+                        <th scope="col">Qiymeti</th>
+
+                        <th scope="col">Sayi</th>
+                        <th scope="col">Emelliyyat Sayi :</th>
+                        <th scope="col">Barkod :</th>
+                        <th scope="col">Elave Olunacaq Barkodlar :</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <%createList.forEach((item,index)=>{%>
+                        <tr>
+                            <th scope="row">
+                                <%=index%>
+                            </th>
+                            <td><img src="/uploads/<%=item.Link%>"></td>
+
+                            <td style="color:#1c308a">Anbara Yazma</td>
+                            <td>
+                                <%=item.ProductName%>
+                            </td>
+                            <td>
+                                <%=item.SellingPrice%>
+                            </td>
+                            <td>
+                                <%=item.NumberOfProducts%>
+                            </td>
+                            <td>
+                                <%=item.NumberOfProducts%>
+                            </td>
+
+                            <td>
+                                <%=item.MainCode%>
+                            </td>
+                            <td>
+                                <%=item.QRcode%>
+                            </td>
+                        </tr>
+                        <% })%>
+                            <%userAddList.forEach((item,index)=>{%>
+                                <tr>
+                                    <th scope="row">
+                                        <%=index%>
+                                    </th>
+                                    <td><img src="/uploads/<%=item.link%>"></td>
+
+                                    <td style="color:#1c308a">Anbara Elave</td>
+                                    <td>
+                                        <%=item.name%>
+                                    </td>
+
+                                    <td>
+                                        <%=item.price%>
+                                    </td>
+
+                                    <td>
+                                        <%=item.numberofproduct%>
+                                    </td>
+                                    <td>
+                                        <%=item.count%>
+                                    </td>
+                                    <td>
+                                        <%=item.maincode%>
+                                    </td>
+                                    <td>
+                                        <%=item.new_barcodes%>
+                                    </td>
+                                </tr>
+                                <% })%>
+                                    <%userExportList.forEach((item,index)=>{%>
+                                        <tr>
+                                            <th scope="row">
+                                                <%=index%>
+                                            </th>
+                                            <td><img src="/uploads/<%=item.link%>"></td>
+                                            <td style="color:#ed2939">Anbardan Cixaris</td>
+                                            <td>
+                                                <%=item.name%>
+                                            </td>
+                                            <td>
+                                                <%=item.price%>
+                                            </td>
+
+                                            <td>
+                                                <%=item.numberofproduct%>
+                                            </td>
+                                            <td>
+                                                <%=item.count%>
+                                            </td>
+                                            <td>
+                                                <%=item.maincode%>
+                                            </td>
+                                        </tr>
+                                        <% })%>
+                </tbody>
+            </table>
+            <% if(createList.length===0 && userAddList.length===0 && userExportList.length===0){%>
+
+                <% }else{%>
+                    <button class="confirm-order-button">Tesdiqle Sifaris </button>
+
+                    <%}%>
+                        <p class="order-redirect-links d-none"></p>
+</body>
+<script>
+    const confirmButton = document.querySelector(".confirm-order-button");
+    const fetchStatusContainer = document.querySelector(".fetch-status");
+    const orderLinks = document.querySelector(".order-redirect-links")
+    confirmButton.addEventListener("click", e => {
+        document.querySelector(".lds-dual-ring-3").style.display = "flex";
+        e.preventDefault();
+        fetch("/confirmOrder", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(Res => Res.json())
+            .then(res => {
+
+                fetchStatusContainer.classList.remove("d-none");
+                fetchStatusContainer.classList.add("bg-success");
+                fetchStatusContainer.classList.add("d-flex");
+                fetchStatusContainer.classList.remove("bg-danger");
+
+                fetchStatusContainer.textContent = res.message;
+                orderLinks.classList.remove("d-none")
+                orderLinks.classList.add("d-block");
+
+                const addRedirectLink = "/bill?id=" + res["add-list-link"] + "&type=add";
+                const exportRedirectLink = "/bill?id=" + res["export-list-link"] + "&type=export";
+                const createRedirectLink = "/bill?id=" + res["create-list-link"] + "&type=create";
+
+                orderLinks.innerHTML = `
+
+
+            <a class="redirect-links" href="${res["add-list-link"] ? addRedirectLink : "#"}"> Əlavə olunmuş məhsullar </a> </br>
+            <a class="redirect-links" href="${res["export-list-link"] ? exportRedirectLink : "#"}">Çixarilmiş  məhsullar </a> </br>
+            <a class="redirect-links" href="${res["create-list-link"] ? createRedirectLink : "#"}">Yaradilmiş məhsullar </a> </br>
+            `
+            })
+            .catch(err => {
+                fetchStatusContainer.classList.remove("d-none");
+                fetchStatusContainer.classList.remove("bg-success");
+
+                fetchStatusContainer.classList.add("d-flex");
+                fetchStatusContainer.classList.add("bg-danger");
+
+                fetchStatusContainer.textContent = err
+
+            }).finally((res) => {
+                document.querySelector(".lds-dual-ring-3").style.display = "none";
+                document.querySelector("tbody").innerHTML = ""
+
+            })
+    })
+</script>
+
+</html>

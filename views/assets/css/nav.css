@@ -1,0 +1,199 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+:root {
+  --bodyColor: #12192c;
+  --mainFont: "Montserrat", sans-serif;
+}
+*{
+    font-family: var(--mainFont) !important;
+    margin: 0;
+    padding: 0;
+    text-decoration: none !important;
+    list-style: none;
+}
+
+ul{
+    margin: 0;
+}
+
+
+nav {
+    background-color: #12192c;
+    color: #fff;
+    font-size: 18px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: #000; */
+}
+ul#menu {
+    display: flex;
+}
+ul#menu > li{
+    padding: 10px;
+
+}
+li{
+    cursor: pointer;
+    height: 100%;
+}
+.dropdown-links{
+    position: relative;
+    z-index: 1;
+}
+ul#sub-menu {
+    visibility: hidden;
+    position: absolute;
+    background-color: darkblue;
+    top: 30px;
+    /* transition: .100s ease-in-out; */
+}
+ul#sub-menu>li{
+    padding: 7px 15px;
+}
+ul#sub-menu>li:hover {
+    background-color: #624de3;
+    transition: ease-in .25s;
+}
+
+/* !hover methods */
+.dropdown-links:hover  ul#sub-menu{
+    transition: .250s;
+    visibility: visible;
+    top: 43px;
+}
+a,a:hover{
+    color: #fff;
+}
+
+
+ul#icons {
+    display: flex;
+}
+ul#icons >li>img{
+    height: 40px;
+
+}
+
+.profile-icon {
+    margin-right: 15px;
+}
+.profile-icon {
+    position: relative;
+}
+.profile-wrapper {
+    top: 54px;
+    position: absolute;
+    right: calc(2.5% + 15px - 4px);
+    background-color: #8d1157;
+    z-index: -1;
+    opacity: 0;
+    transition: 250ms;
+
+}
+.orders-link { 
+    position: relative;
+}
+.orders-link > span{
+    padding: 2px 5px;
+    color: #fff;
+    background-color: goldenrod;
+    position: absolute;
+    bottom: 10px;
+    font-size: 12px;
+    border-radius: 999px;
+}
+.square {
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    background-color: #8d1157;
+    position: absolute;
+    top: -5px;
+    right: 4px;
+}
+ul#profile-info{
+    margin: 0 !important;
+}
+ul#profile-info>li{
+    cursor: pointer;
+    padding: 10px 10px;
+}
+ul#profile-info>li:hover {
+    background-color: #624de3;
+}
+ul#profile-info>li:nth-child(1):hover ~ .square {
+    background-color: #000;
+}
+.burger-icon {
+    width: 50px;
+    height: 40px;
+    display: flex;
+    position: absolute;
+    left: 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    display: none;
+    margin-left: 2%;
+}
+.bar {
+    width: 100%;
+    height: 8px;
+    background-color: #fff;
+    transition: 0.2s ease-in-out;
+}
+.active > .bar:nth-child(1) {
+    transform: translateY(16px) rotate(45deg);
+  }
+  
+.active > .bar:nth-child(2) {
+    transform: scale(0);
+  }
+  
+.active > .bar:nth-child(3) {
+    transform: translateY(-16px) rotate(-45deg);
+}
+.dropdown-arrow {
+    height: 8px;
+}
+
+@media screen and (max-width:623px) {
+   
+    .burger-icon{
+        display: flex;
+    }
+    nav {
+        position: relative;
+    }
+    ul#menu{
+        position: relative;
+        margin-left: 2%;
+        visibility: hidden;
+        top:  220px ;
+        flex-direction: column;
+        background-color: #8d1157;
+        z-index: 2000;
+    }
+    ul#sub-menu{
+        background-color: transparent;
+        position: static;
+        visibility:unset ;
+    }
+    
+    ul#icons{
+        margin-right: 2%;
+    }
+   
+}
+@media screen and (max-width:330px) {
+    ul#menu {
+        top: 240px;
+    }
+}
+.basket-wrapper {
+    cursor: default;
+    z-index: -1;
+}

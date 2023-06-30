@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/_base.css">
+    <title>Document</title>
+
+    <style>
+        .add-list,
+        .export-list,
+        .create-list {
+            display: none;
+        }
+
+        section>div {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 50px 0;
+        }
+
+        section>h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .barcode-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .barcode-info {
+            font-weight: 600;
+        }
+
+        .print-barcode-btn {
+            position: absolute;
+            padding: 50px 2px;
+            font-weight: 600;
+            cursor: pointer;
+            top: 42%;
+            left: 0%;
+        }
+
+        .print-barcode-btn>div {
+            transform: rotate(90deg);
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <button class="btn print-barcode-btn">
+        <div>Print</div>
+    </button>
+
+    <input type="text" disabled class="add-list" value="<%=userAddList%>">
+    <input type="text" disabled class="export-list" value="<%=userExportList%>">
+    <input type="text" disabled class="create-list" value="<%=userCreateList%>">
+
+    <section>
+        <h1>Anbara Yazma üçün Barkodlar</h1>
+
+        <div class="createList-barcodes">
+
+        </div>
+    </section>
+
+
+    <script src="/js/js-barcode.js"></script>
+    <script>
+        const addWrapper = document.querySelector(".addList-barcodes");
+        const exportWrapper = document.querySelector(".exportList-barcodes");
+        const createWrapper = document.querySelector(".createList-barcodes");
+        const printBarcodeBtn = document.querySelector(".print-barcode-btn");
+        const createList = JSON.parse(document.querySelector(".create-list").value);
+        createList.forEach(item => {
+            for (let index = 0; index < parseInt(item.NumberOfProducts); index++) {
+                const div = document.createElement("div");
+                div.classList.add("barcode-item")
+                const span = document.createElement("span");
+                span.classList.add("barcode-info")
+                span.textContent = item.ProductName + " |" + " " + item.SellingPrice + " azn";
+                div.append(span)
+                const img = document.createElement("img");
+                JsBarcode(img, item.MainCode, {
+                    height: 40,
+                    text: `${item.MainCode}`,
+                    textAligin: "center",
+                    textPosition: "bottom",
+                    displayValue: true
+                })
+                div.append(img);
+                createWrapper.append(div);
+            }
+
+        });
+        printBarcodeBtn.addEventListener("click", e => {
+            [...document.querySelectorAll("h1")].forEach(tag => tag.style.opacity = "0")
+            e.target.style.opacity = "0"
+            const element = document.querySelector("section")
+            html2pdf().from(element).save().set({
+                useCss: true
+            }).then(res => {
+                [...document.querySelectorAll("h1")].forEach(tag => tag.style.opacity = "1")
+
+
+                e.target.style.opacity = "1"
+            })
+        })
+
+    </script>
+</body>
+
+</html>

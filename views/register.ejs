@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <main>
+      <!-- --------------------------- Register start ---------------------------- -->
+      <section class="register">
+        <div class="container">
+          <div class="row">
+            <div class="left-side">
+              <img src="/images/Frame 1.png" alt="" />
+            </div>
+            <div class="right-side">
+              <div class="right-side-inner">
+                <form method="post" id="form">
+                  <div class="caption">
+                    <h3 class="account">Hesab yaradın</h3>
+                    <p class="caption-text">
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry.
+                    </p>
+                  </div>
+                  <div class="input-field">
+                    <div class="form-control">
+                      <input
+                        class="ui-input register-name"
+                        type="text"
+                        name="text"
+                        placeholder="Ad, Soyad"
+                        required
+                      />
+                      <span class="err-message">Error message</span>
+                    </div>
+                    <div class="form-control">
+                      <input
+                        class="ui-input register-phone"
+                        type="tel"
+                        name="phone"
+                        placeholder="Telefon"
+                        required
+                      />
+                      <span class="err-message">Error message</span>
+                    </div>
+                    <div class="form-control">
+                      <input
+                        class="ui-input register-password"
+                        type="password"
+                        name="password"
+                        placeholder="Şifrə"
+                        required
+                      />
+                      <span class="err-message">Error message</span>
+                    </div>
+                    <div class="form-control">
+                      <input
+                        class="ui-input register-re-password"
+                        type="password"
+                        name="password"
+                        placeholder="Şifrə (Təkrar)"
+                        required
+                      />
+                      <span class="err-message">Error message</span>
+                    </div>
+                    
+                  </div>
+                  <div class="personal-action">
+                    <label class="ui-check">
+                      <input
+                        class="ui-check-input"
+                        type="checkbox"
+                        name="agree"
+                        value="1"
+                      />
+                      <div class="action-text">Məxfilik Siyasətini oxuyun</div>
+                    </label>
+                  </div>
+                  <div class="btn-action">
+                    <button class="btn-continue btn-register" type="submit">
+                      Davam et
+                    </button>
+                  </div>
+                  <div class="personal-help">
+                    <p class="help-text">
+                      Artıq bir hesabınız var ?
+                      <a href="/login"
+                        >Daxil olun <i class="fa-solid fa-arrow-right"></i
+                      ></a>
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ---------------------------- Register end ----------------------------- -->
+    </main>
+
+    <!-- MY JS -->
+    <script src="/js/auth/register.js"></script>
+
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/46a0505f50.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

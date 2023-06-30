@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <style>
+        .invoice-cart {
+            width: 150px;
+            height: 210px;
+            background-image: url("/images/bill-preview.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .invoice-cart:hover{
+            transform: scale(110%);
+            cursor: pointer;
+            transition: 250ms ease-in;
+        }
+        .create{
+            border: 6px solid yellow;
+
+        }
+        .add{
+            border: 6px solid green;
+
+        }
+        .export {
+            border: 6px solid red;
+
+        }
+        h1{
+            color: #fff;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body class="container">
+    <%- include("partials/navbar.ejs") %>
+
+    <h1 class="m-5 text-center">
+        Fakturalar
+    </h1>
+    <div class="d-flex justify-content-around flex-wrap">
+        <%createBills.forEach(item=>{%>
+            <div class="invoice-cart create" data-invoice-type="create" data-invoice-id="<%=item._id%>"></div>
+        <%})%>
+        <%addBills.forEach(item=>{%>
+            <div class="invoice-cart add" data-invoice-type="add" data-invoice-id="<%=item._id%>"></div>
+        <%})%>
+        <%exportBills.forEach(item=>{%>
+            <div class="invoice-cart export" data-invoice-type="export" data-invoice-id="<%=item._id%>"></div>
+        <%})%>
+    </div>
+    <script src="/js/Model/bill.js"></script>
+</body>
+        
+</html>

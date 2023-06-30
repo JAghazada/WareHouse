@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- !from w2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- !from w2  -->
+
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/table.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/modals.css">
+  <link rel="stylesheet" href="/css/product-input-modal.css">
+  <link rel="stylesheet" href="/css/product-export-modal.css">
+  <link rel="stylesheet" href="/css/loader.css">
+
+
+
+  <title>Products</title>
+</head>
+<body>
+
+  <div class="edit-modal">
+    <div class="edit-layout">
+      <div class="lds-dual-ring-2"></div>
+      <div class="modal-close edit-modal-close ">
+        x
+      </div>
+     <div class="edit-selector">
+        <select name="select-maincode" class="custom-select" id="change-main-code">
+          
+        </select>
+     </div>
+     <div class="mt-5 w-100 d-flex justify-content-center">
+      <button class="btn confirm-main-code btn-danger">Təsdiqlə</button>
+     </div>
+    </div>
+  </div>
+
+
+ <div class="product-export-modal">
+    <div class="product-export-layout">
+      <div class="lds-dual-ring-1"></div>
+      <div class="modal-close product-export-layout-close">x</div>
+      <div class="export-layout-content">
+
+        <div>
+          <p><i>product cixarisi</i></p>
+          <img class="product-export-img" src="/uploads/Mehsul1_23712393123.jpeg" alt="">
+          <div class="product-export-title p-1"></div>
+          <span class="product-export-price p-1"></span>
+          <span class="product-export-product_count p-1"></span>
+          <input type="number"  id="product-export-count-input" class="form-control">
+          <button class="btn btn-danger m-2 p-2 export-product-btn">Səbətə at!</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ! nav -->
+  <!-- ! insert-modal -->
+
+  <div class="product-input-modal">
+    <div class="product-input-layout">
+      <div class="lds-dual-ring"></div>
+      <div class="modal-close product-input-layout-close">x</div>
+      <div class="input-layout-content">
+
+        <div>
+          <p><i>product elavesi</i></p>
+          <img class="product-input-img"  alt="product-img">
+          <div class="product-input-title p-1"></div>
+          <span class="product-input-price p-1"></span>
+          <span class="product-input-product_count p-1"></span>
+          <input  class="form-control alternative-barcode-input" type="text"  placeholder="Alternatif Barkod">
+
+          <input type="text" class="form-control m-2" placeholder="Miqdar" id="product-input-count">
+
+          <button class="btn btn-success m-2 p-2 add-product-btn">Göndər</button>
+          <div class="codes-wrapper">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <%- include("partials/navbar.ejs",{orders:orders}) %>
+    <%- include("partials/layouts/insert-modal.ejs") %>
+
+      <!-- !export-modal -->
+      <%- include("partials/layouts/decrease-modal.ejs") %>
+        <main class="contain">
+          <header class="table-header">
+            <div class="header-text">Show
+              <div class="entry-count">
+                10 <img src="/icons/table-arrow.svg" alt="">
+                <div class="entry-count-dropdown">
+                  <ul id="entry-count-menu">
+                    <li>10</li>
+                    <li>20</li>
+                    <li>30</li>
+                    <li>40</li>
+                    <li>&#x221e;</li>
+                  </ul>
+                </div>
+              </div>
+              entries
+            </div>
+            <div id="table-input-wrapper">
+              <img src="/icons/search-icon.svg" alt="search" id="table-search-icon">
+              <input type="text" placeholder="Axtar..." maxlength="40" id="table-search-input">
+            </div>
+            <% if (permission === 4 || permission === 3 || permission === 5) { %>
+            <button class="btn btn-add-button open-create-product-btn">
+              <div>+</div> Əlavə et
+            </button>
+            <% } %>
+          </header>
+          <table>
+            <thead>
+              <tr>
+                <th>Qr Kod</th>
+                <th>Product</th>
+                <th>Firma</th>
+                <th class="point">Tarix <img src="/icons/sort-icon.svg" alt="sort"></th>
+                <th class="point">Satış Qiyməti <img src="/icons/sort-icon.svg" alt="sort"></th>
+                <th class="point">Alış Qiyməti <img src="/icons/sort-icon.svg" alt="sort"></th>
+                <th>Ölçü vahidi </th>
+                <th>Alternatif Barkod </th>
+                <th>Əməliyyatlar </th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <%products.map(product=>{%>
+                <tr data-element-id="<%=product._id%>">
+                  <td>#<%=product.MainCode%>
+                  </td>
+                  <!-- onclick="handleOpenWrapper('<%=product._id%>')"-->
+                   <td   class="prod-name-container"> 
+                    <div class="container-id" data-element-id="<%=product._id%>">
+
+                    </div>
+                    <div class="product-operation-wrapper" data-wrapper-id="<%=product._id%>">
+                      <% if (permission === 2 || permission === 3 || permission === 5) { %>
+                        <span class="p1">Mədaxil</span>
+                      <% }else{%>
+                        <span class="">----------</span>
+
+                      <%} %>
+                      <% if (permission === 2 || permission === 4 || permission === 5) { %>
+                      <span class="p2">Məxaric</span>
+                      <% }else{%>
+                        <span class="">----------</span>
+
+                      <%} %>
+                      <div class="square-l">
+                      </div>
+                    </div>
+                    <img src="/uploads/<%=product.Link%>" alt="product-img">
+                    <%=product.ProductName%>
+                  </td>
+                  <td>
+                    <%=product.CompanyName%>
+                  </td>
+                  <td>
+                    <%=product.Date%>
+                  </td>
+                  <td>
+                    <%=product.PurchasePrice%>
+                  </td>
+                  <td>
+                    <%=product.SellingPrice%>
+                  </td>
+                  <td>
+                    <%=product.UnitOfMeasurment%>
+                  </td>
+                  <td>
+                
+                    <%=product.QRcode%>
+
+                  </td>
+                  <td class="table-operations">
+                    <img class="point edit-product" src="/icons/edit-icon.svg" alt="edit">
+                    <%if(permission === 5){%>
+                      <img class="point delete-product " src="/icons/delete-icon.svg"
+                      alt="delete">
+                   <% }%>
+                  </td>
+                </tr>
+
+                <%})%>
+            </tbody>
+          </table>
+          <div class="pagination-wrapper">
+            <div>
+              <span class="point">Əvvəlki</span>
+              <div class="pagination">
+                <div class="active point">1</div>
+                <div class="point">2</div>
+                <div class="point">3</div>
+              </div>
+              <span class="point">Sonrakı</span>
+            </div>
+          </div>
+        </main>
+        <!-- ? socket cdn -->
+        <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+        
+
+        <!-- ? own scripts -->
+
+
+        <script src="/js/home.js"></script>
+        <script src="/js/table/entry-dropdown.js"></script>
+        <!-- <script src="/js/products/modals/onoff-modal.js"></script> -->
+        <!-- <script src="/js/products/table-product-operation.js"></script> -->
+        <!-- <script src="/js/table/search-product.js"></script> -->
+        <script src="/js/table/delete-product.js"></script>
+        <!-- <script src="/js/products/handle-product-operation.js"></script> -->
+        <!-- <script src="/js/products/product-input-handler.js"></script> -->
+        <!-- <script src="/js/products/product-export-handler.js"></script> -->
+        <script src="/js/Model/product.js"></script>
+
+</body>
+
+</html>
