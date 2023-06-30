@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/nav.css">
 <header class="contain">
   <nav>
     <div class="burger-icon">
@@ -6,40 +7,25 @@
       <div class="bar"></div>
     </div>
     <ul id="menu">
-      <li>Məhsullar </li>
-      <li class="dropdown-links">Məhsul əməliyyatları <img src="/icons/arrow.png" class="dropdown-arrow"
-          alt="arrow">
-        <ul id="sub-menu">
-          <li class="insert-product-link"><a href="#"> Anbara Yaz</a></li>
-          <li class="decrease-product-link"><a href="#"> Məxaric</a></li>
-          <li class="increase-product-link"><a href="#"> Mədaxil</a></li>
-        </ul>
-      </li>
-      <li class="dropdown-links">Fakturalar <img src="/icons/arrow.png" class="dropdown-arrow" alt="arrow">
-        <ul id="sub-menu">
-          <li><a href="#"> Məxaric Fakturaları</a></li>
-          <li><a href="#"> Mədaxil Fakturaları</a></li>
-        </ul>
+      <li><a href="/products">Məhsullar</a> </li>
+      <li><a class="orders-link" href="/orders">Sifarisler <span><%-orders%></span></a> </li>
 
-      </li>
-      <li>Print</li>
+      <li class="dropdown-links"><a href="/bills">Fakturalar</a> </li>
+     <li><a href="/products/product-barcodes">Barkodlar</a></li>
+     <li><a href="/barcodes">Sonuncu Məhsul Barkodları</a></li>
+
+
     </ul>
     <ul id="icons">
-      <li class="profile-icon"><img src="/icons/profile-icon.svg" alt="">
-        <div class="profile-wrapper">
-          <ul id="profile-info">
-            <li>Admin</li>
-            <li>Jamil Aghazada</li>
-            <div class="square"></div>
+      <li><a href="/products"></a> </li>
 
-          </ul>
-
-
-        </div>
-      </li>
-      <li class="basket-icon"><img src="/icons/basket-icon.svg" alt="">
-        <div class="basket-wrapper"></div>
-      </li>
+   
     </ul>
+   <ul id="menu">
+     <li><%-user%></li>
+
+     <li><a href="/logout">Çıxış</a></li>
+
+  </ul>
   </nav>
 </header>

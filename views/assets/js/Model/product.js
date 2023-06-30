@@ -23,10 +23,13 @@ class ProductModel {
             body: JSON.stringify(data),
             headers: { "Content-Type": "application/json" }
         })).json());
-        this.ExportProductChanged(response);
-        this.socketRequestGetAllProduct();
-        this.loadingStateChanged(false)
+        if(response.success){
+            this.displayNavbar(".orders-link>span",response.orders)
+            this.loadingStateChanged(false)
+
+        }
     }
+
     socket() {
         const socket = io();
         this.socketRequestGetAllProduct = () => {
@@ -35,10 +38,29 @@ class ProductModel {
                 this.productListChanged(products)
             })
         }
+        this.searchProduct = (search_value) => {
+            socket.emit("getProducts", search_value)
+
+        }
+        socket.on("products", products => {
+            this.productListChanged(products)
+        })
 
 
     }
+    async deleteProduct(id, code = 13) {
+        fetch("/deleteProduct", {
+            method: "DELETE",
+            body: JSON.stringify({ id }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(res => res.json())
+            .then(res => this.socketRequestGetAllProduct())
+            .catch(err => console.log(err))
 
+    }
     async addProduct(id, count) {
         const data = { id, count: count, codes: this.alternativeBarcodeList };
         this.loadingStateChanged(true);
@@ -49,16 +71,21 @@ class ProductModel {
                 "Content-Type": "application/json"
             }
         })).json();
-        this.InputProductChanged(response)
         this.loadingStateChanged(false);
+        this.displayNavbar(".orders-link>span",response?.totalOrders);
         //* drain the alternative barcode list after data sent
-        this.clearCodeList()
-        this.socketRequestGetAllProduct();
+        this.clearCodeList();
+
 
 
     }
-
-    createProduct(productInfo) {
+    getErrorListFromView = errorCallback=>{
+        this.errorViewHandler = errorCallback
+    }
+    getNavbarHandler=callback=>{
+        this.displayNavbar = callback;
+    }
+    createProduct(productInfo, errorCallback) {
         let { ProductImgLink } = productInfo;
 
         if (ProductImgLink !== "/null.png") {
@@ -69,14 +96,41 @@ class ProductModel {
             ProductImgLink = imgName + "_" + qrcode + "." + imgExtension;
 
         }
+        const formData = new FormData();
+        formData.append("NumberOfProducts", productInfo.NumberOfProducts);
+        formData.append("Unit1", productInfo.Unit1);
+        formData.append("Unit2", productInfo.Unit2);
+        formData.append("CompanyName", productInfo.CompanyName);
+        formData.append("PurchasePrice", productInfo.PurchasePrice);
+        formData.append("SellingPrice", productInfo.SellingPrice);
+        formData.append("ProductName", productInfo.ProductName);
+        formData.append("UnitOfMeasurment", productInfo.UnitOfMeasurment);
+        formData.append("SecondUnitOfMeasurment", productInfo.SecondUnitOfMeasurment);
+        formData.append("QRcode", JSON.stringify(this.alternativeBarcodeList))
+        formData.append("MainCode", this.alternativeBarcodeList[0])
+        formData.append("Link", ProductImgLink)
+        formData.append("files", productInfo.files);
+
         // ! fetch request
+        fetch("/createProduct", {
+            method: "POST",
+            body: formData,
+        })
+            .then(res => res.json()).then(res => {
+                if(res.error){
+                    const errorList = res.error.split(",");
+                    this.errorViewHandler(errorList)
+                }
+                if(res.success){
+                    this.clearCodeList();
+                    this.clearInputs();
+                    this.displayNavbar(".orders-link>span",res.orders);
+                }
+                  
+            }
+                )
+            .catch(err => console.log(err))
 
-
-
-
-
-
-        this.clearCodeList();
 
 
     }
@@ -90,10 +144,20 @@ class ProductModel {
             }
         })
         const result = await response.json();
-
         return result
     }
-
+    async ChangeMainCode(id, value) {
+        const response = await fetch("/changeBarcode", {
+            method: "PUT",
+            body: JSON.stringify({ id, maincode: value }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        const result = await response.json();
+        this.socketRequestGetAllProduct();
+        return result
+    }
     // * display alternative barcode list 
     bindAlternativeBarcodeChanged(callback) {
         this.alternativeBarcodeListChanged = callback
@@ -129,6 +193,9 @@ class ProductModel {
         this.alternativeBarcodeList = [];
         return this.alternativeBarcodeListChanged(this.alternativeBarcodeList);
     }
+    clearInputsHandler(callback){
+        this.clearInputs = callback
+    }
 
 
 }
@@ -153,6 +220,8 @@ class ProductView {
         this.u2Type = "number"
         this.activeBarcodeDisplay = null;
         this.activeBarcodeInput = null;
+        this.tabelSearchInput = this.getElement("input#table-search-input");
+
 
         //* create product modal's element
         this.openCreateProductModal = this.getElement(".open-create-product-btn");
@@ -176,6 +245,8 @@ class ProductView {
         this.deleteCreateModalImgButton = this.getElement(".delete-img");
         this.createProductButton = this.getElement(".create-product-btn");
 
+        this.createModalProductunitv1.value = "number";
+        this.createModalProductunitv2.value = "number";
         // !run image upload listener
         this._createUploadImageListener()
         // !run input  listeners
@@ -211,18 +282,112 @@ class ProductView {
         this.productExportCountInput = this.getElement("#product-export-count-input");
         this.productExportCountWrapper = this.getElement(".product-export-product_count");
         this.productExportButton = this.getElement(".export-product-btn");
-    }
+        // 
+        this.mainCodeSelector = this.getElement("#change-main-code");
+        this.editModal = this.getElement(".edit-modal");
+        this.confirmCodeButton = this.getElement(".confirm-main-code");
 
-    _createProductButtonListener(handler) {
-        const _clearInputs = () => {
+
+    }
+    _searchInputListener(handler) {
+        this.tabelSearchInput.addEventListener("input", e => {
+            const search_value = e.target.value.trim();
+            handler(search_value)
+        })
+    }
+    _errorCallback(errorList) {
+        this.insertInput.forEach(input=>input.style.border="1px solid #ced4da")
+        
+        
+        try {
+
+            errorList.forEach(error => {
+                let errorType = error.split("*")[0].trim();
+                if (errorType === '100') {
+                    this.createModalProductName.style.border = "2px solid #ed2939"
+                }
+                if (errorType === '110') {
+                    this.createModalProductCount.style.border = "2px solid #ed2939"
+                } 
+                if (errorType === '140') {
+                    this.createModalProductPurchasePrice.style.border = "2px solid #ed2939"
+                }
+                if (errorType === '150') {
+                    this.createModalProductSellingPrice.style.border = "2px solid #ed2939"
+
+                } if (errorType === '160') {
+                    this.createModalProductQRcode.style.border = "2px solid #ed2939"
+
+                }
+            })
+        } catch (error) {
+
+        }
+    }
+    _deleteProductButtonListener(deleteProductCallback) {
+        this.deleteProductButton = [...this.getAllElement(".delete-product")];
+        this.deleteProductButton.map(deleteButton => {
+            deleteButton.addEventListener("click", (e) => {
+                const deleteRequest = confirm("Silmek istediyinize eminsiniz ?");
+                if (deleteRequest) {
+                    const id = e.target.parentNode.parentNode.getAttribute("data-element-id")
+                    return deleteProductCallback(id, 13)
+                }
+
+            })
+        })
+
+    }
+    _editProductButtonListener(getProductInfo, changeMainCode) {
+        let productId;
+        this.editProductButton = [...this.getAllElement(".edit-product")];
+        this.editProductButton.map(editButton => {
+            editButton.addEventListener("click", async (e) => {
+                this.loader = this.getElement(".lds-dual-ring-2")
+                this.editModal.style.display = "flex";
+                this.showLoading();
+                this.mainCodeSelector.innerHTML = ``
+                const parentElement = e.target.parentNode.parentNode;
+                productId = parentElement.getAttribute("data-element-id");
+                const productData = (await getProductInfo(productId))[0];
+                const QRcode = (productData.QRcode);
+                const maincode = productData.MainCode;
+
+                QRcode.forEach((code, index) => {
+                    const optionElement = this.createElement("option");
+                    optionElement.text = code;
+                    optionElement.value = code;
+                    if (code == maincode) {
+                        optionElement.selected = true;
+                    }
+                    this.mainCodeSelector.add(optionElement)
+                })
+                this.hideLoading();
+
+
+            })
+        })
+        this.confirmCodeButton.addEventListener("click", async () => {
+            const response = await changeMainCode(productId, this.mainCodeSelector.value);
+            console.log(response);
+        })
+
+    }
+        clearInputs = () => {
             this.insertInput.forEach(input => {
                 input.value = "";
                 this.createModalImgArea.innerHTML = "";
+                input.style.border="1px solid #ced4da"
             });
             [...this.getAllElement(".val")].forEach(element => element.textContent = "");
             this._createUploadImageListener();
+            this.createModalProductunit1inp.value = "1"
+            this.createModalProductunit2inp.value = "1"
+
 
         }
+    _createProductButtonListener(handler) {
+       
         this.createProductButton.addEventListener("click", e => {
             e.preventDefault();
             let imgLink;
@@ -236,21 +401,18 @@ class ProductView {
             }
             const data = {
                 ProductName: this.createModalProductName.value,
-                ProductCompany: this.createModalProductCompany.value,
-                ProductCount: this.createModalProductCount.value,
-                ProductUnitOfMeasurment: this.createModalProductUnitOfMeasurment.value,
-                ProductUnitOfMeasurment2: this.createModalProductUnitOfMeasurment2.value,
-                Productunitv1: this.createModalProductunitv1.value,
-                Productunitv2: this.createModalProductunitv2.value,
-                Productunit1inp: this.createModalProductunit1inp.value,
-                Productunit2inp: this.createModalProductunit2inp.value,
-                ProductPurchasePrice: this.createModalProductPurchasePrice.value,
-                ProductSellingPrice: this.createModalProductSellingPrice.value,
-                ProductImg: this.createModalProductIMG.files[0],
+                CompanyName: this.createModalProductCompany.value,
+                NumberOfProducts: this.createModalProductCount.value,
+                UnitOfMeasurment: this.createModalProductUnitOfMeasurment.value,
+                SecondUnitOfMeasurment: this.createModalProductUnitOfMeasurment2.value,
+                Unit1: parseFloat(this.createModalProductunit1inp.value),
+                Unit2: parseFloat(this.createModalProductunit2inp.value),
+                PurchasePrice: this.createModalProductPurchasePrice.value,
+                SellingPrice: this.createModalProductSellingPrice.value,
+                files: this.createModalProductIMG.files[0],
                 ProductImgLink: imgLink,
             }
             handler(data);
-            _clearInputs()
         })
     }
     // * open createproduct modal
@@ -361,10 +523,11 @@ class ProductView {
 
 
     // * display products
-    displayProducts(products, cb1, cb2, cb3, cb4, cb5) {
+    displayProducts(products, cb1, cb2, cb3, cb4, cb5, handleChangeCode, handleDeleteProduct) {
         this.tbody.innerHTML = ``;
         products.forEach(product => {
             let tr = this.createElement("tr");
+            tr.setAttribute("data-element-id", product._id)
             tr.innerHTML = ` 
             <td>#${product.MainCode}</td>
              <td   class="prod-name-container"> 
@@ -397,21 +560,24 @@ class ProductView {
             </td>
             <td>
                 ${product.QRcode.map(code => {
-                return `<span># ${code}</span>`
+                return `<span>#${code}</span>`
             })
                 }
             </td>
             <td class="table-operations">
-              <img class="point" src="/icons/edit-icon.svg" alt="edit">
-              <img class="point" src="/icons/delete-icon.svg" alt="delete">
+              <img class="point edit-product" src="/icons/edit-icon.svg" alt="edit">
+              <img class="point delete-product" src="/icons/delete-icon.svg" alt="delete">
             </td>`
             this.tbody.append(tr);
         });
         this.spanp1 = [...this.getAllElement("span.p1")];
         this.spanp2 = [...this.getAllElement("span.p2")];
         this.prodOpsContainer = [...this.getAllElement(".prod-name-container")];
-        this.bindProductOps()
-        this.openProductOpModal(cb1, cb2, cb3, cb4, cb5)
+        this.bindProductOps();
+        this._editProductButtonListener(cb1, handleChangeCode);
+        this.openProductOpModal(cb1, cb2, cb3, cb4, cb5);
+
+        this._deleteProductButtonListener(handleDeleteProduct)
 
 
 
@@ -603,13 +769,22 @@ class ProductView {
             return clearQrcodes()
         });
     };
+
+
+    displayNavbar(tag,value){
+        console.log(tag);
+        console.log(value);
+        this.getElement(tag).textContent = value
+    }
 };
 
 class ProductController {
     constructor(model, view) {
         this.model = model;
         this.view = view;
-        this.view._createProductButtonListener(this.handleCreateProduct)
+        this.view._createProductButtonListener(this.handleCreateProduct);
+        this.view._deleteProductButtonListener(this.handleDeleteProduct);
+        this.view._editProductButtonListener(this.handleGetProduct, this.handleChangeCode);
         this.model.socket();
         this.view.bindProductOps();
         this.view._createProductListener(this.handleAddAlternativeBarocde, this.handleDeleteAlternativeBarcode)
@@ -620,7 +795,28 @@ class ProductController {
         this.model.bindLoadingStateChanged(this.onLoadingStateChanged)
         this.model.bindProductListChanged(this.onProductListChanged)
         this.view.closeButtonListener(this.handleClearCodeList);
-
+        this.view._searchInputListener(this.handleSearchProduct);
+        this.model.getNavbarHandler(this.bindNavbarChanged);
+        this.model.getErrorListFromView(this.bindErrorHandler);
+        this.model.clearInputsHandler(this.bindClearInputs)
+    }
+    bindClearInputs = ()=>{
+        return this.view.clearInputs()
+    }
+    bindErrorHandler =errorList =>{
+        return this.view._errorCallback(errorList)
+    }
+    bindNavbarChanged = (tag,value) =>{
+        return this.view.displayNavbar(tag,value)
+    }
+    handleSearchProduct = search_value => {
+        return this.model.searchProduct(search_value)
+    }
+    handleDeleteProduct = (id, code) => {
+        this.model.deleteProduct(id, code);
+    }
+    handleChangeCode = (id, value) => {
+        this.model.ChangeMainCode(id, value);
     }
     handleCreateProduct = productInfo => {
         return this.model.createProduct(productInfo)
@@ -648,9 +844,7 @@ class ProductController {
         return this.view.productInputChanged(product)
     }
     onProductListChanged = products => {
-        return this.view.displayProducts(products, this.handleGetProduct, this.handleAddAlternativeBarocde, this.handleDeleteAlternativeBarcode, this.handleAddProduct, this.handleAddBasket);
-
-
+        return this.view.displayProducts(products, this.handleGetProduct, this.handleAddAlternativeBarocde, this.handleDeleteAlternativeBarcode, this.handleAddProduct, this.handleAddBasket, this.handleChangeCode, this.handleDeleteProduct);
     }
     handleDeleteAlternativeBarcode = barcode => {
         return this.model.deleteAlternativeBarcode(barcode)

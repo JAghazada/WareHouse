@@ -2,6 +2,7 @@ const registerButton = document.querySelector(".btn-register");
 const userRegisterName = document.querySelector(".register-name");
 const userRegisterPass = document.querySelector(".register-password");
 const userRegisterRePass = document.querySelector(".register-re-password");
+const userRegisterPhone = document.querySelector(".register-phone");
 
 // Error function
 function showError(input, message) {
@@ -20,7 +21,7 @@ function showSuccess(input) {
 // Event listener
 registerButton.addEventListener("click", (e) => {
   e.preventDefault();
-
+  const userPhoneNumber = userRegisterPhone.value.trim(0);
   const userName = userRegisterName.value.trim();
   const userPass = userRegisterPass.value.trim();
   const userRePass = userRegisterRePass.value.trim();
@@ -30,7 +31,11 @@ registerButton.addEventListener("click", (e) => {
   } else {
     showSuccess(userRegisterName);
   }
-
+  if(userPhoneNumber === ""){
+    return showError(userRegisterPhone,"Telefon nömrəsi yazılmalıdır!")
+  }else{
+    showSuccess(userRegisterPhone)
+  }
   if (userPass === "") {
     return showError(userRegisterPass, "Şifrə yazılmalıdır!");
   } else {
@@ -52,9 +57,10 @@ registerButton.addEventListener("click", (e) => {
     name: userName,
     pass: userPass,
     repass: userRePass,
+    phone:userPhoneNumber
   };
 
-  fetch("http://13.127.95.188:3000/register", {
+  fetch("/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

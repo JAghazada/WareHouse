@@ -1,36 +1,38 @@
-const productSchema = require("../database/models/productSchema");
 const getProductsHelper = require("../helpers/get-products");
-const APIError = require("../utils/errors");
-const {updateCache} = require("../helpers/cache/update-memory")
+const jwt = require("jsonwebtoken");
+const { saveToRedis, getTotalRedisData } = require("../helpers/redis-cache");
 const addProductController = async(req,res)=>{
-    const {id,count,codes:altercodes} = req.body;
-    // * find product
-    const products =(await getProductsHelper({_id:id}))[0]
-    // * get product's count
-    const old_count = products.NumberOfProducts;
-    const new_count = old_count + parseInt(count)
-    // * get product's subcodes
-    let sub_codes = products.QRcode;
-    // * if user send any codes,push codes the product QRcode's array
-    if(altercodes !== []) altercodes.forEach(code=>sub_codes.push(code));
-    // * update count like old_count + count
-    productSchema.findOneAndUpdate({_id:id},{
-        $set:{NumberOfProducts:new_count,QRcode:sub_codes}
-    },
-    {
-        new:true
-    },(err,doc)=>{
-        // * if err occured throw apierror
-        if(err) throw new APIError("Error Occured",503)
-        else{
-            updateCache()
-            // * if not then send updated product
-            res.json({
-                product:doc
-            })
-        }
-    })
-   
+    const {id,count,codes} = req.body;
+    const token = req.cookies.auth;
+     const userID = jwt.decode(token).userID;
+     if(!userID){
+      return res.json({
+        message:"please sign in",
+        success:false
+      })
+     }
+    const productDetails =(await getProductsHelper({_id:id}))[0];
+    if(!productDetails) return res.json({message:"product not found"});
+    const product = {
+        id,
+        count,
+        new_barcodes:codes,
+        name:productDetails.ProductName,
+        price : productDetails.SellingPrice,
+        maincode : productDetails.MainCode,
+        numberofproduct : productDetails.NumberOfProducts,
+        link:productDetails.Link
+
+    };
+    await saveToRedis("add",userID,product)
+    const totalOrders = await getTotalRedisData(userID);
+      res.status(200).json({
+        message: 'success',
+        success: true,
+        userID,
+        totalOrders
+      });
+    
    
    
 };

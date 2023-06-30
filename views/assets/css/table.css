@@ -171,10 +171,22 @@ ul#entry-count-menu > li:hover {
   background-color: #000;
   color: #fff;
 }
-
+.order-link {
+  position: relative;
+}
+.order-link > span {
+  position: absolute;
+  background-color: goldenrod;
+  color: #fff;
+  top: 0;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  border-radius: 999px;
+  padding: 1px;
+}
 .prod-name-container {
   display: flex;
-  justify-content: center;
   align-items: center;
   line-height: 44px;
   position: relative;

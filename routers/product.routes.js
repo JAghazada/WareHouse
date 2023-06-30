@@ -1,24 +1,30 @@
 const express = require("express");
 const multer = require("multer");
-const uploadProduct = require("../controllers/product.controller");
 const ProductValidation = require("../middlewares/validation/product.validation");
 const path = require("path");
 const fs = require("fs");
-const deleteProductController = require("../controllers/delete-product.controller");
 const addProductController = require("../controllers/addProduct.controller");
 const exportProductController = require("../controllers/exportProduct.controller");
+const createProduct = require("../controllers/product.controller");
+const barcodeController = require("../controllers/product/barocde.controller");
+const deleteProductController = require("../controllers/product/deleteProduct.cotnroller");
+const { permissionValidator } = require("../middlewares/permission-middleware");
+const { ProductBarcodesController } = require("../controllers/product-barcodes.controller");
 const router = express.Router();
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const rootDir = path.dirname(require.main.filename);
-    fs.mkdirSync(path.join(rootDir, "./views/assets/uploads"), { recursive: true });
-    cb(null, path.join(rootDir, "./views/assets/uploads"));
+    console.log(rootDir)
+    fs.mkdirSync(path.join(rootDir, "/views/assets/uploads"), { recursive: true });
+    cb(null, path.join(rootDir, "/views/assets/uploads"));
   },
   filename: (req, file, cb) => {
-    const { ProductName, QRcode } = JSON.parse(JSON.stringify(req.body));
+    let { ProductName} = JSON.parse(JSON.stringify(req.body));
+    console.log(parseFloat(JSON.parse(req.body.QRcode)));
+    const QRcode= parseFloat(JSON.parse(req.body.QRcode)[0])
     const extList = file.originalname.split(".");
     const extension = extList[extList.length - 1];
-    const uniqueSuffix = ProductName + "_" + QRcode.split(",")[0];
+    const uniqueSuffix = ProductName + "_" + QRcode;
     let url = `${uniqueSuffix}.${extension}`;
     cb(null, url);
   },
@@ -26,20 +32,23 @@ const storage = multer.diskStorage({
 const uploads = multer({ storage: storage });
 
 router.post(
-  "/uploadProduct",
+  "/createProduct",
   [
     (req, res, next) => {
       if (!req.files || !req.files.length) {
         return next();
       }
-      next();
     },
     uploads.array("files", 5),
     ProductValidation.addProduct,
+    permissionValidator
   ],
-  uploadProduct
+  createProduct
 );
-router.post("/addProduct",addProductController)
-router.post("/exportProduct",exportProductController)
-router.delete("/deleteProduct",deleteProductController);
+
+router.put("/changeBarcode",barcodeController)
+router.get("/products/product-barcodes",ProductBarcodesController)
+router.post("/addProduct",permissionValidator,addProductController);
+router.post("/exportProduct",permissionValidator,exportProductController)
+router.delete("/deleteProduct",permissionValidator,deleteProductController);
 module.exports = router;

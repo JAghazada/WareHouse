@@ -13,7 +13,7 @@ const getProductsHelper = async (query) => {
     products = await productSchema
     .find()
     .sort({ createdAt: -1 })
-    .lean(); // ! Bu "lean" fonksiyonu, verilerin daha hızlı alınmasını sağlar.
+    .lean(); 
   }
    
 
@@ -24,7 +24,8 @@ const getProductsHelper = async (query) => {
       .split("-");
     let formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`;
     product.Date = formattedDate;
-
+    
+    // product.QRcode = JSON.parse(product.QRcode);
     // Sadece UnitOfMeasurment ve SecondUnitOfMeasurment öğelerini çeviriyoruz.
     product.UnitOfMeasurment =
       translateJson[product.UnitOfMeasurment.toLowerCase()] || "";

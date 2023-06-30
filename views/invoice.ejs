@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/home.css">
+
+  <title>Invoice</title>
+  <script src="/js/js-barcode.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js" integrity="sha512-w3u9q/DeneCSwUDjhiMNibTRh/1i/gScBVp2imNVAMCt6cUHIw6xzhzcPFIaL3Q1EbI2l+nu17q2aLJJLo4ZYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+   -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style></style>
+
+
+
+</head>
+
+<body>
+  <div id="dataContainer" data-data='<%= JSON.stringify(id) %>'></div>
+  <%- include("partials/navbar.ejs",{user,orders}) %>
+
+
+    <main class="invoice-main">
+      <section class="invoice-section-in">
+        <div class="container">
+          <div class="row">
+            <div class="invoice-card-side">
+              <div class="invoice-card">
+                <div class="card-head">
+                  <h1 class="subheading">Qaimə Faktura</h1>
+                  <div class="invoice-date">
+                    <p>WareHouse</p>
+                    <p>Tarix: <%=date%>
+                    </p>
+                  </div>
+                </div>
+                <div class="card-table-head">
+                  <div class="table-head-caption">
+                    <div class="caption-in">
+                      <p class="bold">Satıcı</p>
+                      <p>
+                          <span><%=seller%></span>
+                      </p>
+                    </div>
+                    <div class="caption-in">
+                      <p class="bold">Alıcı</p>
+                      <p>
+                       <span><%=buyer%></span>
+                      </p>
+                    </div>
+                    <div class="caption">
+                      <p class="bold">Sifarişçi</p>
+                      <p>Elşən Ağayev</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-table">
+                  <table class="table">
+                    <tr class="table-tr-head">
+                      <th>№</th>
+                      <th>Ad</th>
+                      <th>Barkod</th>
+                      <th>Miqdar</th>
+                      <th>Qiymət</th>
+                      <th>Məbləğ</th>
+                      <% if (type==="create" ) { %>
+                        <th>Alt Barkodlar</th>
+
+                        <% } else if (type==="add" || "export" ){ %>
+                          <th>Var Olan Miqdar</th>
+                          <% } %>
+                          <% if (type==="add" ){ %>
+                            <th>Yeni alt barkodlar</th>
+
+                            <% } %>
+
+                    </tr>
+                    <% invoice.forEach((item, index)=> { %>
+                      <% if (type==="create" ) { %>
+                        <tr class="table-list">
+                          <td>
+                            <%= index +1 %>
+                          </td>
+                          <td>
+                            <%= item.ProductName %>
+                          </td>
+                          <td>
+                            <%= item.MainCode %>
+                          </td>
+                          <td>
+                            <%= item.NumberOfProducts %>
+                          </td>
+                          <td>
+                            <%= item.SellingPrice %>
+                          </td>
+                          <td>
+                            <%= item.SellingPrice * item.NumberOfProducts %>
+                          </td>
+                          <td>
+                            <%= item.QRcode %>
+                          </td>
+
+                        </tr>
+
+                        <% } else if(type==="add" ) { %>
+
+                          <tr class="table-list">
+                            <td>
+                              <%= index +1 %>
+                            </td>
+                            <td>
+                              <%= item.name %>
+                            </td>
+                            <td>
+                              <%= item.maincode %>
+                            </td>
+                            <td>
+                              <%= item.count %>
+                            </td>
+                            <td>
+                              <%= item.price %>
+                            </td>
+                            <td>
+                              <%= item.price * item.count %>
+                            </td>
+                            <td>
+                              <%= item.numberofproduct %>
+                            </td>
+                            <td>
+                              <%= item.new_barcodes %>
+                            </td>
+
+
+                          </tr>
+                          <% } else if (type==="export" ){ %>
+                            <tr class="table-list">
+                              <td>
+                                <%= index +1 %>
+                              </td>
+                              <td>
+                                <%= item.name %>
+                              </td>
+                              <td>
+                                <%= item.maincode %>
+                              </td>
+                              <td>
+                                <%= item.count %>
+                              </td>
+                              <td>
+                                <%= item.price %>
+                              </td>
+                              <td>
+                                <%= item.price * item.count %>
+                              </td>
+                              <td>
+                                <%= item.numberofproduct %>
+                              </td>
+                            </tr>
+                            <%}%>
+                              <% }) %>
+
+
+
+                  </table>
+                </div>
+                <div class="card-table-price">
+                  <div class="table-first-price">
+                    <div class="price-in">
+                      <div class="price">
+                        <p class="title">Cəmi</p>
+                        <p class="amount"><%=total%> AZN</p>
+                      </div>
+                      <div class="value-added">
+                        <p class="title">ƏDV</p>
+                        <p class="amount">0 AZN</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-total-price">
+                    <div class="total-price-in">
+                      <div class="price">
+                        <p class="title">Yekun</p>
+                        <p class="total-amount"><%=total%> AZN</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <div class="info-title">
+                    <p class="title">Əlqasımın Maşını 926</p>
+                    <p class="title">0555553155</p>
+                  </div>
+                  <div class="info-barcode">
+                    <div class="info-text">
+                      Əlavə məlumat üçün w_house@mail.ru addresinə müraciət
+                      edə bilərsiniz.
+                    </div>
+                    <div class="barcode">
+                      <div class="barcode-title">
+                        <span class="bold">INVOICE </span>
+                        <span id="invoice-id"></span>
+                      </div>
+                      <div class="barcode-title">
+                        <span class="bold">INVOICE DATE</span>
+                        <span>DD/MM/YYYY</span>
+                      </div>
+                      <div class="barcode-image">
+                        <svg style="height: 50px;" id="barcode"></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn print-invoice-btn btn-danger">Print</button>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+    <script>
+      const idContainer = document.getElementById("dataContainer");
+      const id = JSON.parse(idContainer.dataset.data)
+      const invoiceId = document.querySelector("#invoice-id").textContent = "#" + id;
+      JsBarcode("#barcode", id.substring(0, 10), {
+        height: 40,
+        displayValue: false
+      })
+      const printButton = document.querySelector(".print-invoice-btn");
+      printButton.addEventListener("click", e => {
+        e.target.style.opacity = "0"
+        const element = document.querySelector("main")
+        html2pdf().from(element).save().set({
+          margin: 2,
+          useCss: true
+        }).then(res=>e.target.style.opacity = "1")
+
+
+      })
+
+
+
+
+
+    </script>
+
+    <script src="https://kit.fontawesome.com/46a0505f50.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

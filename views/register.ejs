@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/scss/main.css" />
+    <link rel="stylesheet" href="/css/main.css" />
     <title>Register</title>
   </head>
   <body>
@@ -39,6 +39,16 @@
                     </div>
                     <div class="form-control">
                       <input
+                        class="ui-input register-phone"
+                        type="tel"
+                        name="phone"
+                        placeholder="Telefon"
+                        required
+                      />
+                      <span class="err-message">Error message</span>
+                    </div>
+                    <div class="form-control">
+                      <input
                         class="ui-input register-password"
                         type="password"
                         name="password"
@@ -57,6 +67,7 @@
                       />
                       <span class="err-message">Error message</span>
                     </div>
+                    
                   </div>
                   <div class="personal-action">
                     <label class="ui-check">

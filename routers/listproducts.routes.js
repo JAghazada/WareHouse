@@ -1,10 +1,10 @@
 const listProducts = require("../controllers/listProducts.controller")
 const searchProduct = require("../controllers/search.controller")
 const productSchema = require("../database/models/productSchema")
-const {requireLogin} = require("../middlewares/auth/requireLogin")
+const authenticateToken = require("../middlewares/auth/authenticateToken")
 
 const router = require("express").Router()
-router.get("/products",listProducts)
+router.get("/products",authenticateToken,listProducts)
 router.put("/getProducts",searchProduct)
 
 

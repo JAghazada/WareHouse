@@ -1,0 +1,1219 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+p{
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #12192c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --success-color: #23cc71;
+  --error-color: #e74c3c;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.login {
+  width: 100%;
+  height: 100vh;
+  background-color: #12192c;
+}
+.login .container {
+  width: 100%;
+}
+.login .container .row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.login .container .row .left-side {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.login .container .row .left-side img {
+  width: 100%;
+  height: 100vh;
+  background-color: #0f1525;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.login .container .row .right-side {
+  flex: 0 0 75%;
+  max-width: 75%;
+  background-color: #12192c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 80px;
+}
+.login .container .row .right-side .right-side-inner {
+  width: 70%;
+}
+.login .container .row .right-side .right-side-inner form .caption {
+  padding: 0 20px;
+}
+.login .container .row .right-side .right-side-inner form .caption .account {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+  text-align: left;
+  color: #fff;
+}
+.login .container .row .right-side .right-side-inner form .caption .caption-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: left;
+  color: #7f7f7f;
+}
+.login .container .row .right-side .right-side-inner form .input-field {
+  padding: 30px 20px 0px;
+  position: relative;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control .ui-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 25px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #ccbfbf;
+  border-radius: 4px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control .ui-input::-moz-placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #7f7f7f;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control .ui-input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #7f7f7f;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control .ui-input:focus {
+  border-color: #14dfff;
+  transition: all 0.3s ease;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control .err-message {
+  color: var(--error-color);
+  position: absolute;
+  left: 25px;
+  margin-top: -18px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  visibility: hidden;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control.success .ui-input {
+  border-color: var(--success-color);
+  transition: all 0.3s ease;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control.error .ui-input {
+  border-color: var(--error-color);
+  transition: all 0.3s ease;
+}
+.login .container .row .right-side .right-side-inner form .input-field .form-control.error .err-message {
+  transition: all 0.3s ease;
+  visibility: visible;
+}
+.login .container .row .right-side .right-side-inner form .btn-action {
+  padding: 10px 20px;
+}
+.login .container .row .right-side .right-side-inner form .btn-action .btn-continue {
+  cursor: pointer;
+  color: #fff;
+  padding: 12px 40px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  outline: none;
+  border: none;
+  background-color: #4b72c2;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.login .container .row .right-side .right-side-inner form .btn-action .btn-continue:hover {
+  transition: all 0.3s ease;
+  color: #0f1525;
+  font-weight: 600;
+  background-color: #1f3d7a;
+  transform: scale(0.93);
+}
+.login .container .row .right-side .right-side-inner form .personal-help {
+  padding: 20px 20px 0;
+}
+.login .container .row .right-side .right-side-inner form .personal-help .help-text {
+  border-top: 2px solid rgb(61, 61, 61);
+  padding-top: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ccbfbf;
+}
+.login .container .row .right-side .right-side-inner form .personal-help .help-text a {
+  color: rgb(75, 114, 194);
+  transition: all 0.3s ease;
+}
+.login .container .row .right-side .right-side-inner form .personal-help .help-text a:hover {
+  transition: all 0.3s ease;
+  color: rgb(135, 175, 255);
+}
+
+@media (max-width: 1200px) {
+  .login {
+    padding: 50px 0;
+  }
+  .login .container .row .left-side {
+    display: none;
+  }
+  .login .container .row .right-side {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 920px) {
+  .login {
+    padding: 50px 0;
+  }
+  .login .container .row .right-side .right-side-inner {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .login {
+    padding: 80px 0;
+  }
+  .login .container .row .right-side {
+    padding: 20px 60px;
+  }
+  .login .container .row .right-side .right-side-inner {
+    width: 100%;
+  }
+  .login .container .row .right-side .right-side-inner form .caption .account {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 40px;
+  }
+  .login .container .row .right-side .right-side-inner form .caption .caption-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .login .container .row .right-side .right-side-inner form .input-field {
+    padding: 20px 20px 0px;
+  }
+  .login .container .row .right-side .right-side-inner form .input-field .ui-input {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+  }
+  .login .container .row .right-side .right-side-inner form .btn-action {
+    padding: 10px 20px 5px;
+  }
+  .login .container .row .right-side .right-side-inner form .btn-action .btn-continue {
+    padding: 10px 25px;
+  }
+  .login .container .row .right-side .right-side-inner form .personal-help {
+    padding: 25px 20px 0;
+  }
+  .login .container .row .right-side .right-side-inner form .personal-help .help-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 549px) {
+  .login {
+    padding: 80px 0;
+  }
+  .login .container .row .right-side {
+    padding: 20px;
+  }
+  .login .container .row .right-side .right-side-inner {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .login {
+    padding: 75px 0;
+  }
+  .login .container .row .right-side .right-side-inner form .caption .caption-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .login .container .row .right-side .right-side-inner form .input-field {
+    padding: 20px 20px 0px;
+  }
+  .login .container .row .right-side .right-side-inner form .input-field .ui-input .ui-input::-moz-placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .login .container .row .right-side .right-side-inner form .input-field .ui-input .ui-input::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .login .container .row .right-side .right-side-inner form .btn-action {
+    padding: 10px 20px;
+  }
+  .login .container .row .right-side .right-side-inner form .btn-action .btn-continue {
+    padding: 8px 20px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .login .container .row .right-side .right-side-inner form .personal-help {
+    padding: 20px 20px 0;
+  }
+  .login .container .row .right-side .right-side-inner form .personal-help .help-text {
+    font-size: 12px;
+  }
+}
+@media (max-width: 340px) {
+  .login {
+    padding: 80px 0 100px;
+  }
+  .login .container .row .right-side .right-side-inner form .caption .caption-text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .login .container .row .right-side .right-side-inner form .btn-action {
+    padding: 10px 20px 0px;
+  }
+  .login .container .row .right-side .right-side-inner form .btn-action .btn-continue {
+    padding: 5px 15px;
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .login .container .row .right-side .right-side-inner form .personal-help {
+    padding: 20px 20px 0;
+  }
+  .login .container .row .right-side .right-side-inner form .personal-help .help-text {
+    padding-top: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+.register {
+  width: 100%;
+  height: 100vh;
+  background-color: #12192c;
+}
+.register .container {
+  width: 100%;
+}
+.register .container .row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.register .container .row .left-side {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.register .container .row .left-side img {
+  width: 100%;
+  height: 100vh;
+  background-color: #0f1525;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.register .container .row .right-side {
+  flex: 0 0 75%;
+  max-width: 75%;
+  background-color: #12192c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 80px;
+}
+.register .container .row .right-side .right-side-inner {
+  width: 70%;
+}
+.register .container .row .right-side .right-side-inner form .caption {
+  padding: 0 20px;
+}
+.register .container .row .right-side .right-side-inner form .caption .account {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+  text-align: left;
+  color: #fff;
+}
+.register .container .row .right-side .right-side-inner form .caption .caption-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: left;
+  color: #7f7f7f;
+}
+.register .container .row .right-side .right-side-inner form .input-field {
+  padding: 30px 20px 0px;
+  position: relative;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control .ui-input {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 25px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #ccbfbf;
+  border-radius: 4px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control .ui-input::-moz-placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #7f7f7f;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control .ui-input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #7f7f7f;
+  transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control .ui-input:focus {
+  border-color: #14dfff;
+  transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control .err-message {
+  color: var(--error-color);
+  position: absolute;
+  left: 25px;
+  margin-top: -84px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  visibility: hidden;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control.success .ui-input {
+  border-color: var(--success-color);
+  transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control.error .ui-input {
+  border-color: var(--error-color);
+  transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .input-field .form-control.error .err-message {
+  transition: all 0.3s ease;
+  visibility: visible;
+}
+.register .container .row .right-side .right-side-inner form .personal-action {
+  padding: 5px 20px;
+}
+.register .container .row .right-side .right-side-inner form .personal-action .ui-check {
+  position: relative;
+  padding-left: 30px;
+  color: #7f7f7f;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: block;
+  cursor: pointer;
+  max-width: 100%;
+  transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .personal-action .ui-check:hover {
+  transition: all 0.3s ease;
+  color: #fff;
+}
+.register .container .row .right-side .right-side-inner form .personal-action .ui-check:hover .ui-check-input {
+  border: 0.1rem solid #fff;
+}
+.register .container .row .right-side .right-side-inner form .personal-action .ui-check .ui-check-input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  transition: 0.25s;
+}
+.register .container .row .right-side .right-side-inner form .personal-action .ui-check .ui-check-input:checked {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #14dfff;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 4px;
+  transform: translateY(-0.075em);
+}
+.register .container .row .right-side .right-side-inner form .btn-action {
+  padding: 20px 20px 10px;
+}
+.register .container .row .right-side .right-side-inner form .btn-action .btn-continue {
+  cursor: pointer;
+  color: #fff;
+  padding: 12px 40px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  outline: none;
+  border: none;
+  background-color: #4b72c2;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .btn-action .btn-continue:hover {
+  transition: all 0.3s ease;
+  color: #0f1525;
+  font-weight: 600;
+  background-color: #1f3d7a;
+  transform: scale(0.93);
+}
+.register .container .row .right-side .right-side-inner form .personal-help {
+  padding: 20px 20px 0;
+}
+.register .container .row .right-side .right-side-inner form .personal-help .help-text {
+  border-top: 2px solid rgb(61, 61, 61);
+  padding-top: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ccbfbf;
+}
+.register .container .row .right-side .right-side-inner form .personal-help .help-text a {
+  color: rgb(75, 114, 194);
+  transition: all 0.3s ease;
+}
+.register .container .row .right-side .right-side-inner form .personal-help .help-text a:hover {
+  transition: all 0.3s ease;
+  color: rgb(135, 175, 255);
+}
+
+@media (max-width: 1200px) {
+  .register {
+    padding: 50px 0;
+  }
+  .register .container .row .left-side {
+    display: none;
+  }
+  .register .container .row .right-side {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 920px) {
+  .register {
+    padding: 50px 0;
+  }
+  .register .container .row .right-side .right-side-inner {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .register {
+    padding: 80px 0;
+  }
+  .register .container .row .right-side {
+    padding: 20px 60px;
+  }
+  .register .container .row .right-side .right-side-inner {
+    width: 100%;
+  }
+  .register .container .row .right-side .right-side-inner form .caption .account {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 40px;
+  }
+  .register .container .row .right-side .right-side-inner form .caption .caption-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .register .container .row .right-side .right-side-inner form .input-field {
+    padding: 20px 20px 0px;
+  }
+  .register .container .row .right-side .right-side-inner form .input-field .ui-input {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+  }
+  .register .container .row .right-side .right-side-inner form .personal-action {
+    padding: 10px 20px;
+  }
+  .register .container .row .right-side .right-side-inner form .personal-action .ui-check {
+    padding-left: 25px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+  }
+  .register .container .row .right-side .right-side-inner form .personal-action .ui-check .ui-check-input {
+    width: 15px;
+    height: 15px;
+  }
+  .register .container .row .right-side .right-side-inner form .btn-action {
+    padding: 10px 20px 5px;
+  }
+  .register .container .row .right-side .right-side-inner form .btn-action .btn-continue {
+    padding: 10px 25px;
+  }
+  .register .container .row .right-side .right-side-inner form .personal-help {
+    padding: 25px 20px 0;
+  }
+  .register .container .row .right-side .right-side-inner form .personal-help .help-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 549px) {
+  .register {
+    padding: 80px 0;
+  }
+  .register .container .row .right-side {
+    padding: 20px;
+  }
+  .register .container .row .right-side .right-side-inner {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .register {
+    padding: 75px 0;
+  }
+  .register .container .row .right-side .right-side-inner form .caption .caption-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .register .container .row .right-side .right-side-inner form .input-field {
+    padding: 20px 20px 0px;
+  }
+  .register .container .row .right-side .right-side-inner form .input-field .ui-input .ui-input::-moz-placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .register .container .row .right-side .right-side-inner form .input-field .ui-input .ui-input::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .register .container .row .right-side .right-side-inner form .btn-action {
+    padding: 10px 20px 0px;
+  }
+  .register .container .row .right-side .right-side-inner form .btn-action .btn-continue {
+    padding: 8px 20px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 340px) {
+  .register {
+    padding: 80px 0 100px;
+  }
+  .register .container .row .right-side .right-side-inner form .caption .caption-text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .register .container .row .right-side .right-side-inner form .btn-action {
+    padding: 10px 20px 0px;
+  }
+  .register .container .row .right-side .right-side-inner form .btn-action .btn-continue {
+    padding: 5px 15px;
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .register .container .row .right-side .right-side-inner form .personal-help {
+    padding: 20px 20px 0;
+  }
+  .register .container .row .right-side .right-side-inner form .personal-help .help-text {
+    padding-top: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+.invoice-main .invoice-section-in {
+  padding: 10px;
+}
+.invoice-main .invoice-section-in .container .row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side {
+  width: 814px;
+  height: 1080px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 7px 8px 28px -8px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 7px 8px 28px -8px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 7px 8px 28px -8px rgba(0, 0, 0, 0.8);
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-head {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.46);
+  padding: 0 25px 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-head .subheading {
+  font-size: 20px;
+  padding: 15px 170px 15px 0px;
+  font-size: 25px;
+  border-right: 2px solid rgba(0, 0, 0, 0.46);
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-head .invoice-date {
+  padding: 15px 25px;
+  background-color: rgba(217, 217, 217, 0.7);
+  border-radius: 10px;
+  box-shadow: 8px 8px 14px -10px rgb(0, 0, 0);
+  -webkit-box-shadow: 8px 8px 14px -10px rgb(0, 0, 0);
+  -moz-box-shadow: 8px 8px 14px -10px rgb(0, 0, 0);
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-head .invoice-date p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 23px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head {
+  padding: 20px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption-in {
+  border-right: 2px solid rgba(0, 0, 0, 0.46);
+  padding-right: 100px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption-in .bold {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption-in p {
+  line-height: 18px;
+  font-size: 12px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption .bold {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-head .table-head-caption .caption p {
+  line-height: 18px;
+  font-size: 12px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table {
+  padding: 10px 0px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table .table .table-tr-head th {
+  border: 1px solid #000;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: rgb(217, 217, 217);
+  padding: 5px 10px;
+  text-align: center;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table .table .table-list td {
+  text-align: center;
+  border: 1px solid #000;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 10px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price {
+  padding: 20px 0 60px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.46);
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .price,
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .value-added {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .price .title,
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .value-added .title {
+  font-size: 12px;
+  font-weight: 600;
+  padding-right: 80px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .price .amount,
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-first-price .price-in .value-added .amount {
+  font-size: 12px;
+  font-weight: 400;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-total-price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-total-price .total-price-in {
+  padding-top: 4px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-total-price .total-price-in .price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-total-price .total-price-in .price .title {
+  font-size: 12px;
+  font-weight: 600;
+  padding-right: 45px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-table-price .table-total-price .total-price-in .price .total-amount {
+  font-size: 18px;
+  font-weight: 600;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info {
+  padding: 20px 10px 0;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-title {
+  width: 100%;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-title .title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode {
+  padding: 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .info-text {
+  flex: 0 0 50%;
+  max-width: 50%;
+  font-size: 10px;
+  line-height: 14px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode {
+  flex: 0 0 50%;
+  max-width: 50%;
+  text-align: right;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode .barcode-title {
+  margin-bottom: -7px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode .barcode-title .bold {
+  font-size: 9px;
+  font-weight: 600;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode .barcode-title span {
+  font-size: 9px;
+  font-weight: 300;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode .barcode-image {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+.invoice-main .invoice-section-in .container .row .invoice-card-side .invoice-card .card-info .info-barcode .barcode .barcode-image img {
+  width: 80%;
+  height: auto;
+}
+
+.admin-panel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.admin-panel .admin-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+  padding: 20px;
+  padding-left: 50px;
+  flex: 0 0 20%;
+  max-width: 20%;
+  background-color: #f1f1f1;
+}
+.admin-panel .admin-left .admin-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.admin-panel .admin-left .admin-logo img {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #f1f1f1;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.admin-panel .admin-left .admin-logo .header {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.admin-panel .admin-left .choices {
+  padding: 30px 0;
+}
+.admin-panel .admin-left .choices .admin-statistics-btn {
+  cursor: pointer;
+  padding: 10px;
+}
+.admin-panel .admin-left .choices .admin-statistics-btn .statistic-btn-in {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-left .choices .admin-statistics-btn .statistic-btn-in:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+}
+.admin-panel .admin-left .choices .admin-statistics-btn .statistic-btn-in i {
+  color: rgb(52, 52, 52);
+  margin-right: 10px;
+}
+.admin-panel .admin-left .choices .admin-statistics-btn .statistic-btn-in .statistic {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.admin-panel .admin-left .choices .admin-users-btn {
+  cursor: pointer;
+  padding: 10px;
+}
+.admin-panel .admin-left .choices .admin-users-btn .user-btn-in {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  background-color: #0832de;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-left .choices .admin-users-btn .user-btn-in:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.84);
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.84);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.84);
+}
+.admin-panel .admin-left .choices .admin-users-btn .user-btn-in i {
+  color: #fff;
+  margin-right: 10px;
+}
+.admin-panel .admin-left .choices .admin-users-btn .user-btn-in .users {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.admin-panel .admin-left .logout {
+  padding-top: 300px;
+}
+.admin-panel .admin-left .logout .logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-left .logout .logout-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+}
+.admin-panel .admin-left .logout .logout-btn i {
+  color: rgb(52, 52, 52);
+  margin-right: 10px;
+}
+.admin-panel .admin-left .logout .logout-btn .sign-out {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.admin-panel .admin-right {
+  flex: 0 0 80%;
+  max-width: 80%;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.admin-panel .admin-right .title-for-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 120px 20px 0px;
+}
+.admin-panel .admin-right .title-for-info .peoples {
+  text-align: center;
+  border-right: 2px solid #c4c4c4;
+  padding: 0 180px 0 100px;
+}
+.admin-panel .admin-right .title-for-info .peoples .number-of-people {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 75px;
+  color: #343434;
+}
+.admin-panel .admin-right .title-for-info .peoples p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #c4c4c4;
+}
+.admin-panel .admin-right .title-for-info .departments {
+  text-align: center;
+  border-right: 2px solid #c4c4c4;
+  padding: 0 155px 0 20px;
+}
+.admin-panel .admin-right .title-for-info .departments .number-of-department {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 75px;
+  color: #343434;
+}
+.admin-panel .admin-right .title-for-info .departments p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #c4c4c4;
+}
+.admin-panel .admin-right .title-for-info .guests {
+  text-align: center;
+}
+.admin-panel .admin-right .title-for-info .guests .number-of-guest {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 75px;
+  color: #343434;
+}
+.admin-panel .admin-right .title-for-info .guests p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #c4c4c4;
+}
+.admin-panel .admin-right .search-section {
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+.admin-panel .admin-right .search-section .search-label {
+  flex: 0 0 70%;
+  max-width: 70%;
+}
+.admin-panel .admin-right .search-section .search-label i {
+  position: absolute;
+  padding-top: 12px;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #c4c4c4;
+}
+.admin-panel .admin-right .search-section .search-label .search-input {
+  width: 100%;
+  padding: 8px 20px 8px 45px;
+  border-radius: 5px;
+  border: 2px solid #c4c4c4;
+  outline: none;
+  font-size: 15px;
+  color: #343434;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-right .search-section .search-label .search-input:focus {
+  transition: all 0.3s ease;
+  border-color: #4f6de6;
+}
+.admin-panel .admin-right .search-section .search-label .search-input::-moz-placeholder {
+  color: #c4c4c4;
+  font-size: 15px;
+}
+.admin-panel .admin-right .search-section .search-label .search-input::placeholder {
+  color: #c4c4c4;
+  font-size: 15px;
+}
+.admin-panel .admin-right .search-section .invite-btn {
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding: 0 25px;
+}
+.admin-panel .admin-right .search-section .invite-btn .invite-btn-in {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0832de;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-right .search-section .invite-btn .invite-btn-in:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+}
+.admin-panel .admin-right .search-section .invite-btn .invite-btn-in i {
+  color: #fff;
+  padding-right: 10px;
+  font-size: 14px;
+}
+.admin-panel .admin-right .search-section .invite-btn .invite-btn-in p {
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+}
+.admin-panel .admin-right .search-section .other-btn .other-btn-in {
+  padding: 10px 18px;
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.admin-panel .admin-right .search-section .other-btn .other-btn-in:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.18);
+  -webkit-box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.18);
+}
+.admin-panel .admin-right .search-section .other-btn .other-btn-in i {
+  color: #0832de;
+}
+.admin-panel .admin-right .users-table-section {
+  padding: 40px 0;
+  margin-left: -20px;
+}
+.admin-panel .admin-right .users-table-section .user-table {
+  padding: 10px 0px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table {
+  width: 70%;
+  border-collapse: collapse;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-tr-head .for-checkbox {
+  text-align: start;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-tr-head .for-checkbox input {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-tr-head .for-checkbox span {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-tr-head th {
+  border-bottom: 2px solid #f1f1f1;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 20px 0px;
+  text-align: center;
+  color: #959494;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored {
+  background-color: #f1f1f1;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored .for-checkbox {
+  text-align: start;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored .for-checkbox input {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored .for-checkbox span {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored td {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 20px 0px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list-colored td i {
+  font-size: 10px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list {
+  background-color: transparent;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list .for-checkbox {
+  text-align: start;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list .for-checkbox input {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list .for-checkbox span {
+  margin-left: 15px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list td {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 20px 0px;
+}
+.admin-panel .admin-right .users-table-section .user-table .table .table-list td i {
+  font-size: 10px;
+}/*# sourceMappingURL=main.css.map */
+.print-invoice-btn{
+  margin: 10px;
+  padding: 5px 25px;
+  outline: none;
+  background-color: #000;
+  color: #fff;
+  border :2px solid #fff ;
+  cursor: pointer;
+  transition: 250ms ease-in-out;
+  border-radius: 8px
+}
+.print-invoice-btn:hover{
+  transform: scale(120%);
+  background-color: #fff;
+  color: #000;
+  border:2px solid  #000;
+  transition: 250ms ease-in-out;
+}

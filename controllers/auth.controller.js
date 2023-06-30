@@ -2,7 +2,17 @@ const user = require("../database/models/userSchema")
 const bcrypt = require("bcrypt");
 const APIError = require("../utils/errors");
 const Response = require("../utils/response");
-const { createToken } = require("../middlewares/token/auth");
+const jwt = require("jsonwebtoken")
+const createToken = async(userID,userName,permission)=>{
+    return await jwt.sign({
+        userID,
+        userName,
+        permission
+    },
+    process.env.JWT_SECRET_KEY,{
+        expiresIn:process.env.JWT_EXPIRES_IN
+    })
+};
 const login = async(req, res) => {
     const {name,pass} = req.body
     const findUser = await user.findOne({name})
@@ -13,19 +23,28 @@ const login = async(req, res) => {
     if(!comparePassword){
         throw new APIError("Password or Email is wrong",403)
     }
-    req.session.user = findUser.name
-    req.session.userID = findUser._id;
-    createToken(findUser,res)
-
-}
+    const token =await createToken(findUser._id,findUser.name,findUser.permission);
+    res.cookie("auth",token,{
+        httpOnly:true,
+        maxAge:1000*60*60*24
+    })
+   res.status(201).json({
+    link:"/products",
+    message:"success",
+    success:true
+   })
+};
 const register = async(req, res) => {
-    const { name, pass, repass } = req.body
+    const { name, pass, repass ,phone} = req.body
 
     if (pass === repass) {
         const userInfo = {
             name,
             pass,
-            isAdmin: false
+            phone,
+            isAdmin: false,
+            department:"Bazar",
+            permission:0
         }
         const checkUser = await user.findOne({ name });
 
@@ -43,7 +62,6 @@ const register = async(req, res) => {
             .catch(err => {
                 throw new APIError("Something went wrong at registiration time", 400)
             })
-        req.session.userID = saveUser._id
     } else {
         return res.send({
             msg: "Passwords is not same",
@@ -53,11 +71,13 @@ const register = async(req, res) => {
 
 
 }
-const me = async(req,res)=>{
-    return new Response(req.user).success(res)
+const logout = (req,res)=>{
+    res.clearCookie("auth");
+    res.redirect("/login");
+
 }
 module.exports = {
     login,
     register,
-    me
+    logout
 }

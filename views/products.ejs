@@ -22,13 +22,25 @@
 
   <title>Products</title>
 </head>
-
 <body>
 
-  <!-- !export-modal -->
+  <div class="edit-modal">
+    <div class="edit-layout">
+      <div class="lds-dual-ring-2"></div>
+      <div class="modal-close edit-modal-close ">
+        x
+      </div>
+     <div class="edit-selector">
+        <select name="select-maincode" class="custom-select" id="change-main-code">
+          
+        </select>
+     </div>
+     <div class="mt-5 w-100 d-flex justify-content-center">
+      <button class="btn confirm-main-code btn-danger">Təsdiqlə</button>
+     </div>
+    </div>
+  </div>
 
-
-  <!-- !export-modal-end -->
 
  <div class="product-export-modal">
     <div class="product-export-layout">
@@ -80,7 +92,7 @@
     </div>
 
   </div>
-  <%- include("partials/navbar.ejs") %>
+  <%- include("partials/navbar.ejs",{orders:orders}) %>
     <%- include("partials/layouts/insert-modal.ejs") %>
 
       <!-- !export-modal -->
@@ -106,9 +118,11 @@
               <img src="/icons/search-icon.svg" alt="search" id="table-search-icon">
               <input type="text" placeholder="Axtar..." maxlength="40" id="table-search-input">
             </div>
+            <% if (permission === 4 || permission === 3 || permission === 5) { %>
             <button class="btn btn-add-button open-create-product-btn">
               <div>+</div> Əlavə et
             </button>
+            <% } %>
           </header>
           <table>
             <thead>
@@ -128,7 +142,7 @@
             </thead>
             <tbody>
               <%products.map(product=>{%>
-                <tr>
+                <tr data-element-id="<%=product._id%>">
                   <td>#<%=product.MainCode%>
                   </td>
                   <!-- onclick="handleOpenWrapper('<%=product._id%>')"-->
@@ -137,8 +151,18 @@
 
                     </div>
                     <div class="product-operation-wrapper" data-wrapper-id="<%=product._id%>">
-                      <span class="p1" >Mədaxil</span>
+                      <% if (permission === 2 || permission === 3 || permission === 5) { %>
+                        <span class="p1">Mədaxil</span>
+                      <% }else{%>
+                        <span class="">----------</span>
+
+                      <%} %>
+                      <% if (permission === 2 || permission === 4 || permission === 5) { %>
                       <span class="p2">Məxaric</span>
+                      <% }else{%>
+                        <span class="">----------</span>
+
+                      <%} %>
                       <div class="square-l">
                       </div>
                     </div>
@@ -161,16 +185,16 @@
                     <%=product.UnitOfMeasurment%>
                   </td>
                   <td>
-                    <%product.QRcode.map(code=>{%>
-                      <span>
-                         #<%=code%>
-                      </span>
-                      <%})%>
+                
+                    <%=product.QRcode%>
+
                   </td>
                   <td class="table-operations">
-                    <img class="point" src="/icons/edit-icon.svg" alt="edit">
-                    <img class="point" src="/icons/delete-icon.svg"
+                    <img class="point edit-product" src="/icons/edit-icon.svg" alt="edit">
+                    <%if(permission === 5){%>
+                      <img class="point delete-product " src="/icons/delete-icon.svg"
                       alt="delete">
+                   <% }%>
                   </td>
                 </tr>
 
@@ -191,7 +215,6 @@
         </main>
         <!-- ? socket cdn -->
         <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
-        <script src="/js/socket/product-operation.js"></script>
         
 
         <!-- ? own scripts -->

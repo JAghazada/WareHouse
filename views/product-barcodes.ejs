@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/_base.css">
+    <link rel="stylesheet" href="/css/product-barcodes.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        nav {
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/products">Məhsullar</a>
+    </nav>
+    <button class="btn print-barcode-btn">
+        <div>Print</div>
+    </button>
+    <main class="d-flex ">
+        <input type="text" placeholder="Axtar" class="form-control search-product col-12">
+        <div class="products-wrapper">
+        </div>
+
+    </main>
+    <section></section>
+    </div>
+    <script src="/js/js-barcode.js"></script>
+
+    <script>
+        const products = <% - JSON.stringify(products) %>   
+        const searchInput = document.querySelector(".search-product");
+        const section = document.querySelector("section");
+        const printBarcodeBtn = document.querySelector(".print-barcode-btn");
+        searchInput.focus()
+        const ProductsWrapper = document.querySelector(".products-wrapper");
+        const createComplexElement = (tag, content) => {
+            const element = document.createElement(tag);
+            if (content) {
+                element.textContent = content;
+
+            }
+            element.classList.add("col")
+            return element;
+        }
+
+        function searchProducts(value) {
+            var filteredProducts = products.filter(function (product) {
+                return Object.values(product).some(function (val) {
+                    if (typeof val === 'string' && typeof value === 'string') {
+                        return val.toLowerCase().includes(value.toLowerCase());
+                    }
+                    return false;
+                });
+            });
+            return filteredProducts;
+        }
+        const createBarcode = (barcode, count, name, price) => {
+            if (parseInt(count) > 500) {
+                alert("Barkod sayı 500 dənədən az olmalıdır")
+                return false
+            }
+            for (let index = 0; index < parseInt(count); index++) {
+
+
+                const div = document.createElement("div");
+                div.classList.add("barcode-item")
+                const span = document.createElement("span");
+                span.classList.add("barcode-info")
+                span.textContent = name + " |" + " " + price + " azn";
+                div.append(span)
+
+                const img = document.createElement("img");
+                JsBarcode(img, barcode, {
+                    height: 40,
+                    text: barcode,
+                    textAligin: "center",
+                    textPosition: "bottom",
+                    displayValue: true
+                })
+                div.append(img);
+                section.append(div)
+
+            }
+
+            console.log(barcode);
+            console.log(count);
+
+        }
+        searchInput.addEventListener("input", e => {
+            ProductsWrapper.innerHTML = ""
+            const searchResult = searchProducts(e.target.value);
+            searchResult.forEach(product => {
+                const div = document.createElement("div");
+                div.classList.add("search-result");
+                const nameSpan = createComplexElement("span", product.ProductName);
+                const countSpan = createComplexElement("span", product.NumberOfProducts);
+                const priceSpan = createComplexElement("span", product.SellingPrice + " azn");
+                const barcodeSpan = createComplexElement("span", product.MainCode);
+                const inputSpan = createComplexElement("span")
+                const barcodeCountInput = document.createElement("input");
+                barcodeCountInput.placeholder = "Barkod sayı";
+                barcodeCountInput.classList.add("form-control", "col-12", "add-barcode");
+                inputSpan.append(barcodeCountInput);
+                div.append(nameSpan, countSpan, priceSpan, barcodeSpan, inputSpan);
+                ProductsWrapper.append(div);
+                barcodeCountInput.onkeydown = function (e) {
+                    if (e.key === "Enter") return createBarcode(product.MainCode, e.target.value, product.ProductName, product.SellingPrice);
+                }
+            })
+        })
+
+
+
+
+        printBarcodeBtn.addEventListener("click", e => {
+            document.querySelector("main").style.opacity = 0
+            document.querySelector("nav").style.opacity = 0
+            e.target.style.opacity = "0"
+            const element = document.querySelector("section")
+            html2pdf().from(element).save().set({
+                useCss: true,
+            }).then(res => {
+                document.querySelector("main").style.opacity = 1
+                document.querySelector("nav").style.opacity = 1
+
+
+                e.target.style.opacity = "1"
+            })
+        })
+
+    </script>
+</body>
+
+</html>

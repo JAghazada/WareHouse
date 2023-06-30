@@ -14,6 +14,11 @@ class AuthValidation {
                     "string.max": "Name have to max 20  characters",
                     "string.required": "Name is required"
                 }),
+                phone:joi.string().trim().required().messages({
+                    "string.base": " Phone must be regular text",
+                    "string.empty": "Phone can't be empty",
+                    "string.required": "Phone is required"
+                }),
                 pass: joi.string().trim().min(5).max(20).required().messages({
                     "string.base": " Password must be regular text",
                     "string.empty": "Password can't be empty",
@@ -61,7 +66,7 @@ class AuthValidation {
                  throw new APIError(error.details[0].message, 400)
             else throw new APIError("Please comply with validation rules",400)
         }
-        next()
+        next();
 
     }
 }

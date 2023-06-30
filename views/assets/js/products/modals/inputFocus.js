@@ -59,7 +59,6 @@ inputs.map((input) => {
     
     else {
       const inputClass = "preview-" + [...e.target.classList][1].split("_")[1];
-      console.log(inputClass);
       document.querySelector(`.${inputClass}`).innerText = e.target.value;
     }
   });

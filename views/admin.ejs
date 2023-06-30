@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
+
+    <title>Admin-Panel</title>
+    
+  </head>
+  <body>
+    <main>
+      
+      <!-- ----------------------------- admin start ----------------------------- -->
+      <section class="admin-panel">
+    <div class="lds-dual-ring-4"></div>
+
+        <div class="admin-left">
+          <div class="admin-logo">
+            <img src="/icons/W-House.ico" alt="" />
+            <h1 class="header">WareHouse</h1>
+          </div>
+          <div class="choices">
+            <div class="admin-statistics-btn">
+              <div class="statistic-btn-in">
+                <i class="fa-solid fa-house"></i>
+                <p class="statistic">Statistika</p>
+              </div>
+            </div>
+            <div class="admin-users-btn">
+              <div class="user-btn-in">
+                <i class="fa-solid fa-user-group"></i>
+                <p class="users">İstifadəçilər</p>
+              </div>
+            </div>
+          </div>
+          <div class="logout">
+            <div class="logout-btn">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <p class="sign-out">Çıxış</p>
+            </div>
+          </div>
+        </div>
+        <div class="admin-right">
+          <div class="title-for-info">
+            <div class="peoples">
+              <h1 class="number-of-people"><%=users.length%></h1>
+              <p>Şəxslər</p>
+            </div>
+            <div class="departments">
+              <h1 class="number-of-department">2</h1>
+              <p>Şöbələr</p>
+            </div>
+          </div>
+          <div class="search-section">
+            <label class="search-label">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input class="search-input" type="text" placeholder="Axtar" />
+            </label>
+            <div class="invite-btn">
+              <div class="invite-btn-in">
+                <i class="fa-solid fa-user-plus"></i>
+                <p>Dəvət edin</p>
+              </div>
+            </div>
+            <div class="other-btn">
+              <div class="other-btn-in">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
+            </div>
+          </div>
+          <div class="users-table-section">
+            <div class="user-table">
+              <table class="table">
+                <tr class="table-tr-head">
+                  <th class="for-checkbox">
+                    <input type="checkbox" />
+                    <span>İstifadəçi</span>
+                  </th>
+                  <th>Telefon</th>
+                  <th>Vəzifə</th>
+                  <th>Şöbə</th>
+                  <th>İcazələr</th>
+                </tr>
+                <%users.forEach(user=>{%>
+                <input type="text" class="d-none permission-val" disabled value="<%=user.permission%>" >
+
+                  <tr class="table-list-colored">
+                    <td class="for-checkbox">
+                      <input type="checkbox" />
+                      <span><%=user.name%></span>
+                    </td>
+                    <td><%=user.phone%></td>
+                    <td><%=user.isAdmin === "false" ? "Satıcı" : "Admin" %></td>
+                    <td><%=user.department%></td>
+                    <td data-wrapper-id="<%=user._id%>"><select name="select-user-permissions" class="form-control-sm fomr-control" id="select-user-permissions">
+                      <option class="permission-options"  value="0">Heç Biri</option>
+                      <option class="permission-options" value="1">Mədaxil</option>
+                      <option class="permission-options" value="2">Məxaric</option>
+                      <option class="permission-options" value="3">Anbara Yazma</option>
+                      <option class="permission-options" value="4">Məxaric,Mədaxil,Anbara Yazma</option>
+                      <option class="permission-options" value="5">Məxaric,Mədaxil,Anbara Yazma,Silmə</option>
+                    </select></td>
+                  </tr>
+               <% })%>
+              
+              
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ------------------------------ admin end ------------------------------ -->
+    </main>
+
+    <!-- MY JS -->
+    <script src="./assets/js/preventLinks.js"></script>
+    <script>
+      const user_permisson = document.querySelector(".permission-val").value;
+      
+      const selectBox = document.querySelector("#select-user-permissions");
+      document.querySelectorAll(".permission-options")[parseInt(user_permisson)].selected = "selected"
+      // [parseInt(user_permisson)].selected = "selected"
+      const loadingState = document.querySelector(".lds-dual-ring-4")
+      selectBox.addEventListener("change",e=>{
+        loadingState.style.display = "flex";
+        const permission = e.target.value;
+        const parentTH = e.target.parentNode;
+        const user_id = parentTH.getAttribute("data-wrapper-id");
+        const body = JSON.stringify({
+          id:user_id,
+          permission
+        })
+        fetch("/change-user-permission",{
+          method:"PUT",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body
+        })
+        .then(res=>res.json())
+        .then(res=>console.log(res))
+        .catch(err=>console.log(err))
+        .finally(()=>loadingState.style.display = "none");
+      })
+    </script>
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/46a0505f50.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

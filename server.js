@@ -13,15 +13,18 @@ const MongoStore = require("connect-mongo");
 const reports= require("./report");
 const searchProduct = require("./controllers/search.controller");
 const getProductsHelper = require("./helpers/get-products");
+const cookieParser = require("cookie-parser");
 //?dotenv configuration
 dotenv.config();
 const port = process.env.PORT || 5001;
 //!Middlewares
 app.use(cors())
-app.use(express.json({ limit: "50mb" }));
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text({type: '/'}));
 app.use(express.static(__dirname + "/views/assets"));
+
+app.use(cookieParser())
 app.use(session({
   secret:"VanqedMaster",
   resave:false,
@@ -47,7 +50,11 @@ require("./database/connection/connect")()
 
 //! error handler middleware
 app.use(errorHandlerMiddleware)
-
+app.use((req,res)=>{
+  res.json({
+    "message":"bele sehife yoxdur aga"
+  })
+})
 const server = require("http").createServer(app)
 // ? socket
 const io = socket(server);
@@ -56,12 +63,18 @@ io.on("connection",(socket)=>{
     let products = await searchProduct(search_value);
     
     products = products.map((product) => {
+      const parts = JSON.stringify(product.createdAt)
+      .split("T")[0]
+      .split(`"`)[1]
+      .split("-");
+      let formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`;
+      
       return {
         ...product.toObject(),
-        Date: 'class mimarisine kecilecek'
+        Date:formattedDate
+      
       }
     });
-    console.log(products);
     return socket.emit("products", products);
   });
   socket.on("request:get-all-product",async()=>{

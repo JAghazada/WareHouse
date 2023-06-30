@@ -1,4 +1,4 @@
-.lds-dual-ring,.lds-dual-ring-1 {
+.lds-dual-ring,.lds-dual-ring-1,.lds-dual-ring-2,.lds-dual-ring-3,.lds-dual-ring-4 {
   
     background: #000;
     width: 100%;
@@ -14,7 +14,7 @@
     align-items: center;
     opacity: 0.5;
   }
-  .lds-dual-ring:after,.lds-dual-ring-1::after {
+  .lds-dual-ring:after,.lds-dual-ring-1::after ,.lds-dual-ring-2::after,.lds-dual-ring-3::after,.lds-dual-ring-4::after {
     content: " ";
     display: block;
     width: 64px;

@@ -9,6 +9,5 @@ const productInfoController = async(req,res)=>{
         return product
      })
     res.send(products)
-    // console.log(product)
 }
 module.exports = productInfoController

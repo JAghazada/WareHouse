@@ -40,7 +40,7 @@ loginButton.addEventListener("click", (e) => {
     pass: userPass,
   };
 
-  fetch("http://13.127.95.188:3000/login", {
+  fetch("/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -50,7 +50,7 @@ loginButton.addEventListener("click", (e) => {
     .then((resp) => resp.json())
     .then((res) => {
       if (res.success) {
-        return (window.location.href = "/home"); // ! change route
+        return (window.location.href = "/products"); // ! change route
       }
       if (res.success === false) {
         showError(userLoginName, "Şifrə və ya istifadəçi adı yanlışdır");
@@ -61,3 +61,5 @@ loginButton.addEventListener("click", (e) => {
     })
     .catch((err) => console.log(err));
 });
+
+
