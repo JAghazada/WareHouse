@@ -18,25 +18,14 @@ const cookieParser = require("cookie-parser");
 dotenv.config();
 const port = process.env.PORT || 5001;
 //!Middlewares
-app.use(cors(
-  {
-    origin: 'http://13.234.31.124:3000', // İsteklerin geldiği etki alanını belirtin
-    optionsSuccessStatus: 200
-  }
-))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text({ type: '/' }));
 app.use(express.static(__dirname + "/views/assets"));
 
 app.use(cookieParser())
-app.use(session({
-  secret: "VanqedMaster",
-  resave: false,
-  saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: process.env.DB_URI }),
 
-}))
+app.use(cors())
 
 
 //!Enjection Middleware
