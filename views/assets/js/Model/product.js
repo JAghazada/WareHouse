@@ -23,8 +23,8 @@ class ProductModel {
             body: JSON.stringify(data),
             headers: { "Content-Type": "application/json" }
         })).json());
-        if(response.success){
-            this.displayNavbar(".orders-link>span",response.orders)
+        if (response.success) {
+            this.displayNavbar(".orders-link>span", response.orders)
             this.loadingStateChanged(false)
 
         }
@@ -72,17 +72,17 @@ class ProductModel {
             }
         })).json();
         this.loadingStateChanged(false);
-        this.displayNavbar(".orders-link>span",response?.totalOrders);
+        this.displayNavbar(".orders-link>span", response?.totalOrders);
         //* drain the alternative barcode list after data sent
         this.clearCodeList();
 
 
 
     }
-    getErrorListFromView = errorCallback=>{
+    getErrorListFromView = errorCallback => {
         this.errorViewHandler = errorCallback
     }
-    getNavbarHandler=callback=>{
+    getNavbarHandler = callback => {
         this.displayNavbar = callback;
     }
     createProduct(productInfo, errorCallback) {
@@ -117,18 +117,18 @@ class ProductModel {
             body: formData,
         })
             .then(res => res.json()).then(res => {
-                if(res.error){
+                if (res.error) {
                     const errorList = res.error.split(",");
                     this.errorViewHandler(errorList)
                 }
-                if(res.success){
+                if (res.success) {
                     this.clearCodeList();
                     this.clearInputs();
-                    this.displayNavbar(".orders-link>span",res.orders);
+                    this.displayNavbar(".orders-link>span", res.orders);
                 }
-                  
+
             }
-                )
+            )
             .catch(err => console.log(err))
 
 
@@ -144,6 +144,7 @@ class ProductModel {
             }
         })
         const result = await response.json();
+        console.log(result);
         return result
     }
     async ChangeMainCode(id, value) {
@@ -193,7 +194,7 @@ class ProductModel {
         this.alternativeBarcodeList = [];
         return this.alternativeBarcodeListChanged(this.alternativeBarcodeList);
     }
-    clearInputsHandler(callback){
+    clearInputsHandler(callback) {
         this.clearInputs = callback
     }
 
@@ -296,9 +297,9 @@ class ProductView {
         })
     }
     _errorCallback(errorList) {
-        this.insertInput.forEach(input=>input.style.border="1px solid #ced4da")
-        
-        
+        this.insertInput.forEach(input => input.style.border = "1px solid #ced4da")
+
+
         try {
 
             errorList.forEach(error => {
@@ -308,7 +309,7 @@ class ProductView {
                 }
                 if (errorType === '110') {
                     this.createModalProductCount.style.border = "2px solid #ed2939"
-                } 
+                }
                 if (errorType === '140') {
                     this.createModalProductPurchasePrice.style.border = "2px solid #ed2939"
                 }
@@ -373,21 +374,21 @@ class ProductView {
         })
 
     }
-        clearInputs = () => {
-            this.insertInput.forEach(input => {
-                input.value = "";
-                this.createModalImgArea.innerHTML = "";
-                input.style.border="1px solid #ced4da"
-            });
-            [...this.getAllElement(".val")].forEach(element => element.textContent = "");
-            this._createUploadImageListener();
-            this.createModalProductunit1inp.value = "1"
-            this.createModalProductunit2inp.value = "1"
+    clearInputs = () => {
+        this.insertInput.forEach(input => {
+            input.value = "";
+            this.createModalImgArea.innerHTML = "";
+            input.style.border = "1px solid #ced4da"
+        });
+        [...this.getAllElement(".val")].forEach(element => element.textContent = "");
+        this._createUploadImageListener();
+        this.createModalProductunit1inp.value = "1"
+        this.createModalProductunit2inp.value = "1"
 
 
-        }
+    }
     _createProductButtonListener(handler) {
-       
+
         this.createProductButton.addEventListener("click", e => {
             e.preventDefault();
             let imgLink;
@@ -771,7 +772,7 @@ class ProductView {
     };
 
 
-    displayNavbar(tag,value){
+    displayNavbar(tag, value) {
         console.log(tag);
         console.log(value);
         this.getElement(tag).textContent = value
@@ -800,14 +801,14 @@ class ProductController {
         this.model.getErrorListFromView(this.bindErrorHandler);
         this.model.clearInputsHandler(this.bindClearInputs)
     }
-    bindClearInputs = ()=>{
+    bindClearInputs = () => {
         return this.view.clearInputs()
     }
-    bindErrorHandler =errorList =>{
+    bindErrorHandler = errorList => {
         return this.view._errorCallback(errorList)
     }
-    bindNavbarChanged = (tag,value) =>{
-        return this.view.displayNavbar(tag,value)
+    bindNavbarChanged = (tag, value) => {
+        return this.view.displayNavbar(tag, value)
     }
     handleSearchProduct = search_value => {
         return this.model.searchProduct(search_value)
