@@ -25,7 +25,6 @@ app.use(express.static(__dirname + "/views/assets"));
 
 app.use(cookieParser())
 
-app.use(cors())
 
 
 //!Enjection Middleware
@@ -49,6 +48,8 @@ app.use((req, res) => {
     "message": "bele sehife yoxdur :("
   })
 })
+app.use(cors())
+
 const server = require("http").createServer(app)
 // ? socket
 const io = socket(server);
