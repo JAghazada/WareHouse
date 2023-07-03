@@ -90,7 +90,7 @@ submitForm.addEventListener("submit", (action) => {
     formData.append("Link", link);
   } catch (error) {
   } finally {
-    fetch("http://localhost:3000/uploadProduct", {
+    fetch("/uploadProduct", {
       method: "POST",
       body: formData,
     })

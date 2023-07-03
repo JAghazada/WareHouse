@@ -6,7 +6,7 @@
 
 class ProductModel {
     constructor() {
-        this.backendURI = "http://localhost:3000";
+        this.backendURI = "http://13.234.31.124:3000";
         this.alternativeBarcodeList = [];
 
     }
