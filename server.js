@@ -18,7 +18,12 @@ const cookieParser = require("cookie-parser");
 dotenv.config();
 const port = process.env.PORT || 5001;
 //!Middlewares
-app.use(cors())
+app.use(cors(
+  {
+    origin: 'http://13.234.31.124:3000', // İsteklerin geldiği etki alanını belirtin
+    optionsSuccessStatus: 200
+  }
+))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text({ type: '/' }));
